@@ -9,12 +9,12 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 ## Updates
 
 1. Make updates
-2. commit / push changes as usual
-3. update version in lib/upserv_foundations/version.rb: `VERSION = "X.X.X"`
-3. create new tag (note the "v"): `$ git tag vX.X.X`
-4. push tag (note the "v"): `$ git push origin vX.X.X`
-5. update versions in apps using this gem: `gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'`
-6. install update: `$ bundle`
+2. update version in lib/upserv_foundations/version.rb: `VERSION = "X.X.X"`
+3. commit / push changes as usual
+4. create new tag (note the "v"): `$ git tag vX.X.X`
+5. push tag (note the "v"): `$ git push origin vX.X.X`
+6. update versions in apps using this gem: `gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'`
+7. install update: `$ bundle`
 
 ## Installation
 
