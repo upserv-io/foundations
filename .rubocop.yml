@@ -1,13 +1,10 @@
-AllCops:
-  TargetRubyVersion: 2.6
+inherit_from:
+  - https://raw.githubusercontent.com/clarkology56/.dotfiles/master/default_rubocop_config.yml
 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
-
-Style/StringLiteralsInInterpolation:
-  Enabled: true
-  EnforcedStyle: double_quotes
+inherit_mode:
+  merge:
+    - Exclude
 
 Layout/LineLength:
-  Max: 120
+  Exclude:
+    - "app/helpers/global/modal_trigger_attributes_helper.rb"
