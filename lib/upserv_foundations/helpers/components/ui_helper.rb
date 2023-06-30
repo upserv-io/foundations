@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Global
+module UpservFoundations
   module Components
     # Set up ui components
     module UiHelper
