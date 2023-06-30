@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'upserv_foundations/version'
-require 'global/components/ui_helper'
+require 'upserv_foundations/global/components/ui_helper'
 ActionView::Base.include Global::Components::UiHelper
 
 # Add things you would want in all rails apps

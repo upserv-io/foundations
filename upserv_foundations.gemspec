@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
     `git ls-files -z`.split("\x0").reject do |f|
       (File.expand_path(f) == __FILE__) ||
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile])
-    end + ['app/helpers/global/components/ui_helper.rb']
+    end + ['lib/upserv_foundations/global/components/ui_helper.rb']
   end
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
