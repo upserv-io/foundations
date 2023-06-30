@@ -7,6 +7,6 @@ module UpservFoundations
   class Error < StandardError; end
 
   def party
-    puts "yolo"
+    puts "yolo asdf"
   end
 end
