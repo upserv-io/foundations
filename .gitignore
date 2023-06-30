@@ -1,0 +1,14 @@
+/.bundle/
+/.yardoc
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+# Ignore Mac DS_Store files
+**/*.DS_Store
+
+# Ignore remote copies of rubocop config file(s) that are downloaded by rubocop
+.rubocop-*
