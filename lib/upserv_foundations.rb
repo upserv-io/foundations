@@ -7,6 +7,6 @@ module UpservFoundations
   class Error < StandardError; end
 
   def party
-    puts "yolo asdf"
+    puts "yolo v0.0.2"
   end
 end
