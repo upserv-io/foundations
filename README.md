@@ -1,8 +1,20 @@
 # UpservFoundations
 
+
+
 TODO: Delete this and the text below, and describe your gem
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/upserv_foundations`. To experiment with that code, run `bin/console` for an interactive prompt.
+
+## Updates
+
+1. Make updates
+2. commit / push changes as usual
+3. update version in lib/upserv_foundations/version.rb: `VERSION = "0.0.2"`
+3. create new tag (note the "v"): `$ git tag vX.X.X`
+4. push tag (note the "v"): `$ git push origin vX.X.X`
+5. update versions in apps using this gem: `gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'`
+6. install update: `$ bundle`
 
 ## Installation
 
