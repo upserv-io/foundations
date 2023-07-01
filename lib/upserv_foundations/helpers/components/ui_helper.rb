@@ -6,6 +6,7 @@ module Components
     def dropdown(options = {}, &block)
       options[:block] = block
       options[:klass] = options[:class]
+      klass = options[:class]
       concat(
         "
           <div class='flex justify-center#{" #{klass}" if klass}'
