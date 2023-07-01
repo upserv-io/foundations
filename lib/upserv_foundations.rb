@@ -51,6 +51,7 @@ puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
+puts "Dir count: #{Dir.glob('lib/upserv_foundations/helpers/**/*.rb').count}"
 #  Add all helper files to ActionView::Base
 Dir.glob('lib/upserv_foundations/helpers/**/*.rb').each do |file|
   puts "file: #{file}"
