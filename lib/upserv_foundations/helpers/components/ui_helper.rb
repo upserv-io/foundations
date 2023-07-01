@@ -8,16 +8,18 @@ module Components
       options[:klass] = options[:class]
       # concat(render('components/ui/dropdown', options))
       # concat(content_tag('div', class: 'party'))
-      content_tag(
-        'div',
-        class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
-        data: { controller: 'dropdown',
-                action: 'click@window->dropdown#hide touchend@window->dropdown#hide' }
-      ) do
-        content_tag 'div', class: 'dropdown relative' do
-          block.call
+      concat(
+        content_tag(
+          'div',
+          class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
+          data: { controller: 'dropdown',
+                  action: 'click@window->dropdown#hide touchend@window->dropdown#hide' }
+        ) do
+          content_tag 'div', class: 'dropdown relative' do
+            block.call
+          end
         end
-      end
+      )
     end
 
     def dropdown_button(options = {}, &block)
