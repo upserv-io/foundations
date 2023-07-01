@@ -6,7 +6,21 @@ module Components
     def dropdown(options = {}, &block)
       options[:block] = block
       options[:klass] = options[:class]
-      concat(render('components/ui/dropdown', options))
+      concat(
+        "
+          <div class='flex justify-center#{" #{klass}" if klass}'
+               data-controller='dropdown'
+               data-action='click@window->dropdown#hide touchend@window->dropdown#hide'
+               >
+            <div>
+              <div class='dropdown relative'>
+                #{block.call}
+              </div>
+            </div>
+          </div>
+        "
+      )
+      # concat(render('components/ui/dropdown', options))
       # concat(
       #   content_tag(
       #     'div',
