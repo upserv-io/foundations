@@ -6,7 +6,7 @@ module Components
     def dropdown(options = {}, &block)
       options[:block] = block
       options[:klass] = options[:class]
-      concat(render('global/components/ui/dropdown', options))
+      concat(render('components/ui/dropdown', options))
     end
 
     def dropdown_button(options = {}, &block)
