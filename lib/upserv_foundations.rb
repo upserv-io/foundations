@@ -2,8 +2,8 @@
 
 require_relative 'upserv_foundations/version'
 
-# require 'upserv_foundations/helpers/components/ui_helper'
-# ActionView::Base.include UpservFoundations::Components::UiHelper
+require 'upserv_foundations/helpers/components/ui_helper'
+ActionView::Base.include UpservFoundations::Components::UiHelper
 
 # Add all helper files to ActionView::Base
 Dir.glob('lib/upserv_foundations/helpers/**/*.rb').each do |file|
