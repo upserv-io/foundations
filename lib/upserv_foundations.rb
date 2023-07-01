@@ -51,7 +51,7 @@ puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
 puts 'WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW'
-puts "Dir count: #{Dir.glob('lib/upserv_foundations/helpers/**/*.rb').count}"
+puts "Dir count: #{Dir.glob('**/lib/upserv_foundations/helpers/**/*.rb').count}"
 puts "Dir count 2: #{Dir.glob(File.expand_path('helpers/**/*.rb', __dir__)).length}"
 
 #  Add all helper files to ActionView::Base
