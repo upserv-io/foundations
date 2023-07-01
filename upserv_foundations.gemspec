@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile])
     end
   end
-  spec.files += Dir['app/views/**/*']
+  spec.files = Dir.glob('lib/upserv_foundations/views/**/*').to_a
 
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
