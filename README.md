@@ -15,13 +15,30 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 6. update versions in apps using this gem: `gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'`
 7. install update: `$ bundle`
 
-### All Classes
-namespace under UpservFoundations
+### File Structure
+asset: vendor/assets
+ - stylesheets: ventor/assets/[global or lib]/[path and filename to match helper or controller or mailer]
+channels: lib/upserv_foundations/channels
+controller: lib/upserv_foundations/controllers
+helpers: lib/upserv_foundations/helpers
+javascript - ???
+jobs: lib/upserv_foundations/jobs
+mailers: lib/upserv_foundations/mailers
+models: lib/upserv_foundations/models
+views - don't add views. Use helpers and content_tag if you want to make component esc things
 
-### helpers
+### Classes
+Namespace all classes under UpservFoundations
+- ex. bad:  lib/upserv_foundations/controllers/example_controller.rb -> ExampleController
+- ex. good:  lib/upserv_foundations/controllers/example_controller.rb -> UpservFoundations::ExampleController
+use same convention for helpers, jobs, mailers, models, etc. (all ruby classes)
+
+helpers
 1. create helper file 
 1. require file in lib/upserv_foundations.rb
 1. include helper class in lib/upserv_foundations.rb
+
+other classes / autoloading...??? idk
 
 ## Installation
 add to Gemfile (replace X.X.X with latest version)
