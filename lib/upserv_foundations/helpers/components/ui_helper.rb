@@ -50,7 +50,7 @@ module UpservFoundations
         options[:link_to_options][:data] = options[:data] if options[:data]
 
         content_tag 'LI', class: 'dropdown-item' do
-          if options[:text] & block.blank?
+          if options[:text] && block.blank?
             link_to(options[:text], options[:link], options[:link_to_options])
           else
             content_tag 'DIV', class: options[:css_class] do
