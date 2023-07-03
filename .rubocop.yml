@@ -8,6 +8,11 @@ inherit_mode:
 Layout/LineLength:
   Exclude:
     - "lib/upserv_foundations/helpers/components/**/*.rb"
+      
+Metrics/AbcSize:
+  Exclude:
+    - "lib/upserv_foundations/helpers/components/**/*.rb"
+
 
 Metrics/MethodLength:
   Exclude:
