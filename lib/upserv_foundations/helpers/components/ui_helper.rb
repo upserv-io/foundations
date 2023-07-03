@@ -4,26 +4,14 @@ module UpservFoundations
   module Components
     # Set up ui components
     module UiHelper
-      def dropdownz(options = {}, &block)
-        content_tag('div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
+      def dropdown(options = {}, &block)
+        content_tag 'div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
                            data: { controller: 'dropdown',
-                                   action: 'click@window->dropdown#hide touchend@window->dropdown#hide' }) do
+                                   action: 'click@window->dropdown#hide touchend@window->dropdown#hide' } do
           content_tag 'div', class: 'dropdown relative' do
             block.call
           end
         end
-      end
-
-      def dropdown(options = {}, &block)
-        concat(
-          content_tag('div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
-                             data: { controller: 'dropdown',
-                                     action: 'click@window->dropdown#hide touchend@window->dropdown#hide' }) do
-            content_tag 'div', class: 'dropdown relative' do
-              block.call
-            end
-          end
-        )
       end
 
       def dropdown_button(options = {}, &block)
@@ -34,8 +22,11 @@ module UpservFoundations
 
       def dropdown_items(options = {}, &block)
         options[:block] = block
-        # options[:of] is required
-        concat(render('global/components/ui/dropdown_items', options))
+        content_tag 'UI',
+                    class: 'hidden min-w-max absolute float-left rounded py-0 mt-1 m-0 list-none text-left shadow-lg border-none bg-gray0 right-0 overflow-hidden z-50',
+                    data: { dropdown_target: 'popup' } do
+          block.call
+        end
       end
 
       # drop down item can be a simple link or a block with custom code
