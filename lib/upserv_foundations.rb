@@ -4,7 +4,9 @@ require_relative 'upserv_foundations/version'
 
 require 'upserv_foundations/helpers/components/ui_helper'
 
-ActionView::Base.include Components::UiHelper if defined? ActionView::Base
+if defined? ActionView::Base
+  ActionView::Base.include UpservFoundations::Components::UiHelper
+end
 
 # Add things you would want in all rails apps
 module UpservFoundations
