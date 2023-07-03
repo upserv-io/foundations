@@ -7,4 +7,12 @@ inherit_mode:
 
 Layout/LineLength:
   Exclude:
-    - "app/helpers/global/modal_trigger_attributes_helper.rb"
+    - "lib/upserv_foundations/helpers/components/**/*.rb"
+
+Metrics/MethodLength:
+  Exclude:
+    - "lib/upserv_foundations/helpers/components/**/*.rb"
+      
+Style/IfUnlessModifier:
+  Exclude:
+  - "lib/upserv_foundations/helpers/components/**/*.rb"
