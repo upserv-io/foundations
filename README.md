@@ -27,8 +27,9 @@ install: `$ bundle`
 
 ### File Structure
 - asset: vendor/assets
-   - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
-   - stylesheets: vendor/assets/stylesheets/upserv_foundations.scss
+   - stylesheets
+     - vendor/assets/stylesheets/upserv_foundations.scss
+     - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
  - channels: lib/upserv_foundations/channels
  - controller: lib/upserv_foundations/controllers
  - helpers: lib/upserv_foundations/helpers
@@ -52,8 +53,8 @@ helpers
 other classes / autoloading...??? idk
 
 ### CSS
-1. You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
-1. You have to put all CSS into one file. At some point I need to figure out how to use multiple files and compile them into one... but till then this works. It's because in raisl app, we only want to have 1 line of code to import the CSS. But you have to have 1 line of code per file... so as a work around, we are putting all CSS in one file for now.
+ - You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
+-  You have to put all CSS into one file. At some point I need to figure out how to use multiple files and compile them into one... but till then this works. It's because in raisl app, we only want to have 1 line of code to import the CSS. But you have to have 1 line of code per file... so as a work around, we are putting all CSS in one file for now.
 
 ## Usage
 
