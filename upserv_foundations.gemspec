@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   end
   # spec.files |= Dir['{app,config,db,lib,vendor}/**/*']
   # spec.files |= Dir['{vendor}/**/*']
-  spec.files |= Dir['vendor/assets/stylesheets/global/components/ui.scss']
+  spec.files |= Dir['vendor/assets/stylesheets/upserv_foundations/components/ui.scss']
 
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
