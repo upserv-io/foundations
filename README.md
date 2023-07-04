@@ -17,7 +17,8 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 ### File Structure
 asset: vendor/assets
- - stylesheets: ventor/assets/[global or lib]/[path and filename to match helper or controller or mailer]
+ until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
+ - stylesheets: vendor/assets/stylesheets/upserv_foundations.scss
 channels: lib/upserv_foundations/channels
 controller: lib/upserv_foundations/controllers
 helpers: lib/upserv_foundations/helpers
