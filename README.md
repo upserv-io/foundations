@@ -1,10 +1,23 @@
 # UpservFoundations
 
-
-
-TODO: Delete this and the text below, and describe your gem
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/upserv_foundations`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Installation
+add to Gemfile (replace X.X.X with latest version)
+```
+# A bunch of shared / default code
+gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'
+```
+add to app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports)
+```
+@import "upserv_foundations";
+```
+add to config/importmap.rb
+```
+pin_all_from '@upserv_foundations/javascript', to: 'app/javascript'
+```
+install
+```
+$ bundle
+```
 
 ## Updates
 1. Make updates
@@ -17,19 +30,19 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 ### File Structure
 asset: vendor/assets
- until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
+ - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
  - stylesheets: vendor/assets/stylesheets/upserv_foundations.scss
 channels: lib/upserv_foundations/channels
 controller: lib/upserv_foundations/controllers
 helpers: lib/upserv_foundations/helpers
-javascript - ???
+javascript - lib/upserv_foundations/javascript
 jobs: lib/upserv_foundations/jobs
 mailers: lib/upserv_foundations/mailers
 models: lib/upserv_foundations/models
 views - don't add views. Use helpers and content_tag if you want to make component esc things
 
-### Classes
-Namespace all classes under UpservFoundations
+### Ruby Classes
+Namespace all ruby classes under UpservFoundations
 - ex. bad:  lib/upserv_foundations/controllers/example_controller.rb -> ExampleController
 - ex. good:  lib/upserv_foundations/controllers/example_controller.rb -> UpservFoundations::ExampleController
 use same convention for helpers, jobs, mailers, models, etc. (all ruby classes)
@@ -42,22 +55,8 @@ helpers
 other classes / autoloading...??? idk
 
 ### CSS
-You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
-
-## Installation
-add to Gemfile (replace X.X.X with latest version)
-```
-# A bunch of shared / default code
-gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'
-```
-add to app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports)
-```
-@import "upserv_foundations";
-```
-install
-```
-$ bundle
-```
+1. You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
+1. You have to put all CSS into one file. At some point I need to figure out how to use multiple files and compile them into one... but till then this works. It's because in raisl app, we only want to have 1 line of code to import the CSS. But you have to have 1 line of code per file... so as a work around, we are putting all CSS in one file for now.
 
 ## Usage
 
