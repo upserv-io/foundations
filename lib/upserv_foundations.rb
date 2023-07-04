@@ -11,7 +11,7 @@ if defined? ActionView::Base
 end
 
 # Javascript
-require 'upserv_foundations/javascript/controllers/dropdown_controller'
+# require 'upserv_foundations/javascript/controllers/dropdown_controller'
 
 # Add things you would want in all rails apps
 module UpservFoundations
