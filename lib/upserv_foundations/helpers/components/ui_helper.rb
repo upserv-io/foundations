@@ -26,7 +26,7 @@ module UpservFoundations
       def dropdown_items(options = {}, &block)
         options[:block] = block
         content_tag 'UI',
-                    class: 'hidden min-w-max absolute float-left rounded py-0 mt-1 m-0 list-none text-left shadow-lg border-none bg-gray0 right-0 overflow-hidden z-50',
+                    class: 'dropdown-items',
                     data: { dropdown_target: 'popup' } do
           block.call
         end

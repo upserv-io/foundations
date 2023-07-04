@@ -40,6 +40,9 @@ helpers
 
 other classes / autoloading...??? idk
 
+### CSS
+You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
+
 ## Installation
 add to Gemfile (replace X.X.X with latest version)
 ```
