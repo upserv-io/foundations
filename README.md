@@ -26,17 +26,17 @@ install: `$ bundle`
 7. install update: `$ bundle`
 
 ### File Structure
-asset: vendor/assets
- - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
- - stylesheets: vendor/assets/stylesheets/upserv_foundations.scss
-channels: lib/upserv_foundations/channels
-controller: lib/upserv_foundations/controllers
-helpers: lib/upserv_foundations/helpers
-javascript - lib/upserv_foundations/javascript
-jobs: lib/upserv_foundations/jobs
-mailers: lib/upserv_foundations/mailers
-models: lib/upserv_foundations/models
-views - don't add views. Use helpers and content_tag if you want to make component esc things
+- asset: vendor/assets
+   - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
+   - stylesheets: vendor/assets/stylesheets/upserv_foundations.scss
+ - channels: lib/upserv_foundations/channels
+ - controller: lib/upserv_foundations/controllers
+ - helpers: lib/upserv_foundations/helpers
+ - javascript - lib/upserv_foundations/javascript
+ - jobs: lib/upserv_foundations/jobs
+ - mailers: lib/upserv_foundations/mailers
+ - models: lib/upserv_foundations/models
+ - views - don't add views. Use helpers and content_tag if you want to make component esc things
 
 ### Ruby Classes
 Namespace all ruby classes under UpservFoundations
