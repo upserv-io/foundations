@@ -7,14 +7,23 @@ inherit_mode:
 
 Layout/LineLength:
   Exclude:
+    - "lib/upserv_foundations.rb"
     - "lib/upserv_foundations/helpers/components/**/*.rb"
       
 Metrics/AbcSize:
   Exclude:
     - "lib/upserv_foundations/helpers/components/**/*.rb"
 
+Metrics/CyclomaticComplexity:
+  Exclude:
+    - "lib/upserv_foundations/helpers/components/**/*.rb"
+      
 
 Metrics/MethodLength:
+  Exclude:
+    - "lib/upserv_foundations/helpers/components/**/*.rb"
+
+Metrics/PerceivedComplexity:
   Exclude:
     - "lib/upserv_foundations/helpers/components/**/*.rb"
       

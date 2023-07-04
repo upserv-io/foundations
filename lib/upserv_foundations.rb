@@ -12,4 +12,12 @@ end
 # Add things you would want in all rails apps
 module UpservFoundations
   class Error < StandardError; end
+
+  # help with assest..??
+  class Engine < ::Rails::Engine
+    # Make the SCSS files available to Rails applications
+    initializer 'upserv_foundations.assets' do |app|
+      app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
+    end
+  end
 end

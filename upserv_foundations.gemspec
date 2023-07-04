@@ -28,7 +28,9 @@ Gem::Specification.new do |spec|
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile])
     end
   end
-  spec.files = Dir.glob('lib/upserv_foundations/views/**/*').to_a
+  # spec.files |= Dir['{app,config,db,lib,vendor}/**/*']
+  # spec.files |= Dir['{vendor}/**/*']
+  spec.files |= Dir['vendor/assets/stylesheets/global/components/ui.scss']
 
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
