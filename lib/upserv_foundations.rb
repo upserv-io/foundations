@@ -4,6 +4,7 @@ require_relative 'upserv_foundations/version'
 
 # Helpers
 require 'upserv_foundations/helpers/components/ui_helper'
+
 # Helper Classes
 if defined? ActionView::Base
   ActionView::Base.include UpservFoundations::Components::UiHelper
