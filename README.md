@@ -1,16 +1,16 @@
 # UpservFoundations
 
 ## Installation
-Gemfile (replace X.X.X with latest version):
+Gemfile (replace X.X.X with latest version)
 ```
 # A bunch of shared / default code
 gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'
 ```
-app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports):
+app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports)
 ```
 @import "upserv_foundations";
 ```
-config/importmap.rb:
+config/importmap.rb
 ```
 pin_all_from '@upserv_foundations/javascript', to: 'app/javascript'
 ```
