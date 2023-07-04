@@ -1,6 +1,8 @@
 # UpservFoundations
 
 ## Installation
+Installation assumes rails 7 with hotwire / stimulus, importmaps and tailwind
+ 
 Gemfile (replace X.X.X with latest version)
 ```
 # A bunch of shared / default code
