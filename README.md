@@ -50,6 +50,10 @@ add to Gemfile (replace X.X.X with latest version)
 # A bunch of shared / default code
 gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'
 ```
+add to app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports)
+```
+@import "upserv_foundations";
+```
 install
 ```
 $ bundle
