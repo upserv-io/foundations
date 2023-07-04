@@ -22,7 +22,7 @@ module UpservFoundations
     # Make the SCSS files available to Rails applications
     initializer 'upserv_foundations.assets' do |app|
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
-      # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
+      app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
     end
   end
 end
