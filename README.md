@@ -20,26 +20,23 @@ install: `$ bundle`
 
 ## Updates
 1. Make updates
-2. update version in lib/upserv_foundations/version.rb: `VERSION = "X.X.X"`
+2. update version in lib/upserv_foundations/version.rb: `VERSION = "X.X.X"` (or `VERSION = "X.X.X.X"` for test versions) 
 3. commit / push changes as usual
-4. create new tag (note the "v"): `$ git tag vX.X.X`
-5. push tag (note the "v"): `$ git push origin vX.X.X`
+4. create new tag (note the "v"): `$ git tag vX.X.X` (or `X.X.X.X` for test versiosn)
+5. push to new tag (note the "v"): `$ git push origin vX.X.X` (or `X.X.X.X` for test versiosn)
 6. update versions in apps using this gem: `gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'`
 7. install update: `$ bundle`
 
 ### File Structure
 - asset: vendor/assets
-   - stylesheets
-     - vendor/assets/stylesheets/upserv_foundations.scss
-     - until I can figure out how to have multiple files that get complied into one file, you have to put all styles in one file. Use comments to separate what would be files
- - channels: lib/upserv_foundations/channels
- - controller: lib/upserv_foundations/controllers
- - helpers: lib/upserv_foundations/helpers
- - javascript - lib/upserv_foundations/javascript
- - jobs: lib/upserv_foundations/jobs
- - mailers: lib/upserv_foundations/mailers
- - models: lib/upserv_foundations/models
- - views - don't add views. Use helpers and content_tag if you want to make component esc things
+- channels: lib/upserv_foundations/channels
+- controller: lib/upserv_foundations/controllers
+- helpers: lib/upserv_foundations/helpers
+- javascript - lib/upserv_foundations/javascript
+- jobs: lib/upserv_foundations/jobs
+- mailers: lib/upserv_foundations/mailers
+- models: lib/upserv_foundations/models
+- views - don't add views. Use helpers and content_tag if you want to make component esc things
 
 ### Ruby Classes
 Namespace all ruby classes under UpservFoundations
@@ -47,20 +44,28 @@ Namespace all ruby classes under UpservFoundations
 - ex. good:  lib/upserv_foundations/controllers/example_controller.rb -> UpservFoundations::ExampleController
 use same convention for helpers, jobs, mailers, models, etc. (all ruby classes)
 
-helpers
+#### Helpers
 1. create helper file 
 1. require file in lib/upserv_foundations.rb
 1. include helper class in lib/upserv_foundations.rb
 
-other classes / autoloading...??? idk
+#### Other Ruby Classes / Autoloading
+...??? idk
+
+check out cancancan and devise as examples
 
 ### CSS
- - You cannot use tailwind styles because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does, then the "hidden" class will have no effect because tailwind never added it.
--  You have to put all CSS into one file. At some point I need to figure out how to use multiple files and compile them into one... but till then this works. It's because in raisl app, we only want to have 1 line of code to import the CSS. But you have to have 1 line of code per file... so as a work around, we are putting all CSS in one file for now.
+- Components: create one scss file per helper file for components
+- After creating css file, add import statment in: `vendor/assets/stylesheets/upserv_foundations.scss`
+- You cannot use tailwind classes because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does use the tailwind css class "hidden", then the "hidden" class here will have no effect because tailwind never added it in the rails app.
 
 ## Usage
 
-TODO: Write usage instructions here
+Many files are simply additions to other manifest files (ex. additions to applicaiton controller)
+
+Other items (ex. view components) are best accessed via VIM mappings
+
+# TODO / WIP
 
 ## Development
 
