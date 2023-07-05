@@ -22,6 +22,7 @@ module UpservFoundations
       app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
       # stuff I tried to get JS to autoload and failed miserably
       # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
+      app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'lib')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # was getting "cannot modify frozen string" error so we tried below... but then I realized it's
       # because autoload_paths cannot be used if the file name already exists in the rails app... ex.
