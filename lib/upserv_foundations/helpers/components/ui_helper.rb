@@ -41,15 +41,14 @@ module UpservFoundations
         options[:block] = block
         options[:text] ||= false
         options[:link] ||= false
-        drop_down_css_class = 'p-2 font-normal block w-full ' \
-                              'whitespace-nowrap bg-slate-600'
+        drop_down_css_class = 'dropdown-item'
         drop_down_css_class += " #{options[:class]}" if options[:class]
         options[:css_class] = drop_down_css_class
         options[:link_to_options] = { class: drop_down_css_class }
         options[:link_to_options][:method] = options[:method] if options[:method]
         options[:link_to_options][:data] = options[:data] if options[:data]
 
-        content_tag 'LI', class: 'dropdown-item' do
+        content_tag 'LI', class: 'dropdown-item-container' do
           if options[:text] && block.blank?
             link_to(options[:text], options[:link], options[:link_to_options])
           else
