@@ -20,7 +20,7 @@ module UpservFoundations
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
       app.config.assets.paths << root.join('app', 'javascript')
       app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
-      app.config.autoload_paths << root.join('app', 'javascript')
+      app.config.autoload_paths << root.join('app', 'javascript', 'controllers')
       # stuff I tried to get JS to autoload and failed miserably
       # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
