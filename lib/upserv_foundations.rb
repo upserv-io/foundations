@@ -15,7 +15,7 @@ module UpservFoundations
   class Error < StandardError; end
 
   # jsstuff...
-  config.to_prepare do
+  Rails.configuration.to_prepare do
     paths = Rails.application.config.paths
     paths.add 'lib/upserv_foundations/javascript', eager_load: true
     paths.add 'lib/upserv_foundations/javascript/controllers', eager_load: true
