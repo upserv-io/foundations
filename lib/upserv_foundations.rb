@@ -19,6 +19,8 @@ module UpservFoundations
     initializer 'upserv_foundations.assets' do |app|
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
       app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
+      app.config.eager_load_paths << File.expand_path('javascript', __dir__)
+      app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript')
     end
   end
 end
