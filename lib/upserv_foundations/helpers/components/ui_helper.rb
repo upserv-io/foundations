@@ -5,16 +5,13 @@ module UpservFoundations
     # Set up ui components
     module UiHelper
       def dropdown(options = {}, &block)
-        content_tag 'div' do
-          content_tag 'div', data: { controller: 'testz' }
-          content_tag 'div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
-                             data: { controller: 'dropdown',
-                                     action: 'click@window->dropdown#hide touchend@window->dropdown#hide' } do
-            content_tag 'div', class: 'dropdown relative' do
-              block.call
-            end
-          end
-        end
+        # content_tag 'div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
+        #                    data: { controller: 'dropdown; testz',
+        #                            action: 'click@window->dropdown#hide touchend@window->dropdown#hide' } do
+        #   content_tag 'div', class: 'dropdown relative' do
+        #     block.call
+        #   end
+        # end
       end
 
       def dropdown_button(options = {}, &block)
@@ -56,7 +53,7 @@ module UpservFoundations
           if options[:text] && block.blank?
             link_to(options[:text], options[:link], options[:link_to_options])
           else
-            content_tag 'DIV', class: options[:class] do
+            content_tag 'DIV', class: options[:css_class] do
               block.call
             end
           end
