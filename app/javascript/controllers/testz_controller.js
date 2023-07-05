@@ -1,5 +1,5 @@
 import { Controller } from '@hotwired/stimulus'
 
-alert('asdf')
+alert('test')
 
 export default class extends Controller {}
