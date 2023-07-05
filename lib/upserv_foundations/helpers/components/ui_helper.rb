@@ -42,7 +42,7 @@ module UpservFoundations
         options[:text] ||= false
         options[:link] ||= false
         drop_down_css_class = 'p-2 font-normal block w-full ' \
-                              'whitespace-nowrap bg-transparent'
+                              'whitespace-nowrap bg-slate-600'
         drop_down_css_class += " #{options[:class]}" if options[:class]
         options[:css_class] = drop_down_css_class
         options[:link_to_options] = { class: drop_down_css_class }
