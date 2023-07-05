@@ -53,7 +53,7 @@ module UpservFoundations
           if options[:text] && block.blank?
             link_to(options[:text], options[:link], options[:link_to_options])
           else
-            content_tag 'DIV', class: options[:css_class] do
+            content_tag 'DIV', class: options[:class] do
               block.call
             end
           end

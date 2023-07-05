@@ -1,0 +1,14 @@
+{
+  "name": "upserv_foundations",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/upserv-io/foundations.git",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0"
+  },
+  "dependencies": {
+    "prettier": "2.8.8"
+  }
+}
