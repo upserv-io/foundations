@@ -19,7 +19,7 @@ module UpservFoundations
     initializer 'upserv_foundations.assets' do |app|
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
       app.config.assets.paths << root.join('app', 'javascript')
-      app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
+      # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
       # stuff I tried to get JS to autoload and failed miserably
       # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
@@ -28,13 +28,13 @@ module UpservFoundations
       # lib/upserv_foundations/javascript/controllers/dropdown_controller.js here and
       # app/javascript/controllers/dropdown_controller.js in rails app will cause the cannot modify
       # frozen string error so you don't need this prepare stuff (which didn't work anyways)
-      app.config.to_prepare do
-        paths = Rails.application.config.paths
-        paths.add 'lib/upserv_foundations/javascript', eager_load: true
-        paths.add 'lib/upserv_foundations/javascript/controllers', eager_load: true
-        paths.add 'app/javascript', eager_load: true
-        paths.add 'app/javascript/controllers', eager_load: true
-      end
+      # app.config.to_prepare do
+      #   paths = Rails.application.config.paths
+      #   paths.add 'lib/upserv_foundations/javascript', eager_load: true
+      #   paths.add 'lib/upserv_foundations/javascript/controllers', eager_load: true
+      #   paths.add 'app/javascript', eager_load: true
+      #   paths.add 'app/javascript/controllers', eager_load: true
+      # end
     end
   end
 end
