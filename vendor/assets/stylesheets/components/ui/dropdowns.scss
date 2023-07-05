@@ -1,13 +1,9 @@
-// Components
-// UI
-// Dropdown Item
 .dropdown-item {
   &:hover {
     background-color: var(--background-color-table-row-hover);
   }
 }
 
-// Dropdown Item
 .dropdown-items {
   display: none;
   min-width: max-content;
