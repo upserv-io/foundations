@@ -6,7 +6,7 @@ module UpservFoundations
     module UiHelper
       def dropdown(options = {}, &block)
         content_tag 'div', class: "flex justify-center#{" #{options[:class]}" if options[:class]}",
-                           data: { controller: 'dropdown; testz',
+                           data: { controller: 'dropdown testz',
                                    action: 'click@window->dropdown#hide touchend@window->dropdown#hide' } do
           content_tag 'div', class: 'dropdown relative' do
             block.call
