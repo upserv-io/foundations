@@ -19,11 +19,12 @@ module UpservFoundations
     initializer 'upserv_foundations.assets' do |app|
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
       app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
-      app.config.to_prepare do
-        paths = Rails.application.config.paths
-        paths.add 'lib/upserv_foundations/javascript', eager_load: true
-        paths.add 'lib/upserv_foundations/javascript/controllers', eager_load: true
-      end
+      app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
+      # app.config.to_prepare do
+      #   paths = Rails.application.config.paths
+      #   paths.add 'lib/upserv_foundations/javascript', eager_load: true
+      #   paths.add 'lib/upserv_foundations/javascript/controllers', eager_load: true
+      # end
     end
   end
 end
