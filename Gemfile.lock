@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    upserv_foundations (0.0.20)
+    upserv_foundations (0.0.0.30)
 
 GEM
   remote: https://rubygems.org/
