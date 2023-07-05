@@ -18,7 +18,7 @@ create js files as needed with `// placeholder` as only contents (still trying t
 - `app/javascript/controllers/dropdown_controller.js`
 
 ## Updates
-1. Make updates
+1. Make updates (see below for specific instructions for various file types)
 2. update version in lib/upserv_foundations/version.rb: `VERSION = "X.X.X"` (or `VERSION = "X.X.X.X"` for test versions) 
 3. commit / push changes as usual
 4. create new tag (note the "v"): `$ git tag vX.X.X` (or `X.X.X.X` for test versiosn)
@@ -60,6 +60,14 @@ check out cancancan and devise as examples
 
 ### JS
 - Update README.md Installation with list of available files to add
+- I think what's happening is that there are 3 ways js files get loaded (depending on how you set up application.html.erb but assuming the standard way).
+  - stimulus controllers - stimulus checks all files in app/javascript/controllers and adds those files.
+  - global - application.html.erb adds these files
+  - lib - these are added with javascript_include_tag as needed
+- in all 3 scenarios analogous files in this gem (in lib/upserv_foundations/javascript/) get added to the rails project. However, if there is not a file in the actual rails project, then the 3 above don't know to actually include the js
+- so you have to make a stub file with no real contents (just a single comment, ex `// placeholder`) and then it works
+- so frustrating but I couldn't figure it out.
+  
 
 ## Usage
 
