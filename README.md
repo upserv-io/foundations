@@ -12,11 +12,10 @@ app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep import
 ```
 @import "upserv_foundations";
 ```
-config/importmap.rb
-```
-pin_all_from '@upserv_foundations/javascript', to: 'app/javascript'
-```
 install: `$ bundle`
+
+create js files as needed with `// placeholder` as only contents (still trying to figure out how to autoload... this hack works for now) 
+- `app/javascript/controllers/dropdown_controller.js`
 
 ## Updates
 1. Make updates
@@ -58,6 +57,9 @@ check out cancancan and devise as examples
 - Components: create one scss file per helper file for components
 - After creating css file, add import statment in: `vendor/assets/stylesheets/upserv_foundations.scss`
 - You cannot use tailwind classes because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does use the tailwind css class "hidden", then the "hidden" class here will have no effect because tailwind never added it in the rails app.
+
+### JS
+- Update README.md Installation with list of available files to add
 
 ## Usage
 
