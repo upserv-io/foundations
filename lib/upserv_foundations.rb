@@ -3,10 +3,14 @@
 require_relative 'upserv_foundations/version'
 
 # Helpers
+require 'upserv_foundations/helpers/components/forms/inline_errors'
+require 'upserv_foundations/helpers/components/forms/search_bar'
 require 'upserv_foundations/helpers/components/ui/dropdown_helper'
 
 # Helper Classes
 if defined? ActionView::Base
+  ActionView::Base.include UpservFoundations::Components::Forms::InlineErrorsHelper
+  ActionView::Base.include UpservFoundations::Components::Forms::SearchBarHelper
   ActionView::Base.include UpservFoundations::Components::Ui::DropdownHelper
 end
 
@@ -20,9 +24,10 @@ module UpservFoundations
       app.config.assets.paths << root.join('vendor', 'assets', 'stylesheets')
       app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript')
       # stuff I tried to get JS to autoload and failed miserably
+      # have to use |= because << tries to modify a frozen array while |= creates a new one (basically allowing you to modify a frozen array by replacing it)
+      # app.config.autoload_paths |= [root.join('lib', 'upserv_foundations', 'javascript', 'controllers')]
       # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'lib')
-      app.config.autoload_paths |= [root.join('lib', 'upserv_foundations', 'javascript', 'controllers')]
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # was getting "cannot modify frozen string" error so we tried below... but then I realized it's
       # because autoload_paths cannot be used if the file name already exists in the rails app... ex.

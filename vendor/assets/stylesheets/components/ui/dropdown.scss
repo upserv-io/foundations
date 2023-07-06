@@ -1,3 +1,12 @@
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
 .dropdown-item-container {
   &:hover {
     background-color: var(--background-color-table-row-hover);

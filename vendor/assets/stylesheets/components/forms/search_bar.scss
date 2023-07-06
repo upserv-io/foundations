@@ -1,0 +1,41 @@
+// styles for search container and children
+.form-search {
+  display: flex;
+  width: 100%;
+  & .form-search-bar {
+    background-color: var(--background-color-input);
+    width: 100%;
+    border: 1px solid var(--divider2-color);
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    display: flex;
+    align-items: center;
+    & .form-control {
+      // override standard input margin bottom for stacked inputs
+      // because search bar is not stacked / is different design
+      // altogether
+      margin-bottom: 0px;
+      width: 100%;
+      border: none;
+      &:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    & .form-search-clear {
+      padding-right: 10px;
+      min-width: 50px;
+    }
+  }
+  & .btn-search {
+    min-width: min-content;
+    padding-right: 10px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 5px;
+  }
+}

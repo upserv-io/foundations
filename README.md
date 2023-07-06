@@ -66,6 +66,16 @@ check out cancancan and devise as examples
   - lib - these are added with javascript_include_tag as needed
 - in all 3 scenarios analogous files in this gem (in lib/upserv_foundations/javascript/) get added to the rails project. However, if there is not a file in the actual rails project, then the 3 above don't know to actually include the js
 - so you have to make a stub file with no real contents (just a single comment, ex `// placeholder`) and then it works
+- also... stimulus expects there to be a controller file in your rails app for every stimulus controller so I think even if you load a controller class from this gem, stimulus will complain about there not being a file. Looks like this:
+```
+function loadController(name, under, application) {
+  if (!(name in registeredControllers)) {
+    import(controllerFilename(name, under))
+      .then(module => registerController(name, module, application))
+      .catch(error => console.error(`Failed to autoload controller: ${name}`, error))
+  }
+}
+```
 - so frustrating but I couldn't figure it out.
   
 

@@ -1,0 +1,9 @@
+.inline-errors {
+  color: var(--danger-color);
+  font-size: 15px;
+  // match padding bottom that is typically on an input
+  margin-bottom: var(--input-margin-bottom);
+  margin-top: -5px;
+  // really just for inline checkboxes
+  padding-right: 10px;
+}
