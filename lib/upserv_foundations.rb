@@ -3,11 +3,11 @@
 require_relative 'upserv_foundations/version'
 
 # Helpers
-require 'upserv_foundations/helpers/components/ui_helper'
+require 'upserv_foundations/helpers/components/ui/dropdown_helper'
 
 # Helper Classes
 if defined? ActionView::Base
-  ActionView::Base.include UpservFoundations::Components::UiHelper
+  ActionView::Base.include UpservFoundations::Components::Ui::DropdownHelper
 end
 
 # Add things you would want in all rails apps
@@ -22,6 +22,7 @@ module UpservFoundations
       # stuff I tried to get JS to autoload and failed miserably
       # app.config.assets.paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'lib')
+      app.config.autoload_paths |= root.join('lib', 'upserv_foundations')
       # app.config.autoload_paths << root.join('lib', 'upserv_foundations', 'javascript', 'controllers')
       # was getting "cannot modify frozen string" error so we tried below... but then I realized it's
       # because autoload_paths cannot be used if the file name already exists in the rails app... ex.
