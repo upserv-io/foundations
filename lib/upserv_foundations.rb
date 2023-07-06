@@ -3,10 +3,10 @@
 require_relative 'upserv_foundations/version'
 
 # Helpers
-require 'upserv_foundations/helpers/components/forms/inline_errors'
-require 'upserv_foundations/helpers/components/forms/search_bar'
-require 'upserv_foundations/helpers/components/forms/search_select'
-require 'upserv_foundations/helpers/components/ui/dropdown_helper'
+require 'upserv_foundations/helpers/components/forms/inline_errors_helper'
+require 'upserv_foundations/helpers/components/forms/search_bar_helper'
+require 'upserv_foundations/helpers/components/forms/search_select_helper'
+require 'upserv_foundations/helpers/components/ui/dropdown_helper_helper'
 
 # Helper Classes
 if defined? ActionView::Base
