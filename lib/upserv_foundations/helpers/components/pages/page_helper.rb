@@ -3,17 +3,7 @@
 module UpservFoundations
   module Components
     module Pages
-      # Set up main components for pages
-      # def example_component(options = {}, &block)
-      #   # set block
-      #   options[:block] = block
-      #   # set permissible options so there are no errors in the partial for
-      #   undefined option variable or method when
-      #   # option is not used
-      #   options[some_option] ||= 'some default value or nil'
-      #   options[other_option] ||= nil
-      #   concat(render('global/components/some directory/some_partial', options))
-      # end
+      # pages
       module PageHelper
         def page_max_width_default
           @page_max_width_default ||= '800px'
