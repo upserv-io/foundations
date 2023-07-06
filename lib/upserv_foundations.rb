@@ -6,7 +6,7 @@ require_relative 'upserv_foundations/version'
 require 'upserv_foundations/helpers/components/forms/inline_errors_helper'
 require 'upserv_foundations/helpers/components/forms/search_bar_helper'
 require 'upserv_foundations/helpers/components/forms/search_select_helper'
-require 'upserv_foundations/helpers/components/pages/page_select_helper'
+require 'upserv_foundations/helpers/components/pages/page_helper'
 require 'upserv_foundations/helpers/components/ui/dropdown_helper'
 
 # Helper Classes
