@@ -6,6 +6,7 @@ require_relative 'upserv_foundations/version'
 require 'upserv_foundations/helpers/components/forms/inline_errors_helper'
 require 'upserv_foundations/helpers/components/forms/search_bar_helper'
 require 'upserv_foundations/helpers/components/forms/search_select_helper'
+require 'upserv_foundations/helpers/components/pages/page_select_helper'
 require 'upserv_foundations/helpers/components/ui/dropdown_helper'
 
 # Helper Classes
@@ -13,6 +14,7 @@ if defined? ActionView::Base
   ActionView::Base.include UpservFoundations::Components::Forms::InlineErrorsHelper
   ActionView::Base.include UpservFoundations::Components::Forms::SearchBarHelper
   ActionView::Base.include UpservFoundations::Components::Forms::SearchSelectHelper
+  ActionView::Base.include UpservFoundations::Components::Pages::PageHelper
   ActionView::Base.include UpservFoundations::Components::Ui::DropdownHelper
 end
 

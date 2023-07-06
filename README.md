@@ -87,6 +87,13 @@ Many files are simply additions to other manifest files (ex. additions to applic
 
 Other items (ex. view components) are best accessed via VIM mappings
 
+update page_max_width by adding this to your application helper:
+```
+def page_max_width_default
+  # insert valid css width value, ex: '100%' or '1200px', etc.
+end
+```
+
 # TODO / WIP
 
 ## Development
