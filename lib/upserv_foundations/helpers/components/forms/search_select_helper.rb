@@ -68,7 +68,7 @@ module UpservFoundations
                 # data-action I'd rather have controller here than on a
                 # parent that wraps all containers because I want these
                 # elements to be direct descendants of the form group
-                data: { controller: 'form--search-select-multiple' }
+                data: { controller: 'search-select-multiple' }
               )
             end
           end
