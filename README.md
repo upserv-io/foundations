@@ -16,6 +16,7 @@ install: `$ bundle`
 
 create js files as needed with `// placeholder` as only contents (still trying to figure out how to autoload... this hack works for now) 
 - `app/javascript/controllers/dropdown_controller.js`
+- `app/javascript/controllers/form/search_select_multiple_controller.js`
 
 ## Updates
 1. Make updates (see below for specific instructions for various file types)
@@ -60,6 +61,7 @@ check out cancancan and devise as examples
 
 ### JS
 - Update README.md Installation with list of available files to add
+notes:
 - I think what's happening is that there are 3 ways js files get loaded (depending on how you set up application.html.erb but assuming the standard way).
   - stimulus controllers - stimulus checks all files in app/javascript/controllers and adds those files.
   - global - application.html.erb adds these files
