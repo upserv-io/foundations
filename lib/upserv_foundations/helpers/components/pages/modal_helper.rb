@@ -13,10 +13,10 @@ module UpservFoundations
               content_tag 'DIV', class: 'modal-content', style: "min-width: #{min_width}" do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
                 block_called = block.call
-                (modal_close + block_called).html_safe
+                "#{modal_close}#{block_called})".html_safe
               end
             end
-            (trigger + backdrop + modal_content_container).html_safe
+            "#{trigger}#{backdrop}#{modal_content_container}".html_safe
           end
         end
       end
