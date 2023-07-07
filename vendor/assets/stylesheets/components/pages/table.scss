@@ -1,0 +1,54 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin-bottom: 10px;
+}
+
+thead {
+  background-color: var(--background-gray0-color);
+  position: sticky;
+  top: 0;
+}
+
+thead tr:first-child {
+  border-bottom: 2px solid var(--divider1-color);
+}
+
+tbody tr {
+  border-top: 1px solid var(--divider1-color);
+  &:nth-child(odd) {
+    background-color: var(--background-gray0-color);
+  }
+  &:nth-child(even) {
+    background-color: var(--background-gray2-color);
+  }
+  &:hover {
+    background-color: var(--background-color-table-row-hover);
+  }
+}
+
+// make an element change colors like a table row when hovering
+.table-row-hover:hover {
+  background-color: var(--background-color-table-row-hover);
+  filter: var(--pressable-standard-brightness);
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+
+  &.ta-center {
+    text-align: center;
+  }
+  &:first-child {
+    padding-left: 15px;
+  }
+  &:last-child {
+    padding-right: 15px;
+  }
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

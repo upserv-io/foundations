@@ -7,7 +7,9 @@ require 'upserv_foundations/helpers/components/forms/inline_errors_helper'
 require 'upserv_foundations/helpers/components/forms/search_bar_helper'
 require 'upserv_foundations/helpers/components/forms/search_select_helper'
 require 'upserv_foundations/helpers/components/pages/card_helper'
+require 'upserv_foundations/helpers/components/pages/modal_helper'
 require 'upserv_foundations/helpers/components/pages/page_helper'
+require 'upserv_foundations/helpers/components/pages/table_helper'
 require 'upserv_foundations/helpers/components/ui/dropdown_helper'
 
 # Helper Classes
@@ -16,7 +18,9 @@ if defined? ActionView::Base
   ActionView::Base.include UpservFoundations::Components::Forms::SearchBarHelper
   ActionView::Base.include UpservFoundations::Components::Forms::SearchSelectHelper
   ActionView::Base.include UpservFoundations::Components::Pages::CardHelper
+  ActionView::Base.include UpservFoundations::Components::Pages::ModalHelper
   ActionView::Base.include UpservFoundations::Components::Pages::PageHelper
+  ActionView::Base.include UpservFoundations::Components::Pages::TableHelper
   ActionView::Base.include UpservFoundations::Components::Ui::DropdownHelper
 end
 
