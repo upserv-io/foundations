@@ -5,7 +5,7 @@ module UpservFoundations
     module Pages
       # modals
       module ModalHelper
-        def modal(id:, max_width: '600px', min_width: '400px')
+        def modal(id:, max_width: '600px', min_width: '400px', &block)
           content_tag 'DIV', id: id, class: 'modal', data: { controller: 'modal' } do
             trigger = content_tag 'DIV', id: "#{id}-trigger", data: { action: 'click->modal#show' }
             backdrop = content_tag 'DIV', class: 'modal-backdrop', data: { action: 'click->modal#hide' }
