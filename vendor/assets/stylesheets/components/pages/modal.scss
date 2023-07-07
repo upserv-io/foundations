@@ -1,0 +1,73 @@
+.modal-trigger {
+  cursor: pointer;
+}
+/* The Modal (background) */
+.modal {
+  // if the modal is triggered from a table, td has whitespace
+  // nowrap (for the whole ellipsis thing) which really messes
+  // up the modal so this sets it back to default
+  white-space: normal;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+  align-items: start; /* make modal content container not full height */
+  // when visibile, display will be flex so align items center
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  padding: 50px 15px;
+  //padding-top: 50px; /* Location of the box */
+  //padding-bottom: 50px; /* Location of the box */
+  top: 0;
+  left: 0;
+  height: 100%; /* Full height */
+  width: 100%; /* Full width */
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: -1; /* Sit below */
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: var(--black-color);
+  opacity: var(--modal-backdrop-opacity);
+}
+
+.modal-content-container {
+  // here for the exterior padding between modal and outer walls
+  // padding: 0px 15px;
+  width: 100%;
+  // max width set by erb
+  max-height: 100%;
+  overflow-y: overlay;
+  border-radius: 5px;
+  border: 1px solid var(--divider2-color);
+}
+/* Modal Content */
+.modal-content {
+  // relative helps with close "x" on top right corner
+  position: relative;
+  z-index: 1; /* Sit on top */
+  background-color: var(--background-gray0-color);
+  padding: 10px;
+}
+
+/* The Close Button */
+.modal-close {
+  width: 33px;
+  position: absolute;
+  top: -9px;
+  right: 0px;
+  padding: 5px 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text0-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.close:hover,
+.close:focus {
+}

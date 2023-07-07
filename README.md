@@ -17,6 +17,7 @@ install: `$ bundle`
 create js files as needed with `// placeholder` as only contents (still trying to figure out how to autoload... this hack works for now) 
 - `app/javascript/controllers/dropdown_controller.js`
 - `app/javascript/controllers/form/search_select_multiple_controller.js`
+- `app/javascript/controllers/modal_controller.js`
 
 ## Updates
 1. Make updates (see below for specific instructions for various file types)
