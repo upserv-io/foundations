@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Helpers
+module UpservFoundations
   module Components
     module Elements
       # various link_to variations
