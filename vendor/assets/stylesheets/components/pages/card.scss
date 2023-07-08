@@ -5,22 +5,12 @@
   // card element because it will ahve a different background color.
   // So adding padding bottom to the card-container
   padding-bottom: 15px;
-  // &.full-height {
-  //   height: 100%;
-  // }
-}
-// since the card-container has padding bottom instead of margin,
-// we can't have border radius on the card-container because the
-// bottom corners rounding will happen after the padding making it
-// not show up. And we can't have border-radius on the card because
-// the card body might have a horizontal scrollbar at the bottom which
-// also kills the border radius. BUt this overcomes both issues and works
-// great
-.card-border-radius-container {
-  border-radius: 5px;
-  overflow: hidden;
 }
 .card {
+  border-radius: 5px;
+  // needed to make the border actually rounded (not used for scrolling
+  // because scrolling happens at card body level)
+  overflow: overlay;
   // fit the max width set by the page-body-max-width
   width: 100%;
   background-color: var(--background-gray0-color);
@@ -57,5 +47,5 @@
   }
   border-radius: 5px;
   overflow-y: overlay;
-  overflow-x: auto;
+  overflow-x: overlay;
 }
