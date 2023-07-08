@@ -22,7 +22,7 @@ module UpservFoundations
           height_style =  ''
           height_style += "max-height: #{max_height};" if max_height
           height_style += "height: #{height};" if height
-          height_style += 'height: 100%;' if full_height
+          height_style += 'max-height: 100%;' if full_height
 
           # prepare style for card
           options[:style] ||= ''
