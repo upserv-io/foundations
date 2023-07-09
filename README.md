@@ -34,6 +34,7 @@ create js files as needed with `// placeholder` as only contents (still trying t
 - controller: lib/upserv_foundations/controllers
 - helpers: lib/upserv_foundations/helpers
 - javascript - lib/upserv_foundations/javascript
+  - looks like you cannot add js at this point because your hack doesn't work on production...
 - jobs: lib/upserv_foundations/jobs
 - mailers: lib/upserv_foundations/mailers
 - models: lib/upserv_foundations/models
@@ -63,6 +64,7 @@ check out cancancan and devise as examples
 - You cannot use tailwind classes because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does use the tailwind css class "hidden", then the "hidden" class here will have no effect because tailwind never added it in the rails app.
 
 ### JS
+- this doesn't work... (below). Keep duplicates for now
 - Update README.md Installation with list of available files to add
 notes:
 - I think what's happening is that there are 3 ways js files get loaded (depending on how you set up application.html.erb but assuming the standard way).
