@@ -13,30 +13,30 @@ module UpservFoundations
           @page_min_width_default ||= '0px'
         end
 
-        def page_container(options = {}, &block)
-          options[:id] = 'page-container'
-          content_tag 'DIV', options do
-            block.call
-          end
-        end
+        # def page_container(options = {}, &block)
+        #   options[:id] = 'page-container'
+        #   content_tag 'DIV', options do
+        #     block.call
+        #   end
+        # end
 
-        def page_header(options = {}, &block)
-          options[:id] = 'page-header-container'
-          assign_page_header_or_body_style(options)
-          content_tag 'DIV', options do
-            block.call
-          end
-        end
+        # def page_header(options = {}, &block)
+        #   options[:id] = 'page-header-container'
+        #   assign_page_header_or_body_style(options)
+        #   content_tag 'DIV', options do
+        #     block.call
+        #   end
+        # end
 
-        def page_body(options = {}, &block)
-          options[:id] = 'page-body-max-width'
-          assign_page_header_or_body_style(options)
-          content_tag 'DIV', id: 'page-body' do
-            content_tag 'DIV', options do
-              block.call
-            end
-          end
-        end
+        # def page_body(options = {}, &block)
+        #   options[:id] = 'page-body-max-width'
+        #   assign_page_header_or_body_style(options)
+        #   content_tag 'DIV', id: 'page-body' do
+        #     content_tag 'DIV', options do
+        #       block.call
+        #     end
+        #   end
+        # end
 
         def assign_page_header_or_body_style(options)
           base_style = "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"

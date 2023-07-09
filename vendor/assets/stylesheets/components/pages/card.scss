@@ -1,52 +1,52 @@
-.card {
-  border-radius: 5px;
-  // needed to make the border actually rounded (not used for scrolling
-  // because scrolling happens at card body level)
-  overflow: overlay;
-  // fit the max width set by the page-body-max-width
-  width: 100%;
-  background-color: var(--background-gray0-color);
-  // this was the only way I could get the card to actually be 100% max
-  // height. Overwise it would go over and I have no idea why
-  // I think its because the card body does not actually have a set height
-  // so it just takes the height of its' contents but it is the element
-  // that has the overflow and so without a set
-  // height, it's contents cannot overflow because it's height just increases.
-  // But adding display flex and flex direct column, I'm pretty sure makes
-  // the card body height max out at it's parent containers remaining height
-  // (whenever it's contents are taller than the remaining height)
-  &.set-height {
-    display: flex;
-    flex-direction: column;
-  }
-  // this collapses on the last card which is really annoying
-  // but the card component has a "last_card" option that can be
-  // set to simulate margin bottom 15px basically... it's a hack
-  margin-bottom: 15px;
-}
-
-.card-header {
-  padding: 15px 15px 15px;
-  font-size: 24px;
-}
-
-.card-header-divider {
-  margin: 0px 15px 0px;
-  border-bottom: 1px solid var(--divider1-color);
-}
-
-.card-body {
-  padding: 15px;
-  &.remove-padding {
-    padding: 0px;
-  }
-  overflow-y: overlay;
-  overflow-x: overlay;
-}
-
-// div with no actual space but is still present
-// to that collapsing is prevented on card above it
-.last-card-spacer {
-  padding-bottom: 1px;
-  margin-bottom: -1px;
-}
+// .card {
+//   border-radius: 5px;
+//   // needed to make the border actually rounded (not used for scrolling
+//   // because scrolling happens at card body level)
+//   overflow: overlay;
+//   // fit the max width set by the page-body-max-width
+//   width: 100%;
+//   background-color: var(--background-gray0-color);
+//   // this was the only way I could get the card to actually be 100% max
+//   // height. Overwise it would go over and I have no idea why
+//   // I think its because the card body does not actually have a set height
+//   // so it just takes the height of its' contents but it is the element
+//   // that has the overflow and so without a set
+//   // height, it's contents cannot overflow because it's height just increases.
+//   // But adding display flex and flex direct column, I'm pretty sure makes
+//   // the card body height max out at it's parent containers remaining height
+//   // (whenever it's contents are taller than the remaining height)
+//   &.set-height {
+//     display: flex;
+//     flex-direction: column;
+//   }
+//   // this collapses on the last card which is really annoying
+//   // but the card component has a "last_card" option that can be
+//   // set to simulate margin bottom 15px basically... it's a hack
+//   margin-bottom: 15px;
+// }
+//
+// .card-header {
+//   padding: 15px 15px 15px;
+//   font-size: 24px;
+// }
+//
+// .card-header-divider {
+//   margin: 0px 15px 0px;
+//   border-bottom: 1px solid var(--divider1-color);
+// }
+//
+// .card-body {
+//   padding: 15px;
+//   &.remove-padding {
+//     padding: 0px;
+//   }
+//   overflow-y: overlay;
+//   overflow-x: overlay;
+// }
+//
+// // div with no actual space but is still present
+// // to that collapsing is prevented on card above it
+// .last-card-spacer {
+//   padding-bottom: 1px;
+//   margin-bottom: -1px;
+// }
