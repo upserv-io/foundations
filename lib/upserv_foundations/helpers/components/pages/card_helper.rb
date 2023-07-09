@@ -8,12 +8,11 @@ module UpservFoundations
         def card(options = {}, &block)
           # if the card is the last card, you can add "last_card: true" which will add basically
           # an empty div which prevents the card margin bottom from collapsing which is so annoying
-          # last_card = if options.keys.include?(:last_card)
-          #               options.delete(:last_card)
-          #             else
-          #               false
-          #             end
-          last_card = true
+          last_card = if options.keys.include?(:last_card)
+                        options.delete(:last_card)
+                      else
+                        false
+                      end
           # Decide if the card has a set height or if it has no height restrictions.
           # By default cards do not have a set height ie no height restrictions.
           # They take the height of their contents causing the page body to scroll
