@@ -1,0 +1,91 @@
+// this is basically the same as body but would rather
+// edit this than add styles to body
+#page-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  // no horizontal padding because we want the page body scrollbar
+  // to be on the far right
+  // no padding bottom because when page body is taller than page
+  // container, we want the page body to overflow all the way to the bottom
+  // rather than having 15px gap
+  // padding top so that there is a gap between the top of the page
+  // and whatever is next - which could be the page header or the page body
+  // if the page header is skipped
+  // this way the top of the page padding is the whether the page header
+  // is included or not
+  padding-top: 15px;
+}
+
+// page header container. remains at top when body scrolls
+#page-header-container {
+  // the page_header component has min and max width limitors so
+  // we set width here to 100% so that it fills out the width according
+  // to the limits set on the component
+  width: 100%;
+  // this is a replacement for align items on the parent
+  // because align items doesn't play well with overflow
+  // (see .page-container above)
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: bottom;
+  // no padding top because page container has it
+  padding: 0px 15px 15px;
+  font-size: 32px;
+  .sub-title {
+    font-size: 20px;
+  }
+}
+
+// actual page body that scrolls vertially
+#page-body {
+  height: 100%;
+  width: 100%;
+  overflow-y: overlay;
+  // center page max width
+  display: flex;
+  justify-content: center;
+  // no padding top because page container or page header (if included)
+  // has it
+  // no padding bottom because card will have margin bottom
+  // bottom or the "last card spacer" hacky div
+  // padding horizontal can be added because the scrollbar will be on the
+  // outside of the element (or technically overlayed to be exact)
+  padding: 0px 15px 15px;
+}
+
+#page-body-max-width {
+  // min and max width will be added to this element via ruby code
+  // so here we set width to 100% so that it fills out the width according
+  // to the limits set on the component
+  width: 100%;
+}
+
+// actual page body when there are columns
+#page-body-columns {
+  // take up full height and width, hide overflow because overflow
+  // should happen on child, not here
+  height: 100%;
+  width: 100%;
+  // set columns side by side
+  display: flex;
+  // see comment on page-body regarding padding
+  // padding: 0px 0px 0px 15px;
+}
+
+// single column that scrolls independently of other columns
+.page-body-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  // by having overflow overly on x and y, this basically overrides the
+  // overaly on the page max width container because now, these columns
+  // combined should not make the page max width container overflow
+  overflow: overlay;
+  margin-right: 15px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
