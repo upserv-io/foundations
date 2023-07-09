@@ -18,13 +18,15 @@ module UpservFoundations
                 concat f.hidden_field(key, value: value)
               end
 
-              concat(content_tag('DIV', class: 'form-search') do
-                concat(content_tag('DIV', class: 'form-search-bar') do
-                  concat(f.text_field(:search, value: filters[:search], placeholder: placeholder, class: 'form-control'))
-                  concat(link_to('clear', method(url_helper).call(*url_helper_args, url_helper_options.merge(filter(search: nil))), class: 'form-search-clear')) if filters[:search].present?
-                end)
-                concat(f.submit('Search', class: 'btn btn-search'))
-              end)
+              content_tag 'DIV', class: 'form-search' do
+                search_input_container = content_tag 'DIV', class: 'form-search-bar' do
+                  text_input = f.text_field :search, value: filters[:search], placeholder: placeholder, class: 'form-control'
+                  clear_link = link_to 'clear', method(url_helper).call(*url_helper_args, url_helper_options.merge(filter(search: nil))), class: 'form-search-clear' if filters[:search].present?
+                  (text_input + clear_link).html_safe
+                end
+                submit_button = f.submit 'Search', class: 'btn btn-search'
+                (search_input_container + submit_button).html_safe
+              end
             end
           end
         end
