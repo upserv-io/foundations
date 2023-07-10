@@ -1,6 +1,6 @@
 # UpservFoundations
 
-## Installation
+## Installation & Updating
 Installation assumes rails 7 with hotwire / stimulus, importmaps and tailwind
  
 Gemfile (replace X.X.X with latest version)
@@ -14,10 +14,10 @@ app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep import
 ```
 install: `$ bundle`
 
-create js files as needed with `// placeholder` as only contents (still trying to figure out how to autoload... this hack works for now) 
-- `app/javascript/controllers/dropdown_controller.js`
-- `app/javascript/controllers/form/search_select_multiple_controller.js`
-- `app/javascript/controllers/modal_controller.js`
+generate js files (do this every time you update the app) 
+```
+$ rails g upserv_foundations:javascript
+```
 
 ## Updates
 1. Make updates (see below for specific instructions for various file types)
@@ -63,9 +63,10 @@ check out cancancan and devise as examples
 - You cannot use tailwind classes because tailwind only includes classes as they are used withing your rails app. So if your rails app never uses the tailwind class "hidden" for example, but this gem does use the tailwind css class "hidden", then the "hidden" class here will have no effect because tailwind never added it in the rails app.
 
 ### JS
-- this doesn't work... (below). Keep duplicates for now
-- Update README.md Installation with list of available files to add
-notes:
+1. Add js tempalte to `lib/generators/upserv_foundations/templates/`
+1. In `lib/generators/upserv_foundations/javascript_generator.rb`, update `copy_js_files` method to include new js template 
+
+NOTE: I tried to get JS to autoload from the gem but I couldnt not figure it out. Generators work great though so using that for now. Here are some noes from failing miserably to autoload:
 - I think what's happening is that there are 3 ways js files get loaded (depending on how you set up application.html.erb but assuming the standard way).
   - stimulus controllers - stimulus checks all files in app/javascript/controllers and adds those files.
   - global - application.html.erb adds these files
