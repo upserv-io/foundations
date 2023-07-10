@@ -46,9 +46,13 @@
   // center page max width
   display: flex;
   justify-content: center;
+}
+
+#page-body,
+#page-body-columns {
   // no padding top because page container or page header (if included)
   // has it
-  // no padding bottom because card will have margin bottom
+  // question - is padding bottom needed? Because card will have margin bottom
   // bottom or the "last card spacer" hacky div
   // padding horizontal can be added because the scrollbar will be on the
   // outside of the element (or technically overlayed to be exact)
@@ -70,8 +74,10 @@
   width: 100%;
   // set columns side by side
   display: flex;
-  // see comment on page-body regarding padding
-  // padding: 0px 0px 0px 15px;
+  // give margin right to all children except the last one
+  > *:not(:last-child) {
+    margin-right: 10px; /* Adjust the margin value as per your requirement */
+  }
 }
 
 // single column that scrolls independently of other columns
@@ -84,8 +90,4 @@
   // overaly on the page max width container because now, these columns
   // combined should not make the page max width container overflow
   overflow: overlay;
-  margin-right: 15px;
-  &:last-child {
-    margin-right: 0px;
-  }
 }
