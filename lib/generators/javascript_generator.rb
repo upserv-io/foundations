@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module MyGem
+module UpservFoundations
   module Generators
     # test run
-    class MyGenerator < Rails::Generators::Base
+    class JavascriptGenerator < Rails::Generators::Base
       source_root File.expand_path('templates', __dir__)
 
       def copy_js_files
