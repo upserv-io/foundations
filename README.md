@@ -18,6 +18,7 @@ generate js files (do this every time you update the app)
 ```
 $ rails g upserv_foundations:javascript
 ```
+There should never be conflicts with the JS files because you are not supposed to edit these files. If there are any conflicts, check to see what differences there are or maybe just override because you should always use the genreated files. 
 
 ## Updates
 1. Make updates (see below for specific instructions for various file types)
