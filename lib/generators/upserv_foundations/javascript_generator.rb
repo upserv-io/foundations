@@ -6,7 +6,7 @@ module UpservFoundations
     class JavascriptGenerator < Rails::Generators::Base
       include Rails::Generators::ResourceHelpers
 
-      source_root File.expand_path('../templates', __File__)
+      source_root File.expand_path('templates', __dir__)
 
       def copy_js_files
         template 'my_controller.js', 'app/javascript/controllers/my_controller.js'
