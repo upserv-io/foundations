@@ -12,6 +12,7 @@ require 'upserv_foundations/helpers/components/pages/modal_helper'
 require 'upserv_foundations/helpers/components/pages/page_helper'
 require 'upserv_foundations/helpers/components/pages/table_helper'
 require 'upserv_foundations/helpers/components/ui/dropdown_helper'
+require 'upserv_foundations/helpers/misc_methods_helper'
 
 # Helper Classes
 if defined? ActionView::Base
@@ -24,6 +25,7 @@ if defined? ActionView::Base
   ActionView::Base.include UpservFoundations::Components::Pages::PageHelper
   ActionView::Base.include UpservFoundations::Components::Pages::TableHelper
   ActionView::Base.include UpservFoundations::Components::Ui::DropdownHelper
+  ActionView::Base.include UpservFoundations::MiscMethodsHelper
 end
 
 # Add things you would want in all rails apps

@@ -51,7 +51,6 @@ use same convention for helpers, jobs, mailers, models, etc. (all ruby classes)
 1. require file in lib/upserv_foundations.rb
 1. include helper class in lib/upserv_foundations.rb
 1. create css file if it's a component (1 css file per helper file)
-1. add js controller if necessary
 
 #### Other Ruby Classes / Autoloading
 ...??? idk
