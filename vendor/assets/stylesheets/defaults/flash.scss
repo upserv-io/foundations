@@ -1,0 +1,108 @@
+@keyframes flash-disappear {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 1;
+  }
+  25% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  70% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+  100% {
+    display: none;
+    transform: rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flash-stay {
+  0% {
+    transform: rotateX(90deg);
+    opacity: 1;
+  }
+  25% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+#flash-messages,
+.flash-messages {
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.flash {
+  position: absolute;
+  right: 0px;
+  z-index: 1000;
+  min-height: 65px;
+  height: auto;
+  animation-duration: 5000ms;
+  animation-fill-mode: forwards;
+  padding-bottom: 5px;
+  width: 100%;
+  .flash-container {
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 5px 0px 5px 10px;
+  }
+  // devise uses flash alert and flash notice so mapping those to
+  // flash danger and success
+  &.flash-danger,
+  &.flash-alert,
+  &.flash-info {
+    animation-name: flash-stay;
+    left: 0px;
+  }
+  &.flash-danger,
+  &.flash-alert {
+    .flash-container {
+      color: #7a231c;
+      background-color: var(--background-light-red-color);
+      border-color: #f9cac6;
+    }
+  }
+  &.flash-info {
+    .flash-container {
+      color: #0346b1;
+      background-color: var(--background-light-blue-color);
+      border-color: #d6e6ff;
+    }
+  }
+  &.flash-success,
+  &.flash-notice {
+    animation-name: flash-disappear;
+    max-width: 400px;
+    margin-left: auto;
+    .flash-container {
+      color: #1b572b;
+      background-color: #d6eedd;
+      background-color: var(--background-light-green-color);
+      border-color: #c6e7cf;
+    }
+  }
+  .flash-icon {
+    padding: 10px 15px;
+    font-size: 24px;
+  }
+  .flash-close {
+    margin-left: auto;
+    opacity: 0.2;
+    cursor: pointer;
+  }
+}
