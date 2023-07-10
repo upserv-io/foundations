@@ -21,8 +21,13 @@ module UpservFoundations
         end
 
         def page_header(options = {}, &block)
+          should_assign_page_header_or_body_style = if options.keys.include?(:should_assign_page_header_or_body_style)
+                                                      options.delete(:should_assign_page_header_or_body_style)
+                                                    else
+                                                      true
+                                                    end
           options[:id] = 'page-header-container'
-          assign_page_header_or_body_style(options)
+          assign_page_header_or_body_style(options) if should_assign_page_header_or_body_style
           content_tag 'DIV', options do
             block.call
           end
@@ -41,6 +46,14 @@ module UpservFoundations
         def assign_page_header_or_body_style(options)
           base_style = "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"
           options[:style] = "#{base_style}#{" #{options[:style]}" if options[:style]}"
+        end
+
+        # basically the same as regular page header but do not set width
+        # with assign_page_header_or_body_style (so width will default to 100% - see
+        # vendor/assets/stylesheets/components/pages/page.scss)
+        def page_header_columns(options = {}, &block)
+          options[:should_assign_page_header_or_body_style] = false
+          page_header(options, &block)
         end
 
         def page_body_columns(options = {}, &block)
