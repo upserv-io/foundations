@@ -1,3 +1,7 @@
+@import "defaults/flash";
+@import "defaults/scrollbar";
+@import "defaults/vars";
+
 @import "components/forms/inline_errors";
 @import "components/forms/search_bar";
 @import "components/forms/search_select";
@@ -6,7 +10,5 @@
 @import "components/pages/page";
 @import "components/pages/table";
 @import "components/ui/dropdown";
-@import "defaults/flash";
-@import "defaults/scrollbar";
-@import "defaults/vars";
+
 @import "custom_classes/background";
