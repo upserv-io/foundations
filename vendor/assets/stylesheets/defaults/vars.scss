@@ -1,0 +1,49 @@
+:root {
+  // NOTE: black and white - not used super often because typically use gray
+  // scale css vars set based on theme. However, there are times where
+  // might, for example want white regardless of theme. That would be
+  // on a button that is the primary color, you always want the text to
+  // be white, regardless of the theme. Or the modal backdrop - that should
+  // always be black (with opacity of course) regardless of theme.
+  --white-color: #fff;
+  --black-color: #000;
+  // colors that usually don't change but might on some themes (ex.
+  // on dark mode)
+  --modal-backdrop-opacity: 0.4;
+  --scrollbar-thumb-color: rgba(0, 0, 0, 0.4);
+  --scrollbar-track-color: rgba(0, 0, 0, 0.1);
+  // colors that are based on another variables
+  // helps keep everything organized
+  // also, might be overriden on some themes (ex. background-color-body on dark mode)
+  --background-color-body: var(--background-gray1-color);
+  --background-color-input: var(--background-gray0-color);
+  --background-color-option-selected: var(--background-gray4-color);
+  --background-color-table-row-normal: var(--background-gray0-color);
+  --background-color-table-row-gray: var(--background-gray2-color);
+  --background-color-table-row-hover: var(--background-gray3-color);
+  --border-color-input: var(--divider3-color);
+  --default-text-color: var(--text-gray2-color);
+  // colors that need to be set per theme:
+  // ex. app/views/layouts/colors/_gray.html.erb
+  // --text-gray1-color
+  // --text-gray2-color
+  // --text-gray3-color
+  // --background-gray0-color
+  // --background-gray1-color
+  // --background-gray2-color
+  // --background-gray3-color
+  // --background-gray4-color
+  // --divider1-color
+  // --divider2-color
+  // --divider3-color
+
+  //-- Pressable --//
+  // for various pressable items, make it interactive without
+  // having to specify a bunch of different color variations
+  --pressable-hover-brightness: brightness(110%);
+  --pressable-active-brightness: brightness(90%);
+  --pressable-standard-brightness: brightness(100%);
+
+  //-- Form Related --//
+  --input-margin-bottom: 10px;
+}

@@ -28,12 +28,6 @@ tbody tr {
   }
 }
 
-// make an element change colors like a table row when hovering
-.table-row-hover:hover {
-  background-color: var(--background-color-table-row-hover);
-  filter: var(--pressable-standard-brightness);
-}
-
 td,
 th {
   text-align: left;

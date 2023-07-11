@@ -1,0 +1,67 @@
+.bg-primary {
+  background-color: var(--primary-color);
+}
+.bg-alt {
+  background-color: var(--alt-color);
+}
+.bg-danger {
+  background-color: var(--danger-color);
+}
+
+.bg-gray0 {
+  background-color: var(--background-gray0-color);
+}
+.bg-gray1 {
+  background-color: var(--background-gray1-color);
+}
+.bg-gray2 {
+  background-color: var(--background-gray2-color);
+}
+.bg-gray3 {
+  background-color: var(--background-gray3-color);
+}
+.bg-gray4 {
+  background-color: var(--background-gray4-color);
+}
+
+.bg-table-row-normal {
+  background-color: var(--background-color-table-row-normal);
+  filter: var(--pressable-standard-brightness) !important;
+}
+
+.bg-table-row-gray {
+  background-color: var(--background-color-table-row-gray);
+  filter: var(--pressable-standard-brightness) !important;
+}
+
+// make an element change colors like a table row when hovering
+.bg-table-row-hover:hover {
+  background-color: var(--background-color-table-row-hover);
+  filter: var(--pressable-standard-brightness) !important;
+}
+
+.bg-gray0-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray0-color);
+}
+.bg-gray1-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray1-color);
+}
+.bg-gray2-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray2-color);
+}
+.bg-gray3-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray3-color);
+}
+.bg-gray4-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray4-color);
+}
