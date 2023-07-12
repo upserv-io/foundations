@@ -1,7 +1,8 @@
 PATH
   remote: .
   specs:
-    upserv_foundations (0.0.0.117)
+    upserv_foundations (0.0.0.119)
+      font-awesome-sass (~> 6.4.0)
 
 GEM
   remote: https://rubygems.org/
