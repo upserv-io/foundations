@@ -11,14 +11,14 @@
 // in the rails applicaiton.scss file though so that's nice
 
 // organized alphabetically (should not have any conflicts)
-@import "../uf_components/forms/inline_errors";
-@import "../uf_components/forms/search_bar";
-@import "../uf_components/forms/search_select";
-@import "../uf_components/pages/card";
-@import "../uf_components/pages/modal";
-@import "../uf_components/pages/navigation";
-@import "../uf_components/pages/page";
-@import "../uf_components/pages/table";
-@import "../uf_components/ui/accordion";
-@import "../uf_components/ui/dropdown";
-@import "../uf_components/ui/pagy";
+@import "uf_components/forms/inline_errors";
+@import "uf_components/forms/search_bar";
+@import "uf_components/forms/search_select";
+@import "uf_components/pages/card";
+@import "uf_components/pages/modal";
+@import "uf_components/pages/navigation";
+@import "uf_components/pages/page";
+@import "uf_components/pages/table";
+@import "uf_components/ui/accordion";
+@import "uf_components/ui/dropdown";
+@import "uf_components/ui/pagy";
