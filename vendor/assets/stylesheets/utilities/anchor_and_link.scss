@@ -1,0 +1,50 @@
+a,
+.link,
+.link * {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--primary-color);
+  &:hover {
+    text-decoration: underline;
+    &.no-underline,
+    &.no-underline * {
+      text-decoration: none;
+    }
+  }
+  &.link-normal,
+  &.link-normal * {
+    color: var(--default-text-color);
+    text-decoration-color: var(--default-text-color);
+    &:hover {
+      text-decoration: underline;
+      &.no-underline,
+      &.no-underline * {
+        text-decoration: none;
+      }
+    }
+  }
+  &.link-alt,
+  &.link-alt * {
+    color: var(--alt-color);
+    text-decoration-color: var(--alt-color);
+    &:hover {
+      text-decoration: underline;
+      &.no-underline,
+      &.no-underline * {
+        text-decoration: none;
+      }
+    }
+  }
+  &.link-danger,
+  &.link-danger * {
+    color: var(--danger-color);
+    text-decoration-color: var(--danger-color);
+    &:hover {
+      text-decoration: underline;
+      &.no-underline,
+      &.no-underline * {
+        text-decoration: none;
+      }
+    }
+  }
+}

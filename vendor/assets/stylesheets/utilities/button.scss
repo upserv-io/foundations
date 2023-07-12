@@ -1,0 +1,46 @@
+.btn,
+.btn * {
+  appearance: button;
+  text-align: center;
+  // overide other font sizes like on page header
+  font-size: var(--default-font-size);
+  background-color: var(--primary-color);
+  border-width: 0px;
+  border-radius: 3px;
+  color: var(--white-color);
+  padding: 3px 8px;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+  &.btn-secondary {
+    background-color: var(--background-gray4-color);
+    color: var(--text-gray3-color);
+    &:active {
+      background-color: var(--background-gray4-color);
+      color: var(--text-gray3-color);
+    }
+  }
+  &.btn-danger {
+    background-color: var(--danger-color);
+    &:active {
+      background-color: var(--danger-color);
+    }
+  }
+  &.btn-alt {
+    background-color: var(--alt-color);
+    &:active {
+      background-color: var(--alt-color);
+    }
+  }
+  // used for progress button
+  &.btn-bg-transparent {
+    // I have not idea why but this is needed. Otherwise, it only works on hover
+    // but with the filter for brightness it works whther you are hovering or not
+    filter: brightness(100%);
+    background-color: transparent;
+    &:active {
+      background-color: transparent;
+    }
+  }
+}
