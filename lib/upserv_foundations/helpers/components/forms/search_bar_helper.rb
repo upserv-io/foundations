@@ -6,14 +6,12 @@ module UpservFoundations
       # search bar
       module SearchBarHelper
         def search_bar(url_helper, url_helper_args, options = {})
-          url_helper_options ||= {}
-          placeholder = options[:placeholder] || 'Search'
-          klass = 'mr-2'
-          klass += " #{options[:class]}" if options[:class]
+          url_helper_options = options.delete(:url_helper_options) || {}
+          placeholder = options.delete(:placeholder) || 'Search'
           default_style = 'width: 20rem;'
-          style = "#{default_style}#{" #{options[:style]}" if options[:style]}"
-          content_tag 'DIV', style: style do
-            form_with(scope: :filters, url: method(url_helper).call(*url_helper_args, url_helper_options.merge(filter)), method: :get, class: klass) do |f|
+          options[:style] = "#{default_style}#{" #{options[:style]}" if options[:style]}"
+          content_tag 'DIV', options do
+            form_with(scope: :filters, url: method(url_helper).call(*url_helper_args, url_helper_options.merge(filter)), method: :get) do |f|
               filters_array = []
               filters.each do |key, value|
                 filters_array << f.hidden_field(key, value: value)
