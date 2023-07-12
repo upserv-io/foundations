@@ -11,4 +11,5 @@ gem 'minitest', '~> 5.0'
 
 gem 'rubocop', '~> 1.21'
 
-gem 'font-awesome-sass', '~> 6.4.0'
+# tried adding this but couldn't get it to work
+# gem 'font-awesome-sass', '~> 6.4.0'

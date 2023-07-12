@@ -7,13 +7,40 @@ Gemfile (replace X.X.X with latest version)
 ```
 # A bunch of shared / default code
 gem 'upserv_foundations', ref: 'vX.X.X', git: 'https://github.com/upserv-io/foundations'
-```
-app/assets/stylesheets/global/defaults/imports.scss (or wherever you keep imports)
-```
-@import "upserv_foundations";
+
+# icons
+gem 'font-awesome-sass', '~> 6.4.0'
 ```
 install: `$ bundle`
 
+update app/assets/stylesheets/application.scss
+
+```
+/*   
+ * Priority is lowest (first) to highest (last)
+ * priority basically goes like this: defaults (lowest priority) >> components >> utilities (highest priority)
+ * within each group, it goes like this: Tailwind (lowest priority), Upserv Foundations, Local (highest priority)
+ * also we link the lib files (but we do not require them). See mapp/assets/config/manifest.js
+ *
+ * = require upserv_foundations/defaults
+ * = require_tree ./defaults
+ * = require upserv_foundations/components
+ * = require_tree ./components
+ * NOTE: builds is basically tailwind which is basically utilities
+ * = require_tree ../builds
+ * = require upserv_foundations/utilities
+ * = require_tree ./utilities
+ * NOTE: Controller action template stylesheets (added automatically -
+ *   see app/views/layouts/application.html.erb for implementation)
+ * manually added css (from lib directory) take highest priority and are added in
+ *   actual view files with <%= add_stylesheet ... %> method
+ */
+```
+
+create app/assets/stylesheets/defaults/imports.scss (or add to it if it already exists)
+```
+@import "font-awesome";
+```
 generate js files (do this every time you update the app) 
 ```
 $ rails g upserv_foundations:javascript
