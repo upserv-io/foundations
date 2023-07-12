@@ -1,0 +1,24 @@
+html {
+  // make p-1 equal 5px
+  font-size: 125%;
+  height: 100vh;
+}
+
+// add as few styles as possible
+body {
+  background-color: var(--background-gray1-color);
+  height: 100%;
+  width: 100%;
+}
+
+* {
+  // add word breaking
+  overflow-wrap: break-word;
+  // anytime width: 100% is used, make sure it accounts for padding, margin, etc.
+  box-sizing: border-box;
+}
+
+// prevent strange flex issue where things can overflow when min-width is not set
+.flex * {
+  min-width: 0px;
+}

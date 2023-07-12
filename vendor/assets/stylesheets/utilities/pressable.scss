@@ -1,0 +1,19 @@
+a,
+.link,
+.btn,
+.modal-close,
+.pressable,
+// file input
+input::file-selector-button,
+// form submit buttons
+[type="submit"],
+[data-dropdown-target="button"],
+[data-target-modal] {
+  cursor: pointer;
+  &:hover {
+    filter: var(--pressable-hover-brightness);
+  }
+  &:active {
+    filter: var(--pressable-active-brightness);
+  }
+}

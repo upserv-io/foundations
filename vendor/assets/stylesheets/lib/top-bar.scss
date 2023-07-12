@@ -1,0 +1,16 @@
+body {
+  padding-top: var(--top-bar-height);
+}
+
+#top-bar {
+  z-index: 1000;
+  position: fixed;
+  height: var(--top-bar-height);
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: var(--background-gray0-color);
+  display: flex;
+  padding: 0px 10px;
+  align-items: center;
+}

@@ -1,0 +1,278 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  &.left-label {
+    align-items: flex-start;
+    flex-direction: row;
+    @media (max-width: 576px) {
+      flex-wrap: wrap;
+    }
+    @media (min-width: 576px) {
+      flex-wrap: nowrap;
+    }
+    &.inline {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.left-label-container {
+  // Align label with input
+  padding-top: 9px;
+  @media (max-width: 576px) {
+    // when screen is xs, we stack. When stacked, there is no need
+    // for padding
+    padding-top: 0px;
+  }
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.form-group.left-label.inline .left-label-container {
+  // when inline, to align label with input
+  padding-top: 9px;
+}
+
+.left-label-input {
+  width: 100%;
+}
+
+.left-label-input-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.left-label-input2 {
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+  @media (min-width: 640px) {
+    width: 50%;
+    // you only want padding in the middle AND only when
+    // inline (ie when screen is sm or larger). When screen is small
+    // inputs will stack and padding is not needed
+    &:first-child {
+      padding-right: 3px;
+    }
+    &:last-child {
+      padding-left: 3px;
+    }
+  }
+}
+
+.left-label-input3 {
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+  @media (min-width: 640px) {
+    width: calc(100% / 3);
+    padding-right: 3px;
+    padding-left: 3px;
+    &:first-child {
+      padding-left: 0px;
+    }
+    &:last-child {
+      padding-right: 0px;
+    }
+  }
+}
+
+.left-label-input4 {
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+  @media (min-width: 640px) and (max-width: 768px) {
+    width: 50%;
+    padding-right: 3px;
+    padding-left: 3px;
+    &:nth-child(odd) {
+      padding-left: 0px;
+    }
+    &:nth-child(even) {
+      padding-right: 0px;
+    }
+  }
+  @media (min-width: 768px) {
+    width: 25%;
+    padding-right: 3px;
+    padding-left: 3px;
+    &:first-child {
+      padding-left: 0px;
+    }
+    &:last-child {
+      padding-right: 0px;
+    }
+  }
+}
+
+.checkable-group-container {
+  // make line up with left label
+  padding-top: 9px;
+  &.inline {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &.inline-no-wrap {
+    display: flex;
+  }
+}
+
+.checkbox-and-errors-container {
+  display: flex;
+  flex-direction: column;
+}
+.checkable-container {
+  // this is needed so the checkbox and label are inline
+  // even when field_with_errors pops up
+  display: flex;
+  align-items: center;
+  // there is 8px between checkbox and label so we want
+  // more than 8px between label and next inline checkbox (when inline)
+  padding-right: 15px;
+  // make match margin bottom of other inputs
+  margin-bottom: var(--input-margin-bottom);
+}
+
+.field_with_errors {
+  // Rails field with errors effect alignment slightly (most noticeable on
+  // checkboxes) but this fixes it
+  display: flex;
+  align-items: center;
+}
+
+// basic input styles
+.form-control {
+  width: 100%;
+}
+// NOTE: we only se the hieght for input and
+// select because 1) text areas need a different height
+// and 2) select with multiple attribute actually uses the
+// height assigned to text areas which html / css do automatically
+// but nobody tells you which is super annoying! Ultimately, this works
+// great because we want to set the height of inputs and selects but
+// we do not want to set the height of text ares or select multiples
+input,
+select {
+  .form-control {
+    height: 42px;
+  }
+}
+input,
+select,
+textarea {
+  &.form-control {
+    font-size: var(--default-font-size);
+    padding: 6px 15px;
+    &[type="file"] {
+      padding-left: 0px;
+      padding-right: 0px;
+      &:focus {
+        // simulate the same :focus styles for other inputs (see below below)
+        // but apply the boarder / outline to the file-selector-button instead of
+        // the input
+        border: 0px;
+        outline: 0px;
+        &::file-selector-button {
+          border: 1px solid var(--primary-color);
+          outline: 2px solid var(--primary-color);
+        }
+      }
+    }
+    &::file-selector-button {
+      background-color: var(--background-color-input);
+      border: 1px solid var(--border-color-input);
+      border-radius: 5px;
+      color: var(--color-default-color);
+      padding: 6px 15px;
+    }
+    // this helps with alignment whether stacked or left label
+    margin-bottom: var(--input-margin-bottom);
+    color: var(--default-text-color);
+    border-color: var(--border-color-input);
+    border-radius: 5px;
+    background-color: var(--background-color-input);
+    &[type="checkbox"],
+    &[type="radio"] {
+      cursor: pointer;
+      border-radius: 3px;
+      border: 1px solid var(--border-color-input);
+      height: 20px;
+      width: 20px;
+      padding: 0px;
+      // a checkbox-container element with a checkbox and a label is 27px tall
+      // but a checkbox-cotnainer element with only a checkbox is 20px tall because
+      // checkboxes are 20px tall (I guess the labels are 27 px tall). So giving 3.5
+      // margin top and bottom makes everything line up because now the checkbox-container
+      // is always 27px tall whether there is a label or not (because sometimes we only
+      // have a checkbox inside the checkbox-container and the label is elsewhere, ie
+      // "left-label")
+      margin-top: 3.5px;
+      margin-bottom: 3.5px;
+      margin-left: 0px;
+      margin-right: 8px;
+      &.label-first {
+        margin-left: 8px;
+        margin-right: 0px;
+      }
+      &:checked {
+        background-color: var(--primary-color);
+        border: 1px solid transparent;
+      }
+      &:focus {
+        // focus adds a white box shadow which is not noticeable on
+        // regular mode but looks bad on dark mode so forcing it to
+        // transparent which looks great on both.
+        box-shadow: 0px 0px 0px 2px transparent;
+        // Also focus adds an outline but we want to make it our primary color
+        // not the default blue so here you go
+        // NOTE: focus also makes the boarder blue so the ultimate effect
+        // of the outline and the boarder is that the it appear like a 3px boarder
+        // but really its a 1px boarder and 2 px outline
+        outline: 2px solid var(--primary-color);
+      }
+    }
+    &[type="radio"] {
+      border-radius: 50%;
+    }
+    // When focused, the border turns blue ... but we want to use our
+    // primary color, not the default blue.
+    // NOTE: if you remove this it doesn't look like anything changed but
+    // it did because the default focus border color is really close to our
+    // primary color
+    &:focus {
+      border: 1px solid var(--primary-color);
+    }
+    // sometimes, we want
+    // to simulate the :focus psuedo attribute
+    // ex. when the search select input is in focus,
+    // we add the .focus class to the select element
+    // (and vice-versa) so that they can both appear to be
+    // in focus at the same time.
+    // NOTE: it seems that the browsers add the equivalent
+    // of a 1px outline with the same styles as the border
+    // so in order to mimic the :focus psuedo attribute we
+    // manually add the css class .focus with these styles (below).
+    // This is used ont the search select input
+    &.focus {
+      // even though the border here is the exact same as the border style
+      // above in &:focus, you must include it here or it wont work
+      border: 1px solid var(--primary-color);
+      outline: 1px solid var(--primary-color);
+    }
+  }
+}
+
+// NOTE: I don't think this actually does anything...???
+// if you confirm, remove this and the background-color-option-selected variable
+option[selected] {
+  background-color: var(--background-color-option-selected);
+}
+
+.form-submit-buttons {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
