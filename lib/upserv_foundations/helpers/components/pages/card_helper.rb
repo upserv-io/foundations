@@ -45,7 +45,7 @@ module UpservFoundations
 
           # Set styles based on options passed in
           card_style = if full_height
-                         'max-height: 100%'
+                         'max-height: 100%;'
                        elsif max_height
                          # NOTE: I actually wanted max height to be "height of card_container
                          # is set to the max height OR the remaining height of the screen,
@@ -54,9 +54,9 @@ module UpservFoundations
                          # it might be because you can't set a height of 100% on a child (ie the card)
                          # when the parent height is not set (ie when the card_container has a
                          # max-height of 100% but a height of some set value)
-                         "max-height: #{max_height}"
+                         "max-height: #{max_height};"
                        elsif height
-                         "height: #{height}"
+                         "height: #{height};"
                        else
                          ''
                        end
