@@ -1,8 +1,18 @@
+// NOTE: if a file path in the rails app matches the file
+// path in here for a scss file, then the file here will
+// be ignored. That's whay all directories are prefaced with "uf_"
+// For some reason the "upserv_foundations" directory is ignored
+// so upserv_foundations/components will match app/assets/stylesheets/components
+// in the rails app. Rather than prefacing with "uf_" I should duplicate the
+// upserv_foundations directory so it's
+// upserv_foundations/upserv_foundations/components
+// ... idk
+// no changes are needed to this file's name nor the require statemens
+// in the rails applicaiton.scss file though so that's nice
+
 @import "../uf_utilities/anchor_and_link";
 @import "../uf_utilities/background";
 @import "../uf_utilities/border";
 @import "../uf_utilities/button";
 @import "../uf_utilities/forms";
 @import "../uf_utilities/text_and_font";
-
-@import "font-awesome";
