@@ -1,0 +1,111 @@
+// search select multiple
+input.form-control.search-select-multiple-input {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: 0px;
+  // search select input has a select element right underneath it
+  // so we need to override standard input margin bottom of 10px
+  // with a margin bottom of 0 (since the element right underneath
+  // is a select element, it will have the --input-margin-bottom margin bottom)
+  margin: 0px;
+}
+select.form-control.search-select-multiple {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  padding-bottom: 5px;
+}
+// selecte option is a div, not a input / select / text areas
+// so we need to add styles here
+.form-control.search-select-multiple-selected-options {
+  // this is hacky... it should be this
+  // margin-top: -5px;
+  // margin-bottom: var(--input-margin-bottom);
+  // but this div is present even when no items are selected which means that it would
+  // include the margin bottom even when no items are selected
+  // so by making margin top and margin inverse, then when there are no
+  // selected items, this div takes up no space...
+  // really should update the js to make this element dislay none when there
+  // are no selected options... but this works for now
+  margin-top: -5px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.search-select-multiple-selected-option-display {
+  border: 1px solid var(--border-color-input);
+  border-radius: 3px;
+  padding: 1px 3px;
+  margin: 3px 6px 3px 0px;
+  display: flex;
+  align-items: center;
+}
+.search-select-multiple-selected-option-close {
+  margin-left: 5px;
+  padding: 0px 3px;
+  cursor: pointer;
+  font-size: 22px;
+  color: var(--text-gray0-color);
+}
+
+div.search-select-single-container {
+  position: relative;
+}
+input.form-control.search-select-single-display.focus {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom-width: 0px;
+  // search select input has a select element right underneath it
+  // so we need to override standard input margin bottom of 10px
+  // with a margin bottom of 0 (since the element right underneath
+  // is a select element, it will have the --input-margin-bottom margin bottom)
+  margin: 0px;
+}
+
+input.form-control.search-select-single-input {
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 43px;
+  display: none;
+  &.visible {
+    display: inline-block;
+    border-radius: 0px;
+    border-bottom-width: 0px;
+    // search select input has a select element right underneath it
+    // so we need to override standard input margin bottom of 10px
+    // with a margin bottom of 0 (since the element right underneath
+    // is a select element, it will have the --input-margin-bottom margin bottom)
+    margin: 0px;
+  }
+}
+div.form-control.search-select-single-options {
+  padding: 0px;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  top: 86px;
+  display: none;
+  &.visible {
+    display: inline-block;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  > .pseudoOption {
+    padding: 3px 5px;
+    &.selected {
+      background-color: var(--background-color-table-row-gray);
+    }
+  }
+}
+
+select.form-control.search-select-single-hidden-select {
+  display: none;
+}
+
+// need this to work for DIVs as well so adding here for now...
+.form-control.focus {
+  border: 1px solid var(--primary-color);
+  outline: 1px solid var(--primary-color);
+}

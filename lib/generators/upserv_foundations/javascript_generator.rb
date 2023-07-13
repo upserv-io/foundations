@@ -11,6 +11,8 @@ module UpservFoundations
                  'app/javascript/controllers/dropdown_controller.js'
         template 'modal_controller.js',
                  'app/javascript/controllers/modal_controller.js'
+        template 'search_select_controller.js',
+                 'app/javascript/controllers/search_select_controller.js'
         template 'search_select_multiple_controller.js',
                  'app/javascript/controllers/search_select_multiple_controller.js'
       end
