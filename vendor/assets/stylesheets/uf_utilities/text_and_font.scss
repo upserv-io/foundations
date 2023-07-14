@@ -52,6 +52,4 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  // this is needed when the parent is flex-direction: column
-  max-width: 100%;
 }
