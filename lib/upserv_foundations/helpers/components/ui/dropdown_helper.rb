@@ -39,21 +39,15 @@ module UpservFoundations
         # and the block will be ignored
         # For a block, ignore the text and link options and include a block
         def dropdown_item(options = {}, &block)
-          options[:block] = block
-          options[:text] ||= false
-          options[:link] ||= false
-          drop_down_css_class = 'dropdown-item'
-          drop_down_css_class += " #{options[:class]}" if options[:class]
-          options[:css_class] = drop_down_css_class
-          options[:link_to_options] = { class: drop_down_css_class }
-          options[:link_to_options][:method] = options[:method] if options[:method]
-          options[:link_to_options][:data] = options[:data] if options[:data]
+          text = options.delete(:text) || false
+          link = options.delete(:link) || false
+          options[:class] = "dropdown-item#{" #{options[:class]}" if options[:class]}"
 
           content_tag 'LI', class: 'dropdown-item-container' do
-            if options[:text] && block.blank?
-              link_to(options[:text], options[:link], options[:link_to_options])
+            if text && link && block.blank?
+              link_to text, link, options
             else
-              content_tag 'DIV', class: options[:css_class] do
+              content_tag 'DIV', options do
                 block.call
               end
             end
