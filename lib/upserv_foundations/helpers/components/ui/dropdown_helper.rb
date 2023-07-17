@@ -37,15 +37,15 @@ module UpservFoundations
         # in either cases, the base css classes will be added
         # for simple link (with or without a url), then include the text option
         # and the block will be ignored
-        # For a block, ignore the text and link options and include a block
+        # For a block, ignore the text and url options and include a block
         def dropdown_item(options = {}, &block)
           text = options.delete(:text) || false
-          link = options.delete(:link) || false
+          url = options.delete(:url) || false
           options[:class] = "dropdown-item#{" #{options[:class]}" if options[:class]}"
 
           content_tag 'LI', class: 'dropdown-item-container' do
-            if text && link && block.blank?
-              link_to text, link, options
+            if text && url && block.blank?
+              link_to text, url, options
             else
               content_tag 'DIV', options do
                 block.call

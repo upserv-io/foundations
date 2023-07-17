@@ -19,6 +19,10 @@
   width: 100%;
   white-space: nowrap;
   background-color: transparent;
+  &.current {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+  }
 }
 
 .dropdown-items {
