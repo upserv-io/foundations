@@ -1,0 +1,27 @@
+.tabs {
+  display: flex;
+}
+
+.tab-item {
+  border-radius: 5px;
+  padding: 0px 5px;
+  min-width: min-content;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--text-gray2-color);
+  &.current {
+    background-color: var(--background-gray4-color);
+  }
+  &:hover {
+    background-color: var(--background-gray3-color);
+    text-decoration: none;
+    // override link brightness
+    filter: var(--pressable-standard-brightness);
+  }
+}
+
+.tab-item-icon {
+  color: var(--text-gray1-color);
+  font-size: 0.75rem;
+  padding-right: 0.25rem;
+}
