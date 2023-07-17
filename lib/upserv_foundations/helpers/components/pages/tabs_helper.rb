@@ -20,7 +20,7 @@ module UpservFoundations
           icon_class = icon ? "tab-item-icon fa-solid #{icon}" : nil
           if text && url && block.blank?
             link_to url, options do
-              icon_elm = icon_class ? content_tag('I', nil, class: icon_class) : nil
+              icon_elm = icon_class ? content_tag('I', nil, class: icon_class) : ''
               display = content_tag 'SPAN', text
               (icon_elm + display).html_safe
             end
