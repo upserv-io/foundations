@@ -17,6 +17,10 @@
 }
 
 .left-label-container {
+  // make label align right
+  display: flex;
+  justify-content: end;
+  margin-right: 10px;
   // Align label with input
   padding-top: 9px;
   @media (max-width: 576px) {
