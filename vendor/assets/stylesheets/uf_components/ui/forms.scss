@@ -24,6 +24,7 @@
   // Align label with input
   padding-top: 9px;
   @media (max-width: 576px) {
+    justify-content: flex-start;
     // when screen is xs, we stack. When stacked, there is no need
     // for padding
     padding-top: 0px;
