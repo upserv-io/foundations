@@ -7,7 +7,7 @@ module UpservFoundations
       source_root File.expand_path('templates', __dir__)
 
       def copy_js_files
-        template './form/dropdown_controller.js',
+        template 'form/text_area_controller.js',
                  'app/javascript/controllers/form/dropdown_controller.js'
         template 'dropdown_controller.js',
                  'app/javascript/controllers/dropdown_controller.js'
