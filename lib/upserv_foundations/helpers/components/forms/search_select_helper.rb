@@ -30,7 +30,7 @@ module UpservFoundations
                 # this way, both of these work
                 # object_name: "some_value"
                 # object_name: "some_value[soem_value]"
-                "#{object_name.gsub('-', '_').gsub('[', '_').gsub(']', '_')}_#{method}".gsub(
+                "#{object_name.to_s.gsub('-', '_').gsub('[', '_').gsub(']', '_')}_#{method}".gsub(
                   '__', '_'
                 )
             end
