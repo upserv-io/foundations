@@ -10,6 +10,7 @@
     @media (min-width: 576px) {
       flex-wrap: nowrap;
     }
+    // is this used???
     &.inline {
       flex-wrap: nowrap;
     }
@@ -33,6 +34,7 @@
   flex-shrink: 0;
 }
 
+// is this used??
 .form-group.left-label.inline .left-label-container {
   // when inline, to align label with input
   padding-top: 9px;
