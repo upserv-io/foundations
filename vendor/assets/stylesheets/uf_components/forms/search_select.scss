@@ -49,6 +49,9 @@ select.form-control.search-select-multiple {
 
 div.search-select-single-container {
   position: relative;
+  .text-placeholder {
+    color: var(--text-placeholder-color);
+  }
 }
 input.form-control.search-select-single-display.focus {
   border-bottom-left-radius: 0px;
@@ -78,6 +81,7 @@ input.form-control.search-select-single-input {
     margin: 0px;
   }
 }
+
 div.form-control.search-select-single-options {
   padding: 0px;
   position: absolute;
@@ -85,6 +89,8 @@ div.form-control.search-select-single-options {
   width: 100%;
   top: 86px;
   display: none;
+  max-height: 140px;
+  overflow-y: overlay;
   &.visible {
     display: inline-block;
     border-top-left-radius: 0px;
@@ -92,8 +98,9 @@ div.form-control.search-select-single-options {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   }
-  > .pseudoOption {
-    padding: 3px 5px;
+  > .pseudoOption,
+  .noResultsPseudoOption {
+    padding: 3px var(--input-padding-horizontal);
     &.selected {
       background-color: var(--background-color-table-row-gray);
     }

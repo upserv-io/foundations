@@ -171,7 +171,7 @@ select,
 textarea {
   &.form-control {
     font-size: var(--default-font-size);
-    padding: 6px 15px;
+    padding: var(--input-padding-vertical) var(--input-padding-horizontal);
     &[type="file"] {
       padding-left: 0px;
       padding-right: 0px;
@@ -192,7 +192,7 @@ textarea {
       border: 1px solid var(--border-color-input);
       border-radius: 5px;
       color: var(--color-default-color);
-      padding: 6px 15px;
+      padding: var(--input-padding-vertical) var(--input-padding-horizontal);
     }
     // this helps with alignment whether stacked or left label
     margin-bottom: var(--input-margin-bottom);
