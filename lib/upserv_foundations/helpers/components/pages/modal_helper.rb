@@ -6,6 +6,8 @@ module UpservFoundations
       # modals
       module ModalHelper
         def modal(id:, max_width: '600px', min_width: '400px', &block)
+          # raise ArgumentError, 'missing keyword: :id' unless options[:id]
+
           content_tag 'DIV', id: id, class: 'modal', data: { controller: 'modal' } do
             trigger = content_tag 'DIV', '', id: "#{id}-trigger", data: { action: 'click->modal#show' }
             backdrop = content_tag 'DIV', '', class: 'modal-backdrop', data: { action: 'click->modal#hide' }
