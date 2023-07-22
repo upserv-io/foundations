@@ -22,7 +22,7 @@ module UpservFoundations
               content_tag 'DIV', options do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
                 block_called = block.call
-                (modal_close + block_called).html_safe
+                modal_close + block_called
               end
             end
             (trigger + backdrop + modal_content_container).html_safe
