@@ -106,7 +106,7 @@ module UpservFoundations
         end
 
         def table_card_header(options = {}, &block)
-          options[:divider] = false
+          options[:divider] = false unless options.keys.include?(:divider)
           card_header(options, &block)
         end
 
