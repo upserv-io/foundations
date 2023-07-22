@@ -11,14 +11,16 @@ module UpservFoundations
 
           min_width = options.delete(:min_width) || '400px'
           max_width = options.delete(:max_width) || '600px'
+          height = options.delete(:height)
+          max_height = options.delete(:max_height)
           # min width goes on modal content but max width goes on modal content container
-          options[:style] = "min-width: #{min_width}#{" #{options[:style]}" if options[:style]}"
+          options[:style] = "min-width: #{min_width};#{" #{options[:style]}" if options[:style]}"
           options[:class] = "modal-content bg-gray0#{" #{options[:class]}" if options[:class]}"
 
           content_tag 'DIV', id: id, class: 'modal', data: { controller: 'modal' } do
             trigger = content_tag 'DIV', '', id: "#{id}-trigger", data: { action: 'click->modal#show' }
             backdrop = content_tag 'DIV', '', class: 'modal-backdrop', data: { action: 'click->modal#hide' }
-            modal_content_container = content_tag 'DIV', class: 'modal-content-container', style: "max-width: #{max_width}" do
+            modal_content_container = content_tag 'DIV', class: 'modal-content-container', style: "max-width: #{max_width};#{" height: #{height};" if height}#{" max-height: #{max_height};" if max_height}" do
               content_tag 'DIV', options do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
                 block_called = capture(&block) # Capture the block content as a string
