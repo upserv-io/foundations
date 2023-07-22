@@ -7,7 +7,7 @@ module UpservFoundations
       module ModalHelper
         def modal(options = {}, &block)
           id = options.delete(:id)
-          raise ArgumentError, 'missing keyword: :id' unless options[:id]
+          raise ArgumentError, 'missing keyword: :id' unless id
 
           min_width = options.delete(:min_width) || '400px'
           max_width = options.delete(:max_width) || '600px'
