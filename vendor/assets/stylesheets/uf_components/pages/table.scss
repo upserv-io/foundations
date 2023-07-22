@@ -38,6 +38,7 @@ tbody.no-alternate tr {
   border-bottom: 1px solid var(--divider1-color);
 }
 
+thead.no-row-border tr,
 tbody.no-row-border tr {
   border: 0;
 }
