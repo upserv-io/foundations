@@ -5,14 +5,12 @@ module UpservFoundations
     module Pages
       # modals
       module ModalHelper
-        def modal(id:, max_width: '600px', min_width: '400px', &block)
-          # raise ArgumentError, 'missing keyword: :id' unless options[:id]
-
+        def modal(id:, bg_color: 'gb-gray0', max_width: '600px', min_width: '400px', &block)
           content_tag 'DIV', id: id, class: 'modal', data: { controller: 'modal' } do
             trigger = content_tag 'DIV', '', id: "#{id}-trigger", data: { action: 'click->modal#show' }
             backdrop = content_tag 'DIV', '', class: 'modal-backdrop', data: { action: 'click->modal#hide' }
             modal_content_container = content_tag 'DIV', class: 'modal-content-container', style: "max-width: #{max_width}" do
-              content_tag 'DIV', class: 'modal-content', style: "min-width: #{min_width}" do
+              content_tag 'DIV', class: "modal-content #{bg_color}", style: "min-width: #{min_width}" do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
                 block_called = block.call
                 (modal_close + block_called).html_safe
