@@ -5,12 +5,21 @@ module UpservFoundations
     module Pages
       # modals
       module ModalHelper
-        def modal(id:, bg_color: 'gb-gray0', max_width: '600px', min_width: '400px', &block)
+        def modal(options = {}, &block)
+          id = options.delete(:id)
+          raise ArgumentError, 'missing keyword: :id' unless options[:id]
+
+          min_width = options.delete(:min_width) || '400px'
+          max_width = options.delete(:max_width) || '600px'
+          # min width goes on modal content but max width goes on modal content container
+          options[:style] = "min-width: #{min_width}#{" #{options[:style]}" if options[:style]}"
+          options[:class] = "modal-content bg-gray0#{" #{options[:class]}" if options[:class]}"
+
           content_tag 'DIV', id: id, class: 'modal', data: { controller: 'modal' } do
             trigger = content_tag 'DIV', '', id: "#{id}-trigger", data: { action: 'click->modal#show' }
             backdrop = content_tag 'DIV', '', class: 'modal-backdrop', data: { action: 'click->modal#hide' }
             modal_content_container = content_tag 'DIV', class: 'modal-content-container', style: "max-width: #{max_width}" do
-              content_tag 'DIV', class: "modal-content #{bg_color}", style: "min-width: #{min_width}" do
+              content_tag 'DIV', options do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
                 block_called = block.call
                 (modal_close + block_called).html_safe
