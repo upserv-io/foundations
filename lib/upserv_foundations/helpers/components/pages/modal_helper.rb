@@ -21,8 +21,8 @@ module UpservFoundations
             modal_content_container = content_tag 'DIV', class: 'modal-content-container', style: "max-width: #{max_width}" do
               content_tag 'DIV', options do
                 modal_close = content_tag 'SPAN', '&times;'.html_safe, class: 'modal-close', data: { action: 'click->modal#hide' }
-                block_called = block.call
-                modal_close + block_called
+                block_called = capture(&block) # Capture the block content as a string
+                safe_join([modal_close, block_called])
               end
             end
             (trigger + backdrop + modal_content_container).html_safe
