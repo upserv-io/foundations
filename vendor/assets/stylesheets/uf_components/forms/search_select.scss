@@ -7,7 +7,7 @@ input.form-control.search-select-multiple-input {
   // so we need to override standard input margin bottom of 10px
   // with a margin bottom of 0 (since the element right underneath
   // is a select element, it will have the --input-margin-bottom margin bottom)
-  margin: 0px;
+  margin-bottom: 0px;
 }
 select.form-control.search-select-multiple {
   border-top-left-radius: 0px;
@@ -58,18 +58,17 @@ input.form-control.search-select-single-display.focus {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   border-bottom-width: 0px;
-  // search select input has a select element right underneath it
-  // so we need to override standard input margin bottom of 10px
-  // with a margin bottom of 0 (since the element right underneath
-  // is a select element, it will have the --input-margin-bottom margin bottom)
-  margin: 0px;
+  // we want to maintain margin bottom when in focus however
+  // the border bottom is now 0px so we need margin to make up for
+  // it
+  margin-bottom: 11px;
 }
 
 input.form-control.search-select-single-input {
   position: absolute;
   left: 0px;
   width: 100%;
-  top: 43px;
+  top: 44px;
   display: none;
   &.visible {
     display: inline-block;
@@ -80,6 +79,7 @@ input.form-control.search-select-single-input {
     // with a margin bottom of 0 (since the element right underneath
     // is a select element, it will have the --input-margin-bottom margin bottom)
     margin: 0px;
+    z-index: 1000;
   }
 }
 
@@ -88,7 +88,9 @@ div.form-control.search-select-single-options {
   position: absolute;
   left: 0px;
   width: 100%;
-  top: 86px;
+  // display input takes up 44 and search input takes up 43
+  // so make this start 87px down
+  top: 87px;
   display: none;
   max-height: 140px;
   overflow-y: overlay;
@@ -98,6 +100,7 @@ div.form-control.search-select-single-options {
     border-top-right-radius: 0px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    z-index: 1000;
   }
   > .pseudoOption,
   .noResultsPseudoOption {
