@@ -111,10 +111,35 @@ div.form-control.search-select-single-options {
   }
 }
 
+// hide it without actually hiding it so that the front end validations show up
 select.form-control.search-select-single-hidden-select {
-  display: none;
+  display: block;
+  // height of at least 1px is needed or else the front end validation
+  // wont show up
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  height: 1px;
+  // set marign top to -11 px
+  //   -1px to remvoe the height of 1px above
+  //   -10px to position the front end validation directy
+  //    under the input because somewhere in the whole search
+  //    container thingy we have margin bottom 10px
+  // set margin bottom to 10 px to make up the the -10px margin top
+  margin: -11px 0px 10px;
+  // make all the options / other elements if any display none
+  * {
+    display: none;
+  }
+  // when the input is in focus or when front end validation comes up,
+  // remove the box shadow and outline because it's a 1px tall select
+  // input or something
+  &:focus,
+  &:required:invalid {
+    box-shadow: none;
+    outline: none;
+  }
 }
-
 // need this to work for DIVs as well so adding here for now...
 .form-control.focus {
   border: 1px solid var(--primary-color);
