@@ -23,6 +23,9 @@
 .bg-gray4 {
   background-color: var(--background-gray4-color);
 }
+.bg-gray5 {
+  background-color: var(--background-gray5-color);
+}
 
 .bg-table-row-normal {
   background-color: var(--background-color-table-row-normal);
@@ -64,4 +67,9 @@
   // override pressable brightness
   filter: var(--pressable-standard-brightness) !important;
   background-color: var(--background-gray4-color);
+}
+.bg-gray5-hover:hover {
+  // override pressable brightness
+  filter: var(--pressable-standard-brightness) !important;
+  background-color: var(--background-gray5-color);
 }
