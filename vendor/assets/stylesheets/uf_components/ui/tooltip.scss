@@ -1,0 +1,15 @@
+/* tooltip.scss */
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-message {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--background-gray5-color);
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  box-shadow: 1px 1px 2px 3px rgba(0, 0, 0, 0.05);
+}

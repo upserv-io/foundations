@@ -9,6 +9,8 @@ module UpservFoundations
       def copy_js_files
         template 'form/text_area_controller.js',
                  'app/javascript/controllers/form/dropdown_controller.js'
+        template 'ui/tooltip_controller.js',
+                 'app/javascript/controllers/ui/tooltip_controller.js'
         template 'dropdown_controller.js',
                  'app/javascript/controllers/dropdown_controller.js'
         template 'modal_controller.js',

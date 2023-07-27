@@ -2,6 +2,7 @@ button,
 .btn,
 .btn * {
   appearance: button;
+  display: inline-block;
   text-align: center;
   // overide other font sizes like on page header
   font-size: var(--default-font-size);

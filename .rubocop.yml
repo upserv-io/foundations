@@ -22,6 +22,7 @@ Metrics/CyclomaticComplexity:
 Metrics/MethodLength:
   Exclude:
     - "lib/upserv_foundations/helpers/components/**/*.rb"
+    - "lib/generators/upserv_foundations/javascript_generator.rb"
 
 Metrics/PerceivedComplexity:
   Exclude:
