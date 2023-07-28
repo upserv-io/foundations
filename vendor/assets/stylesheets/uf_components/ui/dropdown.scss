@@ -34,6 +34,10 @@
     // override pressable brightness
     filter: var(--pressable-standard-brightness) !important;
     background-color: var(--background-color-table-row-hover);
+    * {
+      // override pressable brightness
+      filter: var(--pressable-standard-brightness) !important;
+    }
   }
 }
 
