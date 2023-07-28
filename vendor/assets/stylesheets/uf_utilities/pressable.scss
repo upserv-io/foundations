@@ -1,13 +1,17 @@
+// Use pressable for anything that should be pressable (ex, links buttons, dropdown-item-container, etc.) and anytime you have table background hover, make sure to override pressable hover within the css file for that item. Also make note in that items scss file that it is pressable
 a,
 .link,
+button,
 .btn,
 .modal-close,
 .pressable,
+.dropdown-item-container,
 // file input
 input::file-selector-button,
 // form submit buttons
 [type="submit"],
 [data-dropdown-target="button"],
+[data-action="click->accordion#toggle"],
 [data-target-modal] {
   cursor: pointer;
   &:hover {

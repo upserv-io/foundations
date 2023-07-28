@@ -1,7 +1,8 @@
+// pressable stylesw applied to a and .link
+// see vendor/assets/stylesheets/uf_utilities/pressable.scss
 a,
 .link,
 .link * {
-  cursor: pointer;
   text-decoration: none;
   color: var(--primary-color);
   &:hover {
