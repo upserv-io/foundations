@@ -58,6 +58,8 @@ module UpservFoundations
 
         def page_body_columns(options = {}, &block)
           options[:id] = 'page-body-columns'
+          options[:data] ||= {}
+          options[:data][:controller] = "pages--page-body-columns#{" #{options[:data][:controller]}" if options[:data][:controller]}"
           content_tag 'DIV', options do
             block.call
           end
