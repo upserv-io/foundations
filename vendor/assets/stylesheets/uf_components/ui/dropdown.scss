@@ -39,5 +39,9 @@
   &.current {
     color: var(--white-color);
     background-color: var(--primary-color);
+    * {
+      color: var(--white-color);
+      background-color: var(--primary-color);
+    }
   }
 }
