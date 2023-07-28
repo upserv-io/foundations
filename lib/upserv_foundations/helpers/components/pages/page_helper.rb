@@ -34,9 +34,16 @@ module UpservFoundations
         end
 
         def page_body(options = {}, &block)
+          inline_cards = if options.keys.include?(:inline_cards)
+                           options.delete(:inline_cards)
+                         else
+                           false
+                         end
+          page_body_options = { id: 'page-body' }
+          page_body_options[:class] = 'inline-cards' if inline_cards
           options[:id] = 'page-body-max-width'
           assign_page_header_or_body_style(options)
-          content_tag 'DIV', id: 'page-body' do
+          content_tag 'DIV', page_body_options do
             content_tag 'DIV', options do
               block.call
             end
@@ -66,7 +73,12 @@ module UpservFoundations
         end
 
         def page_body_column(options = {}, &block)
-          options[:class] = "page-body-column#{" #{options[:class]}" if options[:class]}"
+          inline_cards = if options.keys.include?(:inline_cards)
+                           options.delete(:inline_cards)
+                         else
+                           false
+                         end
+          options[:class] = "page-body-column#{' inline-cards' if inline_cards}#{" #{options[:class]}" if options[:class]}"
           content_tag 'DIV', options do
             block.call
           end

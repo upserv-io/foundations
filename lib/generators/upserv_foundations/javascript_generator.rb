@@ -11,6 +11,8 @@ module UpservFoundations
                  'app/javascript/controllers/form/select_display_toggle_controller.js'
         template 'form/text_area_controller.js',
                  'app/javascript/controllers/form/dropdown_controller.js'
+        template 'pages/page_body_columns_controller.js',
+                 'app/javascript/controllers/pages/page_body_columns_controller.js'
         template 'ui/tooltip_controller.js',
                  'app/javascript/controllers/ui/tooltip_controller.js'
         template 'dropdown_controller.js',
