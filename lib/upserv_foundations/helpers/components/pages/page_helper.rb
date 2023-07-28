@@ -26,7 +26,7 @@ module UpservFoundations
                                                     else
                                                       true
                                                     end
-          options[:id] = 'page-header-container'
+          options[:id] = 'page-header'
           assign_page_header_or_body_style(options) if should_assign_page_header_or_body_style
           content_tag 'DIV', options do
             block.call
