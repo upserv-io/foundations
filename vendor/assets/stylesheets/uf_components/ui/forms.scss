@@ -36,6 +36,9 @@
       }
       flex-grow: 0;
       flex-shrink: 0;
+      * {
+        color: var(--input-label-text-color);
+      }
     }
     .left-label-input {
       width: 100%;
