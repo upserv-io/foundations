@@ -19,7 +19,7 @@ module UpservFoundations
           options[:class] = "tooltip-button#{" #{options[:class]}" if options[:class]}"
           options[:data] ||= {}
           options[:data][:ui__tooltip_target] = 'button'
-          options[:data][:action] = "mouseenter->ui--tooltip#showMessage wheel->ui--tooltip#hideMessage mouseleave->ui--tooltip#hideMessage#{" #{options[:data][:action]}" if options[:data][:action]}"
+          options[:data][:action] = "click->ui--tooltip#click mouseenter->ui--tooltip#showMessage wheel->ui--tooltip#hideMessage mouseleave->ui--tooltip#hideMessage#{" #{options[:data][:action]}" if options[:data][:action]}"
 
           content_tag 'div', options do
             block.call
