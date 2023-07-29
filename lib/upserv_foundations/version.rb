@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module UpservFoundations
-  VERSION = '0.0.0.193'
+  VERSION = '0.0.0.194'
 end

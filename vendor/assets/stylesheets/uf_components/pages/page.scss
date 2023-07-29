@@ -111,6 +111,17 @@
   // NOTE: we use js to replace margin right with padding right on the final
   // visible column so that the scroll bar is on the far right of the page
   margin-right: 15px;
+  // js will remove margin right from last visible child
+  // however when the page loads, the last visible child has a margin-right of
+  // 15px (see line above) and then after the js loads, the margin right is
+  // removed which causes a jerky motion.
+  // since we know the last child should never have margin right, go ahead
+  // and remove it by default as well. This way the js won't create a jerky motion
+  // the only way the page will jerk now is if at page load, the last column is not
+  // the last visible column, which I'm ok with that. That's an edge case.
+  &:last-child {
+    margin-right: 0px;
+  }
   &.last-visible-column {
     // the last child get padding right instead of margin right so that
     // the scrollbar is on the edge of the page rather than right next to
