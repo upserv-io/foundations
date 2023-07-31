@@ -3,6 +3,9 @@
   display: inline-block;
 }
 
+.tooltip-button {
+  cursor: default;
+}
 .tooltip-message {
   display: none;
   position: fixed;

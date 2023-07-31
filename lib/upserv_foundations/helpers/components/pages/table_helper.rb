@@ -11,7 +11,7 @@ module UpservFoundations
           end
         end
 
-        def table_head(thead_options = {}, tr_options = {}, &block)
+        def table_head(thead_options: {}, tr_options: {}, &block)
           content_tag 'THEAD', thead_options do
             content_tag 'TR', tr_options do
               block.call
