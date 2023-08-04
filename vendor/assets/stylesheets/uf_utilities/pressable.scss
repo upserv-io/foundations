@@ -10,7 +10,7 @@ button,
 input::file-selector-button,
 // form submit buttons
 [type="submit"],
-[data-dropdown-target="button"],
+[data-ui--dropdown-target="button"],
 [data-action="click->accordion#toggle"],
 [data-target-modal] {
   cursor: pointer;

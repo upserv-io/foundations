@@ -1,4 +1,4 @@
-// NOTE: pressable styles appled to [data-dropdown-target="button"]
+// NOTE: pressable styles appled to [data-ui--dropdown-target="button"]
 // vendor/assets/stylesheets/uf_utilities/pressable.scss
 
 .dropdown-container {
@@ -7,9 +7,14 @@
 
 .dropdown-items {
   display: none;
+  // this is hacky and I don't kknow why it works but YOLO. By setting width to 0px
+  // when the dropdown items are actually displayed, the width becomes the based
+  // on the it's contents (which is exactly what we want). Otherwise, it's width
+  // goes all the way to the left of the page which is wierd
+  width: 0px;
+  position: fixed;
+  z-index: 1000;
   min-width: max-content;
-  position: absolute;
-  float: left;
   border-radius: 0.25rem;
   padding-top: 0;
   margin-top: 0.25rem;
@@ -18,13 +23,7 @@
   text-align: left;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.15);
   border: none;
-  right: 0;
-  &.align-left {
-    right: auto;
-    left: 0;
-  }
   overflow: hidden;
-  z-index: 50;
 }
 
 // pressable styles appled see

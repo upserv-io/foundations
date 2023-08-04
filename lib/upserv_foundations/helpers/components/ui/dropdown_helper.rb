@@ -8,8 +8,7 @@ module UpservFoundations
         def dropdown(options = {}, &block)
           options[:class] = "dropdown-container#{" #{options[:class]}" if options[:class]}"
           options[:data] ||= {}
-          options[:data][:controller] = 'dropdown'
-          options[:data][:action] = 'click@window->dropdown#hide touchend@window->dropdown#hide'
+          options[:data][:controller] = 'ui--dropdown'
           content_tag 'div', options do
             block.call
           end
@@ -17,8 +16,8 @@ module UpservFoundations
 
         def dropdown_button(options = {}, &block)
           options[:data] ||= {}
-          options[:data][:dropdown_target] = 'button'
-          options[:data][:action] = 'click->dropdown#show'
+          options[:data][:ui__dropdown_target] = 'button'
+          options[:data][:action] = 'click->ui--dropdown#show'
           content_tag 'DIV', options do
             block.call
           end
@@ -27,7 +26,7 @@ module UpservFoundations
         def dropdown_items(options = {}, &block)
           options[:class] = "dropdown-items bg-gray0#{" #{options[:class]}" if options[:class]}"
           options[:data] ||= {}
-          options[:data][:dropdown_target] = 'popup'
+          options[:data][:ui__dropdown_target] = 'dropdownItems'
           content_tag 'UI', options do
             block.call
           end
