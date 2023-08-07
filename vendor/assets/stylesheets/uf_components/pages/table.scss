@@ -38,6 +38,11 @@ table.no-alternate {
     }
     border: 0;
   }
+  &.keep-thead-border {
+    thead tr:first-child {
+      border-bottom: 2px solid var(--divider1-color);
+    }
+  }
 }
 
 td,
