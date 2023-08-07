@@ -23,7 +23,6 @@ module UpservFoundations
                  'app/javascript/controllers/search_select_controller.js'
         template 'search_select_multiple_controller.js',
                  'app/javascript/controllers/search_select_multiple_controller.js'
-
         template 'global/check_and_set_timezone_cookie.js',
                  'app/javascript/global/check_and_set_timezone_cookie.js'
         template 'global/dropdown.js',

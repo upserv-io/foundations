@@ -33,7 +33,7 @@ module UpservFoundations
           #     value
           #   NOTE: in all 3 cases, any vertical overflow / scrolling  will happen on the card
           #   body
-          set_height = options.keys.intersect?(%i[full_height max_height height])
+          set_height = options.keys.intersect?(%i[max_height height]) || (options.keys.include?(:full_height) && options[:full_height] == true)
           # get height related data and store in variable(s)
           full_height = if options.keys.include?(:full_height)
                           options.delete(:full_height)
