@@ -21,3 +21,7 @@ input::file-selector-button,
     filter: var(--pressable-active-brightness);
   }
 }
+
+tr.pressable:hover {
+  filter: var(--pressable-standard-brightness);
+}
