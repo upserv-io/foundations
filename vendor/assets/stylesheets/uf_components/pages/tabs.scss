@@ -9,8 +9,8 @@
   min-width: min-content;
   cursor: pointer;
   text-decoration: none;
-  color: var(--text-gray2-color);
   margin-right: 0.75rem;
+  color: var(--text-gray2-color);
   &.current {
     background-color: var(--background-gray4-color);
   }
@@ -26,4 +26,38 @@
   color: var(--text-gray1-color);
   font-size: 0.75rem;
   padding-right: 0.25rem;
+}
+
+.tabs.primary {
+  .tab-item {
+    background-color: var(--background-gray4-color);
+    color: var(--primary-color);
+    * {
+      color: var(--primary-color);
+    }
+    &.current {
+      background-color: var(--primary-color);
+      color: var(--white-color);
+      * {
+        color: var(--white-color);
+      }
+      &:hover {
+        filter: var(--pressable-hover-brightness);
+        background-color: var(--primary-color);
+        color: var(--white-color);
+        * {
+          color: var(--white-color);
+        }
+      }
+    }
+    &:hover {
+      background-color: var(--background-gray3-color);
+      text-decoration: none;
+      // override link brightness
+      filter: var(--pressable-standard-brightness);
+    }
+  }
+  .tab-item-icon {
+    color: var(--white-color);
+  }
 }

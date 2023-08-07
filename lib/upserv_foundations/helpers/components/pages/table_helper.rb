@@ -21,8 +21,8 @@ module UpservFoundations
 
         def table_body(enum, options = {}, &block)
           content_tag 'TBODY', options do
-            enum&.each do |item|
-              block.call(item)
+            enum&.each_with_index do |item, index|
+              block.call(item, index)
             end
           end
         end
