@@ -19,10 +19,15 @@ module UpservFoundations
           icon = options.delete(:icon)
           icon_class = icon ? "tab-item-icon fa-solid #{icon}" : nil
           if text && url && block.blank?
+            options[:class] += ' basic-with-icon' if icon_class
             link_to url, options do
-              icon_elm = icon_class ? content_tag('I', nil, class: icon_class) : ''
+              icon_elm = icon_class ? content_tag('I', nil, class: icon_class) : false
               display = content_tag 'SPAN', text
-              (icon_elm + display).html_safe
+              if icon_elm
+                (icon_elm + display).html_safe
+              else
+                display
+              end
             end
           else
             content_tag 'DIV', options do

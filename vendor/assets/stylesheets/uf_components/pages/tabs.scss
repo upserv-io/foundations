@@ -1,5 +1,9 @@
 .tabs {
   display: flex;
+  &.basic-with-icon {
+    display: flex;
+    flex-wrap: nowrap;
+  }
 }
 
 .tab-item {
