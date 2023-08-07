@@ -1,9 +1,11 @@
 .tabs {
   display: flex;
-  margin: 0.25rem 0rem;
 }
 
 .tab-item {
+  margin: 5px 0px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 5px;
   padding: 0px 5px;
   min-width: min-content;
