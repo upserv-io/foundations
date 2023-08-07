@@ -1,12 +1,13 @@
 .tabs {
   display: flex;
-  &.basic-with-icon {
-    display: flex;
-    flex-wrap: nowrap;
-  }
 }
 
 .tab-item {
+  &.basic-with-icon {
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+  }
   margin: 5px 0px;
   margin-top: 5px;
   margin-bottom: 5px;
