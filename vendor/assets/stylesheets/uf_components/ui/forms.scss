@@ -122,9 +122,11 @@
   &.inline {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
   }
   &.inline-no-wrap {
     display: flex;
+    align-items: flex-start;
   }
 }
 
