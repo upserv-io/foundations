@@ -12,6 +12,7 @@
   }
   &.left-label {
     // currently just for show group if you want to put in tool tip and make condensed
+    // eventually should update this so that it works for inputs as well...???
     &.vertical-condensed {
       .show-value {
         min-height: 0px;
@@ -38,6 +39,9 @@
       // make label align right
       display: flex;
       justify-content: end;
+      &.justify-start {
+        justify-content: flex-start;
+      }
       margin-right: 10px;
       // Align label with input
       padding-top: 8px;
