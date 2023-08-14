@@ -11,6 +11,17 @@
     margin-bottom: var(--input-margin-bottom);
   }
   &.left-label {
+    // currently just for show group if you want to put in tool tip and make condensed
+    &.vertical-condensed {
+      .show-value {
+        min-height: 0px;
+        margin-bottom: 0px;
+        padding: 0px;
+      }
+      .left-label-container {
+        padding: 0px;
+      }
+    }
     align-items: flex-start;
     flex-direction: row;
     @media (max-width: 576px) {
