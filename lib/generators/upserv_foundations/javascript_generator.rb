@@ -7,6 +7,8 @@ module UpservFoundations
       source_root File.expand_path('templates', __dir__)
 
       def copy_js_files
+        template 'form/checkbox_display_toggle_controller.js',
+                 'app/javascript/controllers/form/checkbox_display_toggle_controller.js'
         template 'form/select_display_toggle_controller.js',
                  'app/javascript/controllers/form/select_display_toggle_controller.js'
         template 'form/text_area_controller.js',
