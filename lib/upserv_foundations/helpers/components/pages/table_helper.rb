@@ -20,9 +20,16 @@ module UpservFoundations
         end
 
         def table_body(enum, options = {}, &block)
+          include_index = options.delete(:include_index)
           content_tag 'TBODY', options do
-            enum&.each_with_index do |item, index|
-              block.call(*item, index)
+            if include_index
+              enum&.each_with_index do |item, index|
+                block.call(*item, index)
+              end
+            else
+              enum&.each do |item|
+                block.call(item)
+              end
             end
           end
         end
