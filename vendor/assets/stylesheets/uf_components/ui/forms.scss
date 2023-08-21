@@ -186,6 +186,7 @@ select {
     height: 42px;
   }
 }
+
 input,
 select,
 textarea {
@@ -289,6 +290,10 @@ textarea {
       outline: 1px solid var(--primary-color);
     }
   }
+}
+textarea.form-control {
+  // idk why but text areas have too much space below them... this fixes it
+  margin-bottom: 2px;
 }
 
 // NOTE: I don't think this actually does anything...???
