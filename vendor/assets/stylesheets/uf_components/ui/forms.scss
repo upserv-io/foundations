@@ -151,16 +151,16 @@
 }
 
 // for labels when checkbox is to the left
-.checkable-left {
+label.checkable-left {
   // use padding so taht when you click the space in between the label and
   // checkable, it still checks or unchecks the checkable
-  padding-left: 0.5rem;
+  padding-left: 0.25rem;
 }
 // for labels when checkbox is to the right
-.checkable-right {
+label.checkable-right {
   // use padding so taht when you click the space in between the label and
   // checkable, it still checks or unchecks the checkable
-  padding-right: 0.5rem;
+  padding-right: 0.25rem;
 }
 .checkable-container {
   // this is needed so the checkbox and label are inline
