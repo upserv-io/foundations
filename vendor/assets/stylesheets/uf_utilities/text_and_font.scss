@@ -16,9 +16,11 @@
 .text-card-header {
   font-size: 24px;
 }
-.text-large,
-.text-card-header-sub-title {
+.text-large {
   font-size: 22px;
+}
+.text-card-header-sub-title {
+  font-size: 20px;
 }
 .text-normal {
   font-size: var(--default-font-size);
