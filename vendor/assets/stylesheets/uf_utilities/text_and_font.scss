@@ -30,11 +30,23 @@
 }
 
 // colors
-.text-primary {
-  color: var(--primary-color);
+// NOTE: use default for "black" text so that it gets converted to white on dark mode
+.text-default {
+  var(--default-text-color);
 }
+// NOTE: only use text-white if you want the text to be white on regular and dark mode
+// ex, white text on a blue button (should be white on dark and light mode)
 .text-white {
   color: var(--white-color);
+}
+// NOTE: only use text-black if you want the text to be black on regular and dark mode
+// I don't have an examlpe for this so commenting it out. Do not use this unless some
+// instance comes up where you need it
+// .text-black {
+//   color: var(--black-color);
+// }
+.text-primary {
+  color: var(--primary-color);
 }
 .text-danger {
   color: var(--danger-color);
