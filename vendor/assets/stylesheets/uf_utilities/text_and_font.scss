@@ -40,11 +40,10 @@
   color: var(--white-color);
 }
 // NOTE: only use text-black if you want the text to be black on regular and dark mode
-// I don't have an examlpe for this so commenting it out. Do not use this unless some
-// instance comes up where you need it
-// .text-black {
-//   color: var(--black-color);
-// }
+// ex. a white circle on the primary blue background that has black text in it
+.text-black {
+  color: var(--black-color);
+}
 .text-primary {
   color: var(--primary-color);
 }
