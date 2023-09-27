@@ -32,7 +32,7 @@
 // colors
 // NOTE: use default for "black" text so that it gets converted to white on dark mode
 .text-default-color {
-  var(--default-text-color);
+  color: var(--default-text-color);
 }
 // NOTE: only use text-white if you want the text to be white on regular and dark mode
 // ex, white text on a blue button (should be white on dark and light mode)
