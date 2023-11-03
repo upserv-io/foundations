@@ -23,7 +23,7 @@ tbody tr {
   &:nth-child(even) {
     background-color: var(--background-gray2-color);
   }
-  &:hover {
+  &:not(.no-hover):hover {
     background-color: var(--background-color-table-row-hover);
   }
 }
