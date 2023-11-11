@@ -134,6 +134,8 @@
 .checkable-group-container {
   // make line up with left label
   padding-top: 9px;
+  // make same height is normal input
+  padding-bottom: 8px;
   &.inline {
     display: flex;
     flex-wrap: wrap;
