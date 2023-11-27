@@ -70,4 +70,9 @@ th {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  &.no-ellipsis {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: initial;
+  }
 }
