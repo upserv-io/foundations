@@ -2,6 +2,9 @@ table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  // when left out, there is a 10px margin bottom and idk where that comes
+  // from so this forces it to be 0
+  margin-bottom: 0rem;
 }
 
 thead {
