@@ -10,13 +10,12 @@
   // to be on the far right
   // no padding bottom because when page body is taller than page
   // container, we want the page body to overflow all the way to the bottom
-  // rather than having 15px gap
-  // padding top so that there is a gap between the top of the page
+  // rather than having 0.75rem gap
+  // add padding top so that there is a gap between the top of the page
   // and whatever is next - which could be the page header or the page body
-  // if the page header is skipped
-  // this way the top of the page padding is the whether the page header
-  // is included or not
-  padding-top: 15px;
+  // if the page header is skipped. This way the top of the page padding is
+  // the whether the page header is included or not
+  padding-top: 0.75rem;
 }
 
 // page header container. remains at top when body scrolls
@@ -33,17 +32,18 @@
   // tbh idk what this does
   vertical-align: bottom;
   // no padding top because page container has it
-  padding: 0px 15px 15px;
+  padding: 0rem 0.75 0.75rem;
   // I'd like to get rid of these and always depend on
   // adding text-page-header and text-page-header-sub-title
   // but I would have to review everything in MTP
-  font-size: 32px;
+  font-size: 1.5rem;
   .sub-title {
-    font-size: 20px;
+    font-size: 1rem;
   }
 }
 
-// actual page body that scrolls vertially
+// actual page body that scrolls vertially. It's more of a wrapper of the
+// page body max width and ultimately the page contents
 #page-body {
   // tbh IDK why this works. I would expect height 100% to take 100% of the height
   // of the page body which is not what we want. We want it take take the height of the
@@ -54,24 +54,19 @@
   // center page max width
   display: flex;
   justify-content: center;
-  // no padding top because page container or page header (if included)
-  // has it
-  // padding horizontal can be added because the scrollbar will be on the
-  // outside of the element (or technically overlayed to be exact)
-  // question - is padding bottom needed? Because card will have margin bottom
-  // bottom or the "last card spacer" hacky div
-  padding: 0px 15px;
-  // each inline card will have pr-3 so remove padding right here
-  &.inline-cards {
-    padding-right: 0px;
-  }
 }
 
+// this actually holds the contents of the page body
 #page-body-max-width {
   // min and max width will be added to this element via ruby code
   // so here we set width to 100% so that it fills out the width according
   // to the limits set on the component
   width: 100%;
+  // no padding top because page container or page header (if included) will have it
+  // no padding right because cards will have it
+  // no padding bottom because cards will have it
+  // add padding left so that cards will line up with the header
+  padding: 0rem 0rem 0rem 0.75rem;
 }
 
 // actual page body when there are columns
@@ -90,7 +85,7 @@
   // if the padding right was heere on the page body columns, then the final
   // column would have a gap between the final column scroll bar and the edge
   // of the screen
-  padding: 0px 0px 0px 15px;
+  padding: 0rem 0rem 0rem 0.75rem;
 }
 
 // single column that scrolls independently of other columns
@@ -110,30 +105,30 @@
   // next column to the right which is not ideal)
   // NOTE: we use js to replace margin right with padding right on the final
   // visible column so that the scroll bar is on the far right of the page
-  margin-right: 15px;
+  margin-right: 0.75rem;
   // js will remove margin right from last visible child
   // however when the page loads, the last visible child has a margin-right of
-  // 15px (see line above) and then after the js loads, the margin right is
+  // 0.75rem (see line above) and then after the js loads, the margin right is
   // removed which causes a jerky motion.
   // since we know the last child should never have margin right, go ahead
   // and remove it by default as well. This way the js won't create a jerky motion
   // the only way the page will jerk now is if at page load, the last column is not
   // the last visible column, which I'm ok with that. That's an edge case.
   &:last-child {
-    margin-right: 0px;
+    margin-right: 0rem;
   }
   &.last-visible-column {
     // the last child get padding right instead of margin right so that
     // the scrollbar is on the edge of the page rather than right next to
     // the column.
-    margin-right: 0px;
-    padding-right: 15px;
+    margin-right: 0rem;
+    padding-right: 0.75rem;
     &.inline-cards {
       // each inline card will have pr-3 so remove padding right here
       // NOTE: inline cards are only going to look good on the last column
       // because all other columns will have margin right AND padding right
       // from the inline cards... woof
-      padding-right: 0px;
+      padding-right: 0rem;
     }
   }
 }

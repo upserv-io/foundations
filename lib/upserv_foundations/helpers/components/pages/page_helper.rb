@@ -5,14 +5,7 @@ module UpservFoundations
     module Pages
       # pages
       module PageHelper
-        def page_max_width_default
-          @page_max_width_default ||= '2500px'
-        end
-
-        def page_min_width_default
-          @page_min_width_default ||= '0px'
-        end
-
+        # called from layouts. Set under the top bar
         def page_container(options = {}, &block)
           options[:id] = 'page-container'
           content_tag 'DIV', options do
@@ -20,6 +13,7 @@ module UpservFoundations
           end
         end
 
+        # called from template
         def page_header(options = {}, &block)
           should_assign_page_header_or_body_style = if options.keys.include?(:should_assign_page_header_or_body_style)
                                                       options.delete(:should_assign_page_header_or_body_style)
@@ -33,18 +27,13 @@ module UpservFoundations
           end
         end
 
-        def page_body(options = {}, &block)
-          inline_cards = if options.keys.include?(:inline_cards)
-                           options.delete(:inline_cards)
-                         else
-                           false
-                         end
+        # called from template
+        def page_body(page_body_max_width_options = {}, &block)
           page_body_options = { id: 'page-body' }
-          page_body_options[:class] = 'inline-cards' if inline_cards
-          options[:id] = 'page-body-max-width'
-          assign_page_header_or_body_style(options)
+          page_body_max_width_options[:id] = 'page-body-max-width'
+          assign_page_header_or_body_style(page_body_max_width_options)
           content_tag 'DIV', page_body_options do
-            content_tag 'DIV', options do
+            content_tag 'DIV', page_body_max_width_options do
               block.call
             end
           end
@@ -53,6 +42,14 @@ module UpservFoundations
         def assign_page_header_or_body_style(options)
           base_style = "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"
           options[:style] = "#{base_style}#{" #{options[:style]}" if options[:style]}"
+        end
+
+        def page_max_width_default
+          @page_max_width_default ||= '2500px'
+        end
+
+        def page_min_width_default
+          @page_min_width_default ||= '0px'
         end
 
         # basically the same as regular page header but do not set width
