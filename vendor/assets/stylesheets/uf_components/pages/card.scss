@@ -1,3 +1,15 @@
+.card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0rem 0.75rem 0.75rem 0rem;
+  &.set-height {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .card {
   border-radius: 5px;
   // needed to make the border actually rounded (not used for scrolling
@@ -38,11 +50,4 @@
   }
   overflow-y: overlay;
   overflow-x: overlay;
-}
-
-// div with no actual space but is still present
-// to that collapsing is prevented on card above it
-.last-card-spacer {
-  padding-bottom: 1px;
-  margin-bottom: -1px;
 }

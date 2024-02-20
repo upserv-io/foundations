@@ -45,11 +45,11 @@ module UpservFoundations
         end
 
         def page_max_width_default
-          @page_max_width_default ||= '2500px'
+          @page_max_width_default ||= '500rem'
         end
 
         def page_min_width_default
-          @page_min_width_default ||= '0px'
+          @page_min_width_default ||= '0rem'
         end
 
         # basically the same as regular page header but do not set width
