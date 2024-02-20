@@ -1,45 +1,33 @@
 .card-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding: 0rem 0.75rem 0.75rem 0rem;
-  &.set-height {
-    display: flex;
-    flex-direction: column;
-  }
-}
-.card {
-  border-radius: 5px;
-  // needed to make the border actually rounded (not used for scrolling
-  // because scrolling happens at card body level)
-  overflow: overlay;
   // fit the max width set by the page-body-max-width
   width: 100%;
-  background-color: var(--background-gray0-color);
-  // this was the only way I could get the card to actually be 100% max
-  // height. Overwise it would go over and I have no idea why
-  // I think its because the card body does not actually have a set height
-  // so it just takes the height of its' contents but it is the element
-  // that has the overflow and so without a set
-  // height, it's contents cannot overflow because it's height just increases.
-  // But adding display flex and flex direct column, I'm pretty sure makes
-  // the card body height max out at it's parent containers remaining height
-  // (whenever it's contents are taller than the remaining height)
-  &.set-height {
-    display: flex;
-    flex-direction: column;
-  }
+  // no padding top because card header or page container or preceding card
+  // will have padding bottom
+  // add padding right and padding bottom to create space between cards
+  // no padding left because page body max width or preceding card will have it
+  padding: 0rem 0.75rem 0.75rem 0rem;
+}
+.card {
+  border-radius: 0.25rem;
+  // take up the full width and height of the card-wrapper
+  width: 100%;
+  max-height: 100%;
+  // if the card contents are taller than the card, this will make the
+  // the card header retain it's height but the card body will flex
+  // to match the remainder of the card height. Since the card body is
+  // scrollable, this will make the card body contents scroll while the
+  // card header remains fixed.
+  display: flex;
+  flex-direction: column;
 }
 
 .card-header {
-  padding: 15px 15px 15px;
-  font-size: 24px;
+  padding: 0.75rem 0.75rem 0.75rem;
+  font-size: 1.25rem;
 }
 
 .card-header-divider {
-  margin: 0px 15px 0px;
+  margin: 0rem 0.75rem 0rem;
   border-bottom: 1px solid var(--divider1-color);
 }
 
