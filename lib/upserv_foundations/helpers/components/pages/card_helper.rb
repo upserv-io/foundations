@@ -81,15 +81,13 @@ module UpservFoundations
             if block
               block.call
             else
-              card_header_title_container do
-                title_html = card_header_title do
-                  title
-                end
-                subtitle_html = card_header_subtitle do
-                  subtitle
-                end
-                (title_html + subtitle_html).html_safe
+              title_html = card_header_title do
+                title
               end
+              subtitle_html = card_header_subtitle do
+                subtitle
+              end
+              (title_html + subtitle_html).html_safe
             end
           end
         end

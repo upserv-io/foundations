@@ -27,6 +27,34 @@ module UpservFoundations
           end
         end
 
+        def page_header_title_container(title: nil, subtitle: nil, &block)
+          content_tag 'DIV', id: 'page-header-title-container' do
+            if block
+              block.call
+            else
+              title_html = page_header_title do
+                title
+              end
+              subtitle_html = page_header_subtitle do
+                subtitle
+              end
+              (title_html + subtitle_html).html_safe
+            end
+          end
+        end
+
+        def page_header_title(&block)
+          content_tag 'DIV', id: 'page-header-title' do
+            block.call
+          end
+        end
+
+        def page_header_subtitle(&block)
+          content_tag 'DIV', id: 'page-header-subtitle' do
+            block.call
+          end
+        end
+
         # called from template
         def page_body(page_body_max_width_options = {}, &block)
           page_body_options = { id: 'page-body' }

@@ -33,15 +33,22 @@
   vertical-align: bottom;
   // no padding top because page container has it
   padding: 0rem 0.75rem 0.75rem;
+}
+
+#page-header-title-container {
+}
+
+#page-header-title {
   font-size: 1.5rem;
   * {
     font-size: 1.5rem;
   }
-  .sub-title {
+}
+
+#page-header-subtitle {
+  font-size: 1rem;
+  * {
     font-size: 1rem;
-    * {
-      font-size: 1rem;
-    }
   }
 }
 
