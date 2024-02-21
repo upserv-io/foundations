@@ -49,6 +49,10 @@ module UpservFoundations
         template 'global/modal_triggers.js',
                  'app/javascript/global/modal_triggers.js'
         # uf
+        template 'uf/card_controller.js',
+                 'app/javascript/controllers/uf/card_controller.js'
+        template 'uf/card_header_controller.js',
+                 'app/javascript/controllers/uf/card_header_controller.js'
         template 'uf/inline_cards_wrapper_controller.js',
                  'app/javascript/controllers/uf/inline_cards_wrapper_controller.js'
       end

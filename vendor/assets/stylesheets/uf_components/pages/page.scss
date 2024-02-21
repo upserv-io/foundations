@@ -33,12 +33,15 @@
   vertical-align: bottom;
   // no padding top because page container has it
   padding: 0rem 0.75rem 0.75rem;
-  // I'd like to get rid of these and always depend on
-  // adding text-page-header and text-page-header-sub-title
-  // but I would have to review everything in MTP
   font-size: 1.5rem;
+  * {
+    font-size: 1.5rem;
+  }
   .sub-title {
     font-size: 1rem;
+    * {
+      font-size: 1rem;
+    }
   }
 }
 

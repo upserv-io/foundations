@@ -1,6 +1,4 @@
 html {
-  // make p-1 equal 5px
-  font-size: 125%;
   height: 100vh;
 }
 
@@ -20,5 +18,5 @@ body {
 
 // prevent strange flex issue where things can overflow when min-width is not set
 .flex * {
-  min-width: 0px;
+  min-width: 0rem;
 }
