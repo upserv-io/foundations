@@ -15,6 +15,13 @@ thead {
 
 thead tr:first-child {
   border-bottom: 2px solid var(--divider1-color);
+  .no-ellipsis & {
+    th {
+      white-space: normal;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }
 
 tbody tr {
@@ -47,11 +54,6 @@ table.no-alternate {
       background-color: var(--background-color-table-row-hover);
     }
     border: 0;
-  }
-  &.keep-thead-border {
-    thead tr:first-child {
-      border-bottom: 2px solid var(--divider1-color);
-    }
   }
 }
 

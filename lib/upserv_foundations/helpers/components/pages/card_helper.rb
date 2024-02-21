@@ -12,6 +12,10 @@ module UpservFoundations
         end
 
         def card(options = {}, &block)
+          # single stacked inline
+          #   single - max-height: 100% (makes overflow scroll on card body while keeping header in place)
+          #   stacked - max-height: none (makes page body scroll on overflow)
+          #   inline - min-height: 100% (makes card height based on contents OR based on neighboring cards)
           type = if options.keys.include?(:type)
                    options.delete(:type).to_sym
                  else
@@ -56,6 +60,11 @@ module UpservFoundations
           end
         end
 
+        # currently no difference between table card and card
+        def table_card(options = {}, &block)
+          card(options, block)
+        end
+
         def card_header(table: false, divider: nil, &block)
           # if table and divider notnot set, default to false
           divider = false if table && divider.nil?
@@ -68,6 +77,10 @@ module UpservFoundations
 
           divider_eml = content_tag 'div', '', class: 'card-header-divider' if divider
           "#{header_elm}#{divider_eml}".html_safe
+        end
+
+        def table_card_header(options = {}, &block)
+          card_header(options.merge(table: true), block)
         end
 
         def card_header_title_row(&block)
@@ -124,6 +137,10 @@ module UpservFoundations
           content_tag 'DIV', class: "card-body#{' remove-padding' if remove_padding}" do
             block.call
           end
+        end
+
+        def table_card_body(options = {}, &block)
+          card_body(options.merge(table: true), block)
         end
       end
     end

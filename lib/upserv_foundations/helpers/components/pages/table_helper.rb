@@ -19,10 +19,14 @@ module UpservFoundations
           end
         end
 
-        def table_body(enum, options = {}, &block)
+        def table_body(enum = nil, options = {}, &block)
           content_tag 'TBODY', options do
-            enum&.each do |item|
-              block.call(item)
+            if enum
+              enum&.each do |item|
+                block.call(item)
+              end
+            else
+              block.call
             end
           end
         end
