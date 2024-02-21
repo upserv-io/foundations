@@ -102,15 +102,6 @@
   border-bottom: 1px solid var(--divider1-color);
 }
 
-#page-body {
-  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
-  &.remove-padding {
-    padding: 0rem;
-  }
-  overflow-y: overlay;
-  overflow-x: overlay;
-}
-
 #page-header.small {
   .tabs {
     justify-content: center;
@@ -120,12 +111,13 @@
 // actual page body that scrolls vertially. It's more of a wrapper of the
 // page body max width and ultimately the page contents
 #page-body {
+  overflow-y: overlay;
+  overflow-x: overlay;
   // tbh IDK why this works. I would expect height 100% to take 100% of the height
   // of the page body which is not what we want. We want it take take the height of the
   // page
   height: 100%;
   width: 100%;
-  overflow-y: overlay;
   // center page max width
   display: flex;
   justify-content: center;

@@ -62,7 +62,7 @@ module UpservFoundations
 
         # currently no difference between table card and card
         def table_card(options = {}, &block)
-          card(options, block)
+          card(options, &block)
         end
 
         def card_header(table: false, divider: nil, &block)
@@ -79,8 +79,8 @@ module UpservFoundations
           "#{header_elm}#{divider_eml}".html_safe
         end
 
-        def table_card_header(options = {}, &block)
-          card_header(options.merge(table: true), block)
+        def table_card_header(divider: nil, &block)
+          card_header(table: true, divider: divider, &block)
         end
 
         def card_header_title_row(&block)
@@ -139,8 +139,8 @@ module UpservFoundations
           end
         end
 
-        def table_card_body(options = {}, &block)
-          card_body(options.merge(table: true), block)
+        def table_card_body(remove_padding = nil, &block)
+          card_body(table: true, remove_padding: remove_padding, &block)
         end
       end
     end
