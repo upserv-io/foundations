@@ -1,3 +1,8 @@
+.inline-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card-wrapper {
   // fit the max width set by the page-body-max-width. Note this will be
   // overriden for inline cards
@@ -7,11 +12,6 @@
   // add padding right and padding bottom to create space between cards
   // no padding left because page body max width or preceding card will have it
   padding: 0rem 0.75rem 0.75rem 0rem;
-}
-
-.inline-cards-wrapper {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .card {
