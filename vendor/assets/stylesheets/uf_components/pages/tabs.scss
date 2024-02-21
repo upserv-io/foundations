@@ -2,6 +2,12 @@
   display: flex;
 }
 
+#page-header.small {
+  .tabs {
+    justify-content: center;
+  }
+}
+
 .tab-item {
   &.basic-width-icon {
     align-items: center;
