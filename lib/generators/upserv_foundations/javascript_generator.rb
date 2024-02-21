@@ -55,6 +55,8 @@ module UpservFoundations
                  'app/javascript/controllers/uf/card_header_controller.js'
         template 'uf/inline_cards_wrapper_controller.js',
                  'app/javascript/controllers/uf/inline_cards_wrapper_controller.js'
+        template 'uf/page_header_controller.js',
+                 'app/javascript/controllers/uf/page_header_controller.js'
       end
     end
   end

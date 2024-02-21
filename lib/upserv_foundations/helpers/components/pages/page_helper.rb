@@ -14,15 +14,19 @@ module UpservFoundations
         end
 
         # called from template
-        def page_header(options = {}, &block)
-          should_assign_page_header_or_body_style = if options.keys.include?(:should_assign_page_header_or_body_style)
-                                                      options.delete(:should_assign_page_header_or_body_style)
-                                                    else
-                                                      true
-                                                    end
-          options[:id] = 'page-header'
-          assign_page_header_or_body_style(options) if should_assign_page_header_or_body_style
-          content_tag 'DIV', options do
+        def page_header(&block)
+          style = "visibility: hidden; #{page_header_and_body_style}"
+          content_tag 'DIV', id: 'page-header', style: style, data: { controller: 'uf--page-header' } do
+            block.call
+          end
+        end
+
+        def page_header_and_body_style
+          "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"
+        end
+
+        def page_header_title_row(&block)
+          content_tag 'DIV', id: 'page-header-title-row' do
             block.call
           end
         end
@@ -51,6 +55,12 @@ module UpservFoundations
 
         def page_header_subtitle(&block)
           content_tag 'DIV', id: 'page-header-subtitle' do
+            block.call
+          end
+        end
+
+        def page_header_edit_buttons(&block)
+          content_tag 'DIV', id: 'page-header-edit-buttons' do
             block.call
           end
         end

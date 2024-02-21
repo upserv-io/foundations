@@ -17,6 +17,7 @@
   // the whether the page header is included or not
   padding-top: 0.75rem;
 }
+/////
 
 // page header container. remains at top when body scrolls
 #page-header {
@@ -35,13 +36,18 @@
   padding: 0rem 0.75rem 0.75rem;
 }
 
+#page-header-title-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
 #page-header-title-container {
 }
 
 #page-header-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   * {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
@@ -49,6 +55,76 @@
   font-size: 1rem;
   * {
     font-size: 1rem;
+  }
+}
+
+#page-header-edit-buttons {
+  display: flex;
+  margin-left: auto;
+  // align items to the top with padding so they stay in
+  // the same position whether there is a subtitle or not
+  align-items: flex-start;
+  padding-top: 0.5rem;
+  gap: 0.5rem;
+}
+
+#page-header-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+#page-header.small {
+  #page-header-title-row {
+    display: block;
+  }
+
+  #page-header-title-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #page-header-title {
+    text-align: center;
+  }
+
+  #page-header-subtitle {
+    text-align: center;
+  }
+
+  #page-header-edit-buttons {
+    // override previous margin and padding; then center the items
+    margin: 0;
+    padding: 0.5rem 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #page-header-filters {
+    justify-content: center;
+  }
+}
+
+#page-header-divider {
+  margin: 0rem 0.75rem 0rem;
+  border-bottom: 1px solid var(--divider1-color);
+}
+
+#page-body {
+  padding: 0.75rem 0.75rem 0.75rem 0.75rem;
+  &.remove-padding {
+    padding: 0rem;
+  }
+  overflow-y: overlay;
+  overflow-x: overlay;
+}
+
+#page-header.small {
+  .tabs {
+    justify-content: center;
   }
 }
 
