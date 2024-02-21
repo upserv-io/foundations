@@ -89,7 +89,7 @@
     text-align: center;
   }
 
-  .card-header-edit-buttons {
+  .card-header-action-buttons {
     // override previous margin and padding; then center the items
     margin: 0;
     padding: 0.5rem 0;
@@ -97,7 +97,7 @@
     align-items: center;
   }
 
-  .card-header-filters {
+  .card-header-controls {
     justify-content: center;
   }
 }

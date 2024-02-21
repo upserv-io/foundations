@@ -68,13 +68,6 @@
   gap: 0.5rem;
 }
 
-#page-header-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: center;
-}
-
 #page-header.small {
   #page-header-title-row {
     display: block;
@@ -95,16 +88,12 @@
     text-align: center;
   }
 
-  #page-header-edit-buttons {
+  #page-header-action-buttons {
     // override previous margin and padding; then center the items
     margin: 0;
     padding: 0.5rem 0;
     justify-content: center;
     align-items: center;
-  }
-
-  #page-header-filters {
-    justify-content: center;
   }
 }
 
