@@ -52,7 +52,7 @@
   font-size: 1rem;
 }
 
-.card-header-edit-buttons {
+.card-header-action-buttons {
   display: flex;
   margin-left: auto;
   // align items to the top with padding so they stay in
@@ -62,7 +62,7 @@
   gap: 0.5rem;
 }
 
-.card-header-filters {
+.card-header-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;

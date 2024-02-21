@@ -104,14 +104,14 @@ module UpservFoundations
           end
         end
 
-        def card_header_edit_buttons(&block)
-          content_tag 'DIV', class: 'card-header-edit-buttons' do
+        def card_header_action_buttons(&block)
+          content_tag 'DIV', class: 'card-header-action-buttons' do
             block.call
           end
         end
 
-        def card_header_filters(&block)
-          content_tag 'DIV', class: 'card-header-filters' do
+        def card_header_controls(&block)
+          content_tag 'DIV', class: 'card-header-controls' do
             block.call
           end
         end

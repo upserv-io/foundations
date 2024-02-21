@@ -59,8 +59,8 @@ module UpservFoundations
           end
         end
 
-        def page_header_edit_buttons(&block)
-          content_tag 'DIV', id: 'page-header-edit-buttons' do
+        def page_header_action_buttons(&block)
+          content_tag 'DIV', id: 'page-header-action-buttons' do
             block.call
           end
         end
