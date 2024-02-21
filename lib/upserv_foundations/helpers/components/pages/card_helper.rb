@@ -5,36 +5,55 @@ module UpservFoundations
     module Pages
       # all things cards
       module CardHelper
-        def card(options = {}, &block)
-          # get height related data and store in variable(s)
-          max_height_full = if options.keys.include?(:max_height_full)
-                              options.delete(:max_height_full)
-                            else
-                              true
-                            end
-          max_height = options.delete(:max_height)
-          height = options.delete(:height)
+        def inline_cards_wrapper(min_px: 400, &block)
+          # set initial display to none so that the child cards don't flash with full width on page load
+          # after load, js will setset the display to flex and also adjust children width
+          content_tag 'DIV', class: 'inline-cards-wrapper', style: 'display: none', data: { controller: 'uf--inline-cards-wrapper', min_px: min_px } do
+            block.call
+          end
+        end
 
-          # Set styles based on options passed in
-          card_wrapper_style = if max_height_full
-                                 'max-height: 100%;'
-                               elsif max_height
-                                 # NOTE: I actually wanted max height to be "height of card_container
-                                 # is set to the max height OR the remaining height of the screen,
-                                 # whichever comes first" but I couldn't get it to work. I tried this:
-                                 # card_container_style = "height: #{max_height}; max-height: 100%"
-                                 # it might be because you can't set a height of 100% on a child (ie the card)
-                                 # when the parent height is not set (ie when the card_container has a
-                                 # max-height of 100% but a height of some set value)
-                                 "max-height: #{max_height};"
-                               elsif height
-                                 "height: #{height};"
-                               else
-                                 ''
-                               end
+        def card(options = {}, &block)
+          inline = if options.keys.include?(:inline)
+                     options.delete(:inline)
+                   else
+                     false
+                   end
+
+          type = if options.keys.include?(:type)
+                   options.delete(:type).to_sym
+                 else
+                   :single
+                 end
+          height = if options.keys.include?(:height)
+                     options.delete(:height)
+                   else
+                     false
+                   end
+          max_height = if options.keys.include?(:max_height)
+                         options.delete(:max_height)
+                       elsif type == :single
+                         '100%'
+                       else
+                         false
+                       end
+          min_height = if options.keys.include?(:min_height)
+                         options.delete(:min_height)
+                       elsif inline
+                         '100%'
+                       else
+                         false
+                       end
+          card_wrapper_style = ''
+          card_wrapper_style += "height: #{height};" if height
+          card_wrapper_style += "max-height: #{max_height};" if max_height
+          card_wrapper_style += "min-height: #{min_height};" if min_height
+
+          width_class = options.delete(:width_class)
+          card_wrapper_class = "card-wrapper#{" #{width_class}" if width_class && inline}"
 
           # prepare elements
-          content_tag 'DIV', class: 'card-wrapper', style: card_wrapper_style do
+          content_tag 'DIV', class: card_wrapper_class, style: card_wrapper_style do
             content_tag 'DIV', class: 'card' do
               block.call
             end
@@ -42,6 +61,14 @@ module UpservFoundations
         end
 
         def card_header(options = {}, &block)
+          table = if options.keys.include?(:table)
+                    options.delete(:table)
+                  else
+                    false
+                  end
+          if table && !options.keys.include?(:divider)
+            options[:divider] = false
+          end
           divider = options.key?(:divider) ? options.delete(:divider) : true
           options[:class] = "card-header#{" #{options[:class]}" if options[:class]}"
 
@@ -54,6 +81,14 @@ module UpservFoundations
         end
 
         def card_body(options = {}, &block)
+          table = if options.keys.include?(:table)
+                    options.delete(:table)
+                  else
+                    false
+                  end
+          if table && !options.keys.include?(:remove_padding)
+            options[:remove_padding] = true
+          end
           remove_padding = if options.keys.include?(:remove_padding)
                              options.delete(:remove_padding)
                            else
@@ -63,21 +98,6 @@ module UpservFoundations
           content_tag 'DIV', options do
             block.call
           end
-        end
-
-        def table_card(options = {}, &block)
-          options[:max_height_full] = true unless options.keys.include?(:max_height_full)
-          card(options, &block)
-        end
-
-        def table_card_header(options = {}, &block)
-          options[:divider] = false unless options.keys.include?(:divider)
-          card_header(options, &block)
-        end
-
-        def table_card_body(options = {}, &block)
-          options[:remove_padding] = true
-          card_body(options, &block)
         end
       end
     end

@@ -45,7 +45,7 @@ module UpservFoundations
         end
 
         def page_max_width_default
-          @page_max_width_default ||= '500rem'
+          @page_max_width_default ||= '2500px'
         end
 
         def page_min_width_default

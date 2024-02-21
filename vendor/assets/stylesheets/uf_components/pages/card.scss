@@ -1,5 +1,6 @@
 .card-wrapper {
-  // fit the max width set by the page-body-max-width
+  // fit the max width set by the page-body-max-width. Note this will be
+  // overriden for inline cards
   width: 100%;
   // no padding top because card header or page container or preceding card
   // will have padding bottom
@@ -7,11 +8,17 @@
   // no padding left because page body max width or preceding card will have it
   padding: 0rem 0.75rem 0.75rem 0rem;
 }
+
+.inline-cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card {
   border-radius: 0.25rem;
   // take up the full width and height of the card-wrapper
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   // if the card contents are taller than the card, this will make the
   // the card header retain it's height but the card body will flex
   // to match the remainder of the card height. Since the card body is

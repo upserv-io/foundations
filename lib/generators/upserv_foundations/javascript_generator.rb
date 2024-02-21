@@ -48,6 +48,9 @@ module UpservFoundations
                  'app/javascript/global/dropdown.js'
         template 'global/modal_triggers.js',
                  'app/javascript/global/modal_triggers.js'
+        # uf
+        template 'uf/inline_cards_wrapper_controller.js',
+                 'app/javascript/controllers/uf/inline_cards_wrapper_controller.js'
       end
     end
   end
