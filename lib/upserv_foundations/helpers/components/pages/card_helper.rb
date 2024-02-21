@@ -8,7 +8,7 @@ module UpservFoundations
         def inline_cards_wrapper(min_px: 400, &block)
           # set initial display to none so that the child cards don't flash with full width on page load
           # after load, js will setset the display to flex and also adjust children width
-          content_tag 'DIV', class: 'inline-cards-wrapper', style: 'display: none', data: { controller: 'uf--inline-cards-wrapper', min_px: min_px } do
+          content_tag 'DIV', class: 'inline-cards-wrapper', style: 'visibility: hidden', data: { controller: 'uf--inline-cards-wrapper', min_px: min_px } do
             block.call
           end
         end
