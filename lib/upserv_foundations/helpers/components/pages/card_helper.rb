@@ -69,7 +69,7 @@ module UpservFoundations
           # if table and divider notnot set, default to false
           divider = false if table && divider.nil?
           # if divider not setset, default to true
-          divider == true if divider.nil?
+          divider = true if divider.nil?
 
           header_elm = content_tag 'div', class: 'card-header', data: { controller: 'uf--card-header' } do
             block.call
