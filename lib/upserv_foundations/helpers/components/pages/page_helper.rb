@@ -90,12 +90,10 @@ module UpservFoundations
           @page_min_width_default ||= '0rem'
         end
 
-        # basically the same as regular page header but do not set width
-        # with assign_page_header_or_body_style (so width will default to 100% - see
-        # vendor/assets/stylesheets/components/pages/page.scss)
-        def page_header_columns(options = {}, &block)
-          options[:should_assign_page_header_or_body_style] = false
-          page_header(options, &block)
+        # currently same as regular page_header
+        # previously it ignored page max width
+        def page_header_columns(&block)
+          page_header(&block)
         end
 
         def page_body_columns(options = {}, &block)

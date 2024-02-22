@@ -12,16 +12,17 @@ module UpservFoundations
         end
 
         def card(options = {}, &block)
-          # single stacked inline
-          #   single - max-height: 100% (makes overflow scroll on card body while keeping header in place)
-          #   stacked - max-height: none (makes page body scroll on overflow)
-          #   inline - min-height: 100% (makes card height based on contents OR based on neighboring cards)
-          type = if options.keys.include?(:type)
-                   options.delete(:type).to_sym
-                 else
-                   :single
-                 end
-          inline = type == :inline
+          # inline cards height is determined by the content / neighbors
+          # non-inline cards default to "single" - ie max-height: 100% so content
+          # scrolls on card body not page body
+          # add "stacked: true" to make it "max-height: none" for stacked cards so
+          # the cards can scroll on the page body
+          # height, max_height, and min_height can be set to override the defaults
+          stacked = if options.keys.include?(:stacked)
+                      options.delete(:stacked).to_sym
+                    else
+                      false
+                    end
           height = if options.keys.include?(:height)
                      options.delete(:height)
                    else
@@ -29,15 +30,13 @@ module UpservFoundations
                    end
           max_height = if options.keys.include?(:max_height)
                          options.delete(:max_height)
-                       elsif type == :single
-                         '100%'
+                       elsif stacked
+                         'none'
                        else
-                         false
+                         '100%'
                        end
           min_height = if options.keys.include?(:min_height)
                          options.delete(:min_height)
-                       elsif inline
-                         '100%'
                        else
                          false
                        end
