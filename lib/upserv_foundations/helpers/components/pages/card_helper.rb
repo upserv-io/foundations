@@ -19,7 +19,7 @@ module UpservFoundations
           # the cards can scroll on the page body
           # height, max_height, and min_height can be set to override the defaults
           stacked = if options.keys.include?(:stacked)
-                      options.delete(:stacked).to_sym
+                      options.delete(:stacked)
                     else
                       false
                     end
