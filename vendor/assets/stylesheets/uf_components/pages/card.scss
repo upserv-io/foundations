@@ -96,7 +96,9 @@
   align-items: center;
 }
 
-.card-header.small {
+// card header styles for small cards & all modals
+.card-header.small,
+.modal-content-container .card-header {
   .card-header-title-row {
     display: block;
   }

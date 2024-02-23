@@ -64,14 +64,20 @@ module UpservFoundations
           card(options, &block)
         end
 
-        def card_header(table: false, divider: nil, &block)
+        def card_header(table: false, divider: nil, title: nil, subtitle: nil, &block)
           # if table and divider notnot set, default to false
           divider = false if table && divider.nil?
           # if divider not setset, default to true
           divider = true if divider.nil?
 
           header_elm = content_tag 'div', class: 'card-header', data: { controller: 'uf--card-header' } do
-            block.call
+            if title
+              card_header_title_row do
+                card_header_title_container title: title, subtitle: subtitle
+              end
+            else
+              block.call
+            end
           end
 
           divider_eml = content_tag 'div', '', class: 'card-header-divider' if divider
