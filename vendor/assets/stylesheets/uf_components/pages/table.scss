@@ -1,7 +1,8 @@
 table {
   width: 100%;
   // border-collapse: collapse;
-  border-collapse: separate;
+  // idk why but tailwind is overriding this
+  border-collapse: separate !important;
   border-spacing: 0;
   table-layout: fixed;
   // when left out, there is a 10px margin bottom and idk where that comes
@@ -17,8 +18,7 @@ thead {
 
 thead tr:first-child {
   th {
-    // border-bottom: 2px solid var(--divider1-color);
-    border-bottom: 2px solid green;
+    border-bottom: 2px solid var(--divider1-color);
   }
   .no-ellipsis & {
     th {
