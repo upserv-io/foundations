@@ -17,7 +17,8 @@ thead {
 
 thead tr:first-child {
   th {
-    border-bottom: 2px solid var(--divider1-color);
+    // border-bottom: 2px solid var(--divider1-color);
+    border-bottom: 2px solid green;
   }
   .no-ellipsis & {
     th {
