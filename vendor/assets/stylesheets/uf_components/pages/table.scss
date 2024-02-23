@@ -1,8 +1,8 @@
-table {
+table.uf-table {
   width: 100%;
   // border-collapse: collapse;
   // idk why but tailwind is overriding this
-  border-collapse: separate !important;
+  border-collapse: separate;
   border-spacing: 0;
   table-layout: fixed;
   // when left out, there is a 10px margin bottom and idk where that comes

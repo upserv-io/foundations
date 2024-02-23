@@ -6,6 +6,7 @@ module UpservFoundations
       # tables
       module TableHelper
         def table(options = {}, &block)
+          options[:class] = "uf-table #{options[:class]}".strip
           content_tag 'TABLE', options do
             block.call
           end
