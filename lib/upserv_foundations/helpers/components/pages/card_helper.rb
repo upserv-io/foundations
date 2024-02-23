@@ -49,7 +49,7 @@ module UpservFoundations
           card_wrapper_style += "min-height: #{min_height};" if min_height
 
           width_class = options.delete(:width_class)
-          card_wrapper_class = "card-wrapper#{" #{width_class}" if width_class && inline}"
+          card_wrapper_class = "card-wrapper#{" #{width_class}" if width_class}"
 
           # prepare elements
           content_tag 'DIV', data: { controller: 'uf--card' }, class: card_wrapper_class, style: card_wrapper_style do

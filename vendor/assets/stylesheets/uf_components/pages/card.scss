@@ -4,19 +4,24 @@
 }
 
 .card-wrapper {
-  // fit the max width set by the page-body-max-width. Note this will be
-  // overriden for inline cards
-  width: 100%;
-  // no padding top because card header or page container or preceding card
-  // will have padding bottom
+  // fit the max width set by the page-body-max-width. Note this will
+  // be overriden for inline cards via js
+  width: auto;
+  // no padding top because card header or page container or preceding
+  // card will have padding bottom
   // add padding right and padding bottom to create space between cards
   // no padding left because page body max width or preceding card will have it
   padding: 0rem 0.75rem 0.75rem 0rem;
-  // if the card contents are taller than the card, this will make the
-  // the card header retain it's height but the card body will flex
-  // to match the remainder of the card height. Since the card body is
-  // scrollable, this will make the card body contents scroll while the
-  // card header remains fixed.
+  // Honestly, I'm not really sure why this works but display block
+  // here with height 100% on the card below makes the cards take up
+  // the full height of the card-wrapper. Without display flex and
+  // flex column here, the card height will be taller than the wrapper
+  // when the card is taller than the wrapper. Somehow, this causes
+  // overflow on the page body instead of the card. Without height 100%
+  // on the card below, the card will not take up the full height of
+  // of the wrapper on inline cards (on inline cards the card will be
+  // the height of it's contenst or it's tallest neighbor, whichever
+  // is taller).
   display: flex;
   flex-direction: column;
 }
@@ -26,14 +31,18 @@
   border-radius: 0.25rem;
   // take up the full width and height of the card-wrapper
   width: 100%;
+  // see note on display flex above
   height: 100%;
-  // idk why this works but it does
+  // idk why this works but it does. I think it has something to do
+  // with display flex and flex column that if thie card doesn't
+  // overflow auto, then the card will overflow past the flex
+  // boundaries (which is strange because the real overflow ultimately
+  // happens on the card body, not the card itself). Without this
+  // however, overflow on the card body doesn't work.
   overflow: auto;
-  // if the card contents are taller than the card, this will make the
-  // the card header retain it's height but the card body will flex
-  // to match the remainder of the card height. Since the card body is
-  // scrollable, this will make the card body contents scroll while the
-  // card header remains fixed.
+  // this seems to make sure the card header and body combined take up
+  // the height of the card. Since the card body has overflow, all
+  // scrolling will be done in the card body
   display: flex;
   flex-direction: column;
 }
