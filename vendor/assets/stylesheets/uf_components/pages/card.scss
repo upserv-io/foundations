@@ -78,11 +78,15 @@
   display: flex;
   margin-left: auto;
   // align items to the top
-  // this way, text will line up well
-  // but icons...??? and buttons???
-  // the same position whether there is a subtitle or not
+  // this way, text and buttons will line up well with title
+  // whether there is a subtitle or not
   align-items: flex-start;
   gap: 0.5rem;
+  i {
+    // this helps icons line up with title whether there is a
+    // subtitle or not
+    padding-top: 0.25rem;
+  }
 }
 
 .card-header-controls {
