@@ -1,10 +1,12 @@
 table {
   width: 100%;
-  border-collapse: collapse;
+  // border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   table-layout: fixed;
   // when left out, there is a 10px margin bottom and idk where that comes
   // from so this forces it to be 0
-  margin-bottom: 0rem;
+  // margin-bottom: auto;
 }
 
 thead {
@@ -14,7 +16,9 @@ thead {
 }
 
 thead tr:first-child {
-  border-bottom: 2px solid var(--divider1-color);
+  th {
+    border-bottom: 2px solid var(--divider1-color);
+  }
   .no-ellipsis & {
     th {
       white-space: normal;
@@ -25,7 +29,7 @@ thead tr:first-child {
 }
 
 tbody tr {
-  border-top: 1px solid var(--divider1-color);
+  border-bottom: 1px solid var(--divider1-color);
   &:nth-child(odd) {
     background-color: var(--background-gray0-color);
   }
@@ -61,7 +65,9 @@ td,
 th {
   text-align: left;
   padding: 8px;
-
+  // need border on the td because if you add to tr with border-collapse: collapse
+  // it will not work (the border does not show up)
+  border-bottom: 1px solid var(--divider1-color);
   &.ta-center {
     text-align: center;
   }
