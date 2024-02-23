@@ -116,8 +116,9 @@ module UpservFoundations
           end
         end
 
-        def card_header_action_buttons(&block)
-          content_tag 'DIV', class: 'card-header-action-buttons' do
+        def card_header_action_buttons(options = {}, &block)
+          options[:class] = "card-header-action-buttons#{" #{options[:class]}" if options[:class]}"
+          content_tag 'DIV', options do
             block.call
           end
         end
