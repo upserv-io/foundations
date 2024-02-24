@@ -91,20 +91,26 @@
   gap: 0.5rem;
   button,
   .btn {
-    margin-top: -0.25rem;
+    margin-top: -0.1875;
   }
   i {
     padding-top: 0.25rem;
   }
 }
 
-.card-header.small {
-}
 // card header styles for small cards & all modals
 .card-header.small,
 .modal-content-container .card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
   .card-header-title-row {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .card-header-title-container {
@@ -123,9 +129,6 @@
   }
 
   .card-header-action-buttons {
-    // override previous margin and padding; then center the items
-    margin: 0;
-    padding: 0.5rem 0;
     justify-content: center;
     align-items: center;
     // reset btn and i so they are center aligned
@@ -142,6 +145,46 @@
     justify-content: center;
   }
 }
+// .modal-content-container .card-header {
+//   .card-header-title-row {
+//     display: block;
+//   }
+//
+//   .card-header-title-container {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+//
+//   .card-header-title {
+//     text-align: center;
+//   }
+//
+//   .card-header-subtitle {
+//     text-align: center;
+//   }
+//
+//   .card-header-action-buttons {
+//     // override previous margin and padding; then center the items
+//     margin: 0;
+//     padding: 0.5rem 0;
+//     justify-content: center;
+//     align-items: center;
+//     // reset btn and i so they are center aligned
+//     button,
+//     .btn {
+//       margin-top: 0rem;
+//     }
+//     i {
+//       padding-top: 0rem;
+//     }
+//   }
+//
+//   .card-header-controls {
+//     justify-content: center;
+//   }
+// }
 
 .card-header-divider {
   margin: 0rem 0.75rem 0rem;

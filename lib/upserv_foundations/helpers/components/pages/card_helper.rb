@@ -5,7 +5,7 @@ module UpservFoundations
     module Pages
       # all things cards
       module CardHelper
-        def inline_cards_wrapper(min_px: 576, &block)
+        def inline_cards_wrapper(min_px: 350, &block)
           content_tag 'DIV', class: 'inline-cards-wrapper', data: { controller: 'uf--inline-cards-wrapper', min_px: min_px } do
             block.call
           end

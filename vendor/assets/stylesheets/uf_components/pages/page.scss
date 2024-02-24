@@ -81,8 +81,6 @@
 }
 
 #page-header.small {
-}
-#page-header.small {
   #page-header-title-row {
     display: block;
   }
@@ -103,9 +101,6 @@
   }
 
   #page-header-action-buttons {
-    // override previous margin and padding; then center the items
-    margin: 0;
-    padding: 0.5rem 0;
     justify-content: center;
     align-items: center;
     // reset btn and i so they are center aligned
@@ -117,17 +112,15 @@
       padding-top: 0rem;
     }
   }
+
+  .tabs {
+    justify-content: center;
+  }
 }
 
 #page-header-divider {
   margin: 0rem 0.75rem 0rem;
   border-bottom: 1px solid var(--divider1-color);
-}
-
-#page-header.small {
-  .tabs {
-    justify-content: center;
-  }
 }
 
 // tbh idk why the page body aligns center on large screens but it does
