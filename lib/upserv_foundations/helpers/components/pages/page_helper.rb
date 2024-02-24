@@ -100,18 +100,14 @@ module UpservFoundations
           options[:id] = 'page-body-columns'
           options[:data] ||= {}
           options[:data][:controller] = "pages--page-body-columns#{" #{options[:data][:controller]}" if options[:data][:controller]}"
+          assign_page_header_or_body_style(options)
           content_tag 'DIV', options do
             block.call
           end
         end
 
         def page_body_column(options = {}, &block)
-          inline_cards = if options.keys.include?(:inline_cards)
-                           options.delete(:inline_cards)
-                         else
-                           false
-                         end
-          options[:class] = "page-body-column#{' inline-cards' if inline_cards}#{" #{options[:class]}" if options[:class]}"
+          options[:class] = "page-body-column#{" #{options[:class]}" if options[:class]}"
           content_tag 'DIV', options do
             block.call
           end

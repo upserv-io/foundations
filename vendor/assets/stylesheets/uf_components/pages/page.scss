@@ -108,14 +108,16 @@
   }
 }
 
+// tbh idk why the page body aligns center on large screens but it does
+// I would expec the parent to need to have align itms (it is flex / flex
+// column). It might be because the margin left / right auto on the page
+// header. idk. Also, Idk if overflow x is needed. I get overflow but idk
+// about overflow y
 // actual page body that scrolls vertially. It's more of a wrapper of the
 // page body max width and ultimately the page contents
 #page-body {
   overflow-y: overlay;
   overflow-x: overlay;
-  // tbh IDK why this works. I would expect height 100% to take 100% of the height
-  // of the page body which is not what we want. We want it take take the height of the
-  // page
   height: 100%;
   width: 100%;
   // center page max width
@@ -138,6 +140,11 @@
 
 // actual page body when there are columns
 #page-body-columns {
+  // this mimicks
+  // because align items doesn't play well with overflow
+  // (see .page-container above)
+  margin-left: auto;
+  margin-right: auto;
   // take up full height and width, hide overflow because overflow
   // should happen on child, not here
   // height is set via javascript when the page loads and is resized
@@ -146,13 +153,6 @@
   width: 100%;
   // set columns side by side without wrapping
   display: flex;
-  // only need padding left because either final column will have
-  // padding right (see note above about margin and js)
-  // it so that the finalscroll bar is on the far right of the screen...
-  // if the padding right was heere on the page body columns, then the final
-  // column would have a gap between the final column scroll bar and the edge
-  // of the screen
-  padding: 0rem 0rem 0rem 0.75rem;
 }
 
 // single column that scrolls independently of other columns
@@ -160,42 +160,14 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  // width: 100%;
   // by having overflow overly on x and y, this basically overrides the
   // overaly on the page max width container because now, these columns
   // combined should not make the page max width container overflow
   overflow: overlay;
-  // give margin right to all columns
-  // this way there is spacing between each column AND the scroll
-  // bar for each column is next to the correct column (if you use
-  // padding instead of margin, the scroll bar is right next to the
-  // next column to the right which is not ideal)
-  // NOTE: we use js to replace margin right with padding right on the final
-  // visible column so that the scroll bar is on the far right of the page
-  margin-right: 0.75rem;
-  // js will remove margin right from last visible child
-  // however when the page loads, the last visible child has a margin-right of
-  // 0.75rem (see line above) and then after the js loads, the margin right is
-  // removed which causes a jerky motion.
-  // since we know the last child should never have margin right, go ahead
-  // and remove it by default as well. This way the js won't create a jerky motion
-  // the only way the page will jerk now is if at page load, the last column is not
-  // the last visible column, which I'm ok with that. That's an edge case.
-  &:last-child {
-    margin-right: 0rem;
-  }
-  &.last-visible-column {
-    // the last child get padding right instead of margin right so that
-    // the scrollbar is on the edge of the page rather than right next to
-    // the column.
-    margin-right: 0rem;
-    padding-right: 0.75rem;
-    &.inline-cards {
-      // each inline card will have pr-3 so remove padding right here
-      // NOTE: inline cards are only going to look good on the last column
-      // because all other columns will have margin right AND padding right
-      // from the inline cards... woof
-      padding-right: 0rem;
-    }
-  }
+  // no padding top because page container or page header (if included) will have it
+  // no padding right because cards will have it
+  // no padding bottom because cards will have it
+  // add padding left so that first columns will line up with the header and other columns
+  // will be separate from the scrollbar for the column to their left
+  padding: 0rem 0rem 0rem 0.75rem;
 }
