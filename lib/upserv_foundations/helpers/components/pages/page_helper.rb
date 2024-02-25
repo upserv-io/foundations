@@ -13,6 +13,10 @@ module UpservFoundations
           end
         end
 
+        def page_header_and_body_style
+          "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"
+        end
+
         # called from template
         def page_header(title: nil, subtitle: nil, &block)
           style = "visibility: hidden; #{page_header_and_body_style}"
@@ -25,10 +29,6 @@ module UpservFoundations
               block.call
             end
           end
-        end
-
-        def page_header_and_body_style
-          "min-width: #{@page_min_width || page_min_width_default}; max-width: #{@page_max_width || page_max_width_default};"
         end
 
         def page_header_title_row(&block)
@@ -54,20 +54,35 @@ module UpservFoundations
         end
 
         def page_header_title(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', id: 'page-header-title' do
-            block.call
+            content
           end
         end
 
         def page_header_subtitle(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', id: 'page-header-subtitle' do
-            block.call
+            content
           end
         end
 
         def page_header_action_buttons(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', id: 'page-header-action-buttons' do
-            block.call
+            content
           end
         end
 
