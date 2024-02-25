@@ -14,10 +14,16 @@ module UpservFoundations
         end
 
         # called from template
-        def page_header(&block)
+        def page_header(title: nil, subtitle: nil, &block)
           style = "visibility: hidden; #{page_header_and_body_style}"
           content_tag 'DIV', id: 'page-header', style: style, data: { controller: 'uf--page-header' } do
-            block.call
+            if title
+              page_header_title_row do
+                page_header_title_container(title: title, subtitle: subtitle)
+              end
+            else
+              block.call
+            end
           end
         end
 
