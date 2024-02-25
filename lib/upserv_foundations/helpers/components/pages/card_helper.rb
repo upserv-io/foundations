@@ -73,7 +73,7 @@ module UpservFoundations
           header_elm = content_tag 'div', class: 'card-header', data: { controller: 'uf--card-header' } do
             if title
               card_header_title_row do
-                card_header_title_container title: title, subtitle: subtitle
+                card_header_title_container(title: title, subtitle: subtitle)
               end
             else
               block.call
@@ -111,27 +111,49 @@ module UpservFoundations
         end
 
         def card_header_title(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', class: 'card-header-title' do
-            block.call
+            content
           end
         end
 
         def card_header_subtitle(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', class: 'card-header-subtitle' do
-            block.call
+            content
           end
         end
 
         def card_header_action_buttons(options = {}, &block)
-          options[:class] = "card-header-action-buttons#{" #{options[:class]}" if options[:class]}"
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
+          options[:class] = "card-header-action-buttons#{if options[:class]
+                                                           " #{options[:class]}"
+                                                         end}"
           content_tag 'DIV', options do
-            block.call
+            content
           end
         end
 
         def card_header_controls(&block)
+          return if block.nil?
+
+          content = capture(&block)
+          return if content.is_a?(String) && content.strip.blank?
+
           content_tag 'DIV', class: 'card-header-controls' do
-            block.call
+            content
           end
         end
 
