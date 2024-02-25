@@ -84,8 +84,8 @@ module UpservFoundations
           "#{header_elm}#{divider_eml}".html_safe
         end
 
-        def table_card_header(divider: nil, &block)
-          card_header(table: true, divider: divider, &block)
+        def table_card_header(divider: nil, title: nil, subtitle: nil, &block)
+          card_header(table: true, divider: divider, title: title, subtitle: subtitle, &block)
         end
 
         def card_header_title_row(&block)
