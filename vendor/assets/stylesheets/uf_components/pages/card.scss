@@ -6,7 +6,7 @@
 .card-wrapper {
   // fit the max width set by the page-body-max-width. Note this will
   // be overriden for inline cards via js
-  width: auto;
+  width: 100%;
   // no padding top because card header or page container or preceding
   // card will have padding bottom
   // add padding right and padding bottom to create space between cards
