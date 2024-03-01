@@ -66,7 +66,19 @@ module UpservFoundations
         end
 
         ActionView::Helpers::FormBuilder.class_eval do
-          def input_group(input = nil, method = nil, options = {}, &block)
+          def input_group(input_or_label, method_or_options = nil, options = {}, &block)
+            # without block, args are: input, method, options
+            #   input, method, options
+            # with block
+            #   label, options
+            if block
+              label = input_or_label
+              options = method_or_options
+            else
+              input = input_or_label
+              method = method_or_options
+            end
+            #
             # clean up options
             # input will actually be "options" if no input or method are given
             options = input if method.nil? && options == {}
@@ -88,7 +100,7 @@ module UpservFoundations
             checkbox = options.delete(:checkbox) || false
 
             # label options
-            label = options.delete(:label) || method.to_s.titleize
+            label ||= options.delete(:label) || method.to_s.titleize
             label_options = options.delete(:label_options) || {}
 
             # Width options
