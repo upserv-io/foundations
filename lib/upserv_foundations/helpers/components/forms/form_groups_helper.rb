@@ -192,11 +192,7 @@ module UpservFoundations
             end
           end
 
-          def checkbox_contained(method, label_or_options, options = {})
-            # if label_or_options is a hash, then label is nil and it's just a
-            # stand alone checkbox
-            label = label_or_options.is_a?(Hash) ? false : label_or_options
-            options = label_or_options if label_or_options.is_a?(Hash)
+          def checkbox_contained(method, options = {})
             inline_errors = options.delete(:inline_errors) || true
             inline_errors_options = options.delete(:inline_errors_options) || {}
             checkable_right = options.delete(:checkable_right) || false
@@ -209,13 +205,18 @@ module UpservFoundations
               options[:data][:show_class] = show_class if show_class
               options[:data][:hide_class] = hide_class if hide_class
             end
-
+            # options[:label] could be a string, false or nil. If nil, then the
+            # label will be the method titleized. If false, then there will remain
+            # false and no label will be created.
+            label = options.delete(:label)
+            label = method.to_s.titleize if label.nil?
             label_options = options.delete(:label_options) || {}
             label_options[:class] = "checkable-#{checkable_right ? 'right' : 'left'} #{label_options[:class]}".strip
 
             @template.content_tag :div, class: 'checkbox-and-errors-container' do
               checkable = @template.content_tag :div, class: 'checkable-container' do
                 checkbox_html = @template.check_box object_name, method, options
+                # do not add label if label is false
                 label_html = if label
                                @template.label object_name, method, label, label_options
                              else
