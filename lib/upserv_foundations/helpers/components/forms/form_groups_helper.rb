@@ -73,8 +73,11 @@ module UpservFoundations
               full_custom = true
               options = {}
             elsif args[0].is_a?(Hash)
-              full_custom = true
               options = args[0]
+              # if options[:no_label] is true, then full_custom is not true (it
+              # doens't actually matter because the no_label path doesn't
+              # use the full_custom var)
+              full_custom = true unless options[:no_label] == true
             elsif block
               label = args[0]
               options = args[1] || {}
@@ -189,7 +192,11 @@ module UpservFoundations
             end
           end
 
-          def checkbox_contained(method, options = {})
+          def checkbox_contained(method, label_or_options, options = {})
+            # if label_or_options is a hash, then label is nil and it's just a
+            # stand alone checkbox
+            label = label_or_options.is_a?(Hash) ? false : label_or_options
+            options = label_or_options if label_or_options.is_a?(Hash)
             inline_errors = options.delete(:inline_errors) || true
             inline_errors_options = options.delete(:inline_errors_options) || {}
             checkable_right = options.delete(:checkable_right) || false
@@ -202,14 +209,18 @@ module UpservFoundations
               options[:data][:show_class] = show_class if show_class
               options[:data][:hide_class] = hide_class if hide_class
             end
-            label = options.delete(:label) || method.to_s.titleize
+
             label_options = options.delete(:label_options) || {}
             label_options[:class] = "checkable-#{checkable_right ? 'right' : 'left'} #{label_options[:class]}".strip
 
             @template.content_tag :div, class: 'checkbox-and-errors-container' do
               checkable = @template.content_tag :div, class: 'checkable-container' do
                 checkbox_html = @template.check_box object_name, method, options
-                label_html = @template.label object_name, method, label, label_options
+                label_html = if label
+                               @template.label object_name, method, label, label_options
+                             else
+                               ''
+                             end
                 (checkbox_html + label_html).html_safe
               end
               inline_errors_html = inline_errors ? inline_errors(method, inline_errors_options) : ''
