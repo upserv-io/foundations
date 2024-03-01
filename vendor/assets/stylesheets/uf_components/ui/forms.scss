@@ -13,7 +13,7 @@
     // make it take space equial to size of input if empty
     min-height: 2.2rem;
     // make show value same size as an input by adjusting padding here
-    padding-top: 0.4rem;
+    padding-top: 0.6rem;
     padding-left: 0.75rem;
     padding-bottom: 0rem;
     // make show span mimick margin bottom of inputs
@@ -52,7 +52,7 @@
       justify-content: flex-start;
       margin-right: 0.5rem;
       // Align label with input
-      padding-top: 0.4rem;
+      padding-top: 0.6rem;
       @media (max-width: 576px) {
         justify-content: flex-start;
         // when screen is xs, we stack. When stacked, there is no need
