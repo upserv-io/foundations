@@ -88,10 +88,12 @@ module UpservFoundations
             checkbox = options.delete(:checkbox) || false
 
             # label options
-            label = options.delete(:label) || method.to_s.humanize
+            label = options.delete(:label) || method.to_s.titleize
+            label_options = options.delete(:label_options) || {}
+
+            # Width options
             label_width = options.delete(:label_width) || 'w-20'
             group_width = options.delete(:group_width)
-            label_options = options.delete(:label_options) || {}
 
             # input options
             options[:class] = "form-control #{options[:class]}".strip
@@ -163,7 +165,7 @@ module UpservFoundations
           def radio_button_contained(method, value, options = {})
             checkable_right = options.delete(:checkable_right) || false
             options[:class] = "form-control #{options[:class]}".strip
-            label = options.delete(:label) || value.to_s.humanize
+            label = options.delete(:label) || value.to_s.titleize
             label_options = options.delete(:label_options) || {}
             label_options[:value] = value
             label_options[:class] = "checkable-#{checkable_right ? 'right' : 'left'} #{label_options[:class]}".strip
@@ -188,7 +190,7 @@ module UpservFoundations
               options[:data][:show_class] = show_class if show_class
               options[:data][:hide_class] = hide_class if hide_class
             end
-            label = options.delete(:label) || method.to_s.humanize
+            label = options.delete(:label) || method.to_s.titleize
             label_options = options.delete(:label_options) || {}
             label_options[:class] = "checkable-#{checkable_right ? 'right' : 'left'} #{label_options[:class]}".strip
 
