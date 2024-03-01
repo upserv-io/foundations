@@ -46,18 +46,6 @@ table.uf-table {
     }
   }
 
-  table.no-alternate {
-    tr {
-      &:nth-child(even) {
-        background-color: var(--background-gray0-color);
-      }
-      &:hover {
-        background-color: var(--background-color-table-row-hover);
-      }
-      border: 0;
-    }
-  }
-
   td,
   th {
     text-align: left;
@@ -82,5 +70,19 @@ table.uf-table {
       overflow: visible;
       text-overflow: initial;
     }
+  }
+}
+
+table.uf-table.no-alternate {
+  tr {
+    &:nth-child(even) {
+      background-color: var(--background-gray0-color);
+    }
+    &:hover {
+      background-color: var(--background-color-table-row-hover);
+    }
+  }
+  td {
+    border: 0;
   }
 }

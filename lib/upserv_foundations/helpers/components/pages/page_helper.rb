@@ -111,12 +111,6 @@ module UpservFoundations
           @page_min_width_default ||= '0rem'
         end
 
-        # currently same as regular page_header
-        # previously it ignored page max width
-        def page_header_columns(&block)
-          page_header(&block)
-        end
-
         def page_body_columns(options = {}, &block)
           options[:id] = 'page-body-columns'
           options[:data] ||= {}
