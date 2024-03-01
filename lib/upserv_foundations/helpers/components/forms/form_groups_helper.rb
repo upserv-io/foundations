@@ -66,26 +66,26 @@ module UpservFoundations
         end
 
         ActionView::Helpers::FormBuilder.class_eval do
-          def input_group(input_or_label, method_or_options = nil, options = {}, &block)
-            # without block, args are: input, method, options
-            #   input, method, options
-            # with block
-            #   label, options
-            if block
-              label = input_or_label
-              options = method_or_options
+          def input_group(*args, &block)
+            # if all are nil, then full_custom = true
+            # if input_or_label_or_options is a hash, then full custom = true
+            if args.empty?
+              full_custom = true
+              options = {}
+            elsif args[0].is_a?(Hash)
+              full_custom = true
+              options = args[0]
+            elsif block
+              label = args[0]
+              options = args[1] || {}
             else
-              input = input_or_label
-              method = method_or_options
+              input = args[0]
+              method = args[1]
+              options = args[2] || {}
             end
-            #
-            # clean up options
-            # input will actually be "options" if no input or method are given
-            options = input if method.nil? && options == {}
-            options = {} if options.nil?
 
             # misc options
-            full_custom = options.delete(:full_custom) || false
+            full_custom ||= options.delete(:full_custom) || false
             inline_errors = options.delete(:inline_errors) || true
             inline_errors_options = options.delete(:inline_errors_options) || {}
 
