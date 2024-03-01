@@ -4,6 +4,7 @@ require_relative 'upserv_foundations/version'
 
 # Helpers
 require 'upserv_foundations/helpers/components/elements/link_to_helper'
+require 'upserv_foundations/helpers/components/forms/form_groups_helper'
 require 'upserv_foundations/helpers/components/forms/inline_errors_helper'
 require 'upserv_foundations/helpers/components/forms/search_bar_helper'
 require 'upserv_foundations/helpers/components/forms/search_select_helper'
@@ -19,6 +20,7 @@ require 'upserv_foundations/helpers/misc_methods_helper'
 # Helper Classes
 if defined? ActionView::Base
   ActionView::Base.include UpservFoundations::Components::Elements::LinkToHelper
+  ActionView::Base.include UpservFoundations::Components::Forms::FormGroupsHelper
   ActionView::Base.include UpservFoundations::Components::Forms::InlineErrorsHelper
   ActionView::Base.include UpservFoundations::Components::Forms::SearchBarHelper
   ActionView::Base.include UpservFoundations::Components::Forms::SearchSelectHelper

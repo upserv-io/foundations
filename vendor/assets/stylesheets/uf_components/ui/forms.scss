@@ -1,27 +1,36 @@
+.left-label-input .checkable-group-container {
+  padding-top: 0.25rem;
+}
+
+.modal .form-group.left-label .left-label-container {
+  justify-content: end;
+}
+
 .form-group {
   display: flex;
   flex-direction: column;
   .show-value {
     // make it take space equial to size of input if empty
-    min-height: 44px;
+    min-height: 2.2rem;
     // make show value same size as an input by adjusting padding here
-    padding-top: 8px;
+    padding-top: 0.4rem;
     padding-left: 0.75rem;
-    padding-bottom: 9px;
+    padding-bottom: 0rem;
     // make show span mimick margin bottom of inputs
-    margin-bottom: var(--input-margin-bottom);
+    // margin-bottom: var(--input-margin-bottom);
+    margin-bottom: 0rem;
   }
   &.left-label {
     // currently just for show group if you want to put in tool tip and make condensed
     // eventually should update this so that it works for inputs as well...???
     &.vertical-condensed {
       .show-value {
-        min-height: 0px;
-        margin-bottom: 0px;
-        padding: 0px;
+        min-height: 0rem;
+        margin-bottom: 0rem;
+        padding: 0rem;
       }
       .left-label-container {
-        padding: 0px;
+        padding: 0rem;
       }
     }
     align-items: flex-start;
@@ -39,18 +48,16 @@
     .left-label-container {
       // make label align right
       display: flex;
-      justify-content: end;
-      &.justify-start {
-        justify-content: flex-start;
-      }
-      margin-right: 10px;
+      // NOTE: see above for justify content in modals. It will be "justify-content: end;"
+      justify-content: flex-start;
+      margin-right: 0.5rem;
       // Align label with input
-      padding-top: 8px;
+      padding-top: 0.4rem;
       @media (max-width: 576px) {
         justify-content: flex-start;
         // when screen is xs, we stack. When stacked, there is no need
         // for padding
-        padding-top: 0px;
+        padding-top: 0rem;
       }
       flex-grow: 0;
       flex-shrink: 0;
@@ -76,10 +83,10 @@
           // inline (ie when screen is sm or larger). When screen is small
           // inputs will stack and padding is not needed
           &:first-child {
-            padding-right: 3px;
+            padding-right: 0.15rem;
           }
           &:last-child {
-            padding-left: 3px;
+            padding-left: 0.15rem;
           }
         }
       }
@@ -90,13 +97,13 @@
         }
         @media (min-width: 640px) {
           width: calc(100% / 3);
-          padding-right: 3px;
-          padding-left: 3px;
+          padding-right: 0.15rem;
+          padding-left: 0.15rem;
           &:first-child {
-            padding-left: 0px;
+            padding-left: 0rem;
           }
           &:last-child {
-            padding-right: 0px;
+            padding-right: 0rem;
           }
         }
       }
@@ -107,24 +114,24 @@
         }
         @media (min-width: 640px) and (max-width: 768px) {
           width: 50%;
-          padding-right: 3px;
-          padding-left: 3px;
+          padding-right: 0.15rem;
+          padding-left: 0.15rem;
           &:nth-child(odd) {
-            padding-left: 0px;
+            padding-left: 0rem;
           }
           &:nth-child(even) {
-            padding-right: 0px;
+            padding-right: 0rem;
           }
         }
         @media (min-width: 768px) {
           width: 25%;
-          padding-right: 3px;
-          padding-left: 3px;
+          padding-right: 0.15rem;
+          padding-left: 0.15rem;
           &:first-child {
-            padding-left: 0px;
+            padding-left: 0rem;
           }
           &:last-child {
-            padding-right: 0px;
+            padding-right: 0rem;
           }
         }
       }

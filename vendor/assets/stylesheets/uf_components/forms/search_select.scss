@@ -1,24 +1,24 @@
 // search select multiple
 input.form-control.search-select-multiple-input {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-width: 0px;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border-bottom-width: 0rem;
   // search select input has a select element right underneath it
-  // so we need to override standard input margin bottom of 10px
+  // so we need to override standard input margin bottom of 0.5rem
   // with a margin bottom of 0 (since the element right underneath
   // is a select element, it will have the --input-margin-bottom margin bottom)
-  margin-bottom: 0px;
+  margin-bottom: 0rem;
 }
 select.form-control.search-select-multiple {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  padding-bottom: 5px;
+  border-top-left-radius: 0rem;
+  border-top-right-radius: 0rem;
+  padding-bottom: 0.25rem;
 }
 // selecte option is a div, not a input / select / text areas
 // so we need to add styles here
 .form-control.search-select-multiple-selected-options {
   // this is hacky... it should be this
-  // margin-top: -5px;
+  // margin-top: -0.25rem;
   // margin-bottom: var(--input-margin-bottom);
   // but this div is present even when no items are selected which means that it would
   // include the margin bottom even when no items are selected
@@ -26,24 +26,24 @@ select.form-control.search-select-multiple {
   // selected items, this div takes up no space...
   // really should update the js to make this element dislay none when there
   // are no selected options... but this works for now
-  margin-top: -5px;
-  margin-bottom: 5px;
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
   display: flex;
   flex-wrap: wrap;
 }
 .search-select-multiple-selected-option-display {
   border: 1px solid var(--border-color-input);
-  border-radius: 3px;
-  padding: 1px 3px;
-  margin: 3px 6px 3px 0px;
+  border-radius: 0.15rem;
+  padding: 1px 0.15rem;
+  margin: 0.15rem 0.3rem 0.15rem 0rem;
   display: flex;
   align-items: center;
 }
 .search-select-multiple-selected-option-close {
-  margin-left: 5px;
-  padding: 0px 3px;
+  margin-left: 0.25rem;
+  padding: 0rem 0.15rem;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 1.1rem;
   color: var(--text-gray0-color);
 }
 
@@ -55,56 +55,56 @@ div.search-select-single-container {
 }
 
 input.form-control.search-select-single-display.focus {
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border-bottom-width: 0px;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border-bottom-width: 0rem;
   // we want to maintain margin bottom when in focus however
-  // the border bottom is now 0px so we need margin to make up for
+  // the border bottom is now 0rem so we need margin to make up for
   // it
-  margin-bottom: 11px;
+  margin-bottom: 0.55rem;
 }
 
 input.form-control.search-select-single-input {
   position: absolute;
-  left: 0px;
+  left: 0rem;
   width: 100%;
-  top: 44px;
+  top: 2.2rem;
   display: none;
   &.visible {
     display: inline-block;
-    border-radius: 0px;
-    border-bottom-width: 0px;
+    border-radius: 0rem;
+    border-bottom-width: 0rem;
     // search select input has a select element right underneath it
-    // so we need to override standard input margin bottom of 10px
+    // so we need to override standard input margin bottom of 0.5rem
     // with a margin bottom of 0 (since the element right underneath
     // is a select element, it will have the --input-margin-bottom margin bottom)
-    margin: 0px;
+    margin: 0rem;
     z-index: 1000;
   }
 }
 
 div.form-control.search-select-single-options {
-  padding: 0px;
+  padding: 0rem;
   position: absolute;
-  left: 0px;
+  left: 0rem;
   width: 100%;
-  // display input takes up 44 and search input takes up 43
-  // so make this start 87px down
-  top: 87px;
+  // display input takes up 2.2rem and search input takes up 2.15rem
+  // so make this start 4.35rem down
+  top: 4.35rem;
   display: none;
-  max-height: 140px;
+  max-height: 7rem;
   overflow-y: overlay;
   &.visible {
     display: inline-block;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0rem;
+    border-top-right-radius: 0rem;
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
     z-index: 1000;
   }
   > .pseudoOption,
   .noResultsPseudoOption {
-    padding: 3px var(--input-padding-horizontal);
+    padding: 0.15rem var(--input-padding-horizontal);
     &.selected {
       background-color: var(--background-color-table-row-gray);
     }
@@ -122,13 +122,13 @@ select.form-control.search-select-single-hidden-select {
     // height of at least 1px is needed or else the front end validation
     // wont show up
     height: 1px;
-    // set marign top to -11 px
+    // set marign top to -0.55rem
     //   -1px to remvoe the height of 1px above
-    //   -10px to position the front end validation directy
+    //   -0.5rem to position the front end validation directy
     //    under the input because somewhere in the whole search
-    //    container thingy we have margin bottom 10px
-    // set margin bottom to 10 px to make up the the -10px margin top
-    margin: -11px 0px 10px;
+    //    container thingy we have margin bottom 0.5rem
+    // set margin bottom to 0.5rem to make up the the -0.5rem margin top
+    margin: -0.55rem 0rem 0.5rem;
     // make all the options / other elements if any display none
     * {
       display: none;
