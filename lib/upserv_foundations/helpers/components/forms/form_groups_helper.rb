@@ -10,6 +10,7 @@ module UpservFoundations
           options = label if label.is_a?(Hash)
           vertical_condensed = options.delete(:vertical_condensed) || nil
           label_width = options.delete(:label_width) || 'w-20'
+          label_options = options.delete(:label_options) || {}
           full_custom = options.delete(:full_custom) || false
           no_label = options.delete(:no_label) || false
           top_label = options.delete(:top_label) || false
@@ -30,7 +31,7 @@ module UpservFoundations
                 block.call
               else
                 label_html = content_tag :div, class: "left-label-container #{label_width}" do
-                  content_tag :div, label
+                  content_tag :div, "#{label}:", label_options
                 end
                 show_html = if block
                               content_tag :div, class: 'show-value' do
@@ -48,7 +49,7 @@ module UpservFoundations
                 block.call
               else
                 label_html = content_tag :div, class: "left-label-container #{label_width}" do
-                  content_tag :div, label
+                  content_tag :div, "#{label}:", label_options
                 end
                 value_html = content_tag :div, class: 'left-label-input' do
                   if block
