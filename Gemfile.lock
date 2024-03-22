@@ -1,16 +1,12 @@
 PATH
   remote: .
   specs:
-    upserv_foundations (0.0.0.119)
-      font-awesome-sass (~> 6.4.0)
+    upserv_foundations (1.0.0.63)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.2)
-    ffi (1.15.5)
-    font-awesome-sass (6.4.0)
-      sassc (~> 2.0)
     json (2.6.3)
     minitest (5.18.0)
     parallel (1.23.0)
@@ -35,15 +31,13 @@ GEM
     rubocop-ast (1.29.0)
       parser (>= 3.2.1.0)
     ruby-progressbar (1.13.0)
-    sassc (2.4.0)
-      ffi (~> 1.9)
     unicode-display_width (2.4.2)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-20
 
 DEPENDENCIES
-  font-awesome-sass (~> 6.4.0)
   minitest (~> 5.0)
   rake (~> 13.0)
   rubocop (~> 1.21)
